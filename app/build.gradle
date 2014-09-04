@@ -40,6 +40,11 @@ android {
             runProguard false
             signingConfig signingConfigs.publiss
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                def file = variant.outputFile
+                def manifestParser = new com.android.builder.core.DefaultManifestParser()
+                variant.outputFile = new File(file.parent, file.name.replace("app-", "publiss-"))
+            }
         }
     }
 
