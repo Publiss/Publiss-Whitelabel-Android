@@ -1,20 +1,50 @@
 apply plugin: 'com.android.application'
+apply from: '../gradle/quality.gradle'
 
 android {
     compileSdkVersion 19
     buildToolsVersion "20.0.0"
 
+    signingConfigs {
+        publiss {
+            def keyStoreFile = System.getenv("ANDROID_PUBLISS_KEYSTORE_PATH")
+
+            if (keyStoreFile == null) {
+                keyStoreFile = "/dummy.pks"
+            }
+            // We can leave these in environment variables
+            storeFile file(keyStoreFile)
+            keyAlias System.getenv("ANDROID_PUBLISS_KEY_ALIAS")
+
+            // These two lines make gradle believe that the signingConfigs
+            // section is complete. Without them, tasks like installRelease
+            // will not be available!
+            storePassword System.getenv("ANDROID_PUBLISS_KEYSTORE_PASSWORD")
+            keyPassword System.getenv("ANDROID_PUBLISS_KEY_PASSWORD")
+        }
+    }
+
     defaultConfig {
         applicationId "com.publiss.publissplaystore"
         minSdkVersion 15
         targetSdkVersion 19
-        versionCode 1
-        versionName "1.0"
+        versionCode retrieveVersionCode()
+        println "VersionCode: " + versionCode
+        versionName generateVersionName(versionCode)
+        println "VersionName: " + versionName
     }
+
     buildTypes {
         release {
+            zipAlign true
             runProguard false
+            signingConfig signingConfigs.publiss
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                def file = variant.outputFile
+                def manifestParser = new com.android.builder.core.DefaultManifestParser()
+                variant.outputFile = new File(file.parent, file.name.replace("app-", "publiss-" + System.getenv("ANDROID_APK_TYPE") + "-"))
+            }
         }
     }
 
@@ -26,4 +56,40 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+def retrieveVersionCode() {
+    def calculatedVersionCode = System.getenv("BUILD_NUMBER");
+    if (null == calculatedVersionCode) {
+        calculatedVersionCode = "-1";
+    }
+    return Integer.parseInt(calculatedVersionCode)
+}
+
+def getGitDescribe() {
+    try {
+        return 'git describe --tags'.execute().text.trim()
+    } catch (IOException exception) {
+        throw new UnsupportedOperationException("Could not find git! Maybe it is not in \$PATH variable?", exception)
+    }
+}
+
+def getCurrentGitBranch() {
+    try {
+        return 'git rev-parse --abbrev-ref HEAD'.execute().text.trim()
+    } catch (IOException exception) {
+        throw new UnsupportedOperationException("Could not find git! Maybe it is not in \$PATH variable?", exception)
+    }
+}
+
+def generateVersionName(buildNumber) {
+    def versionName
+    if (buildNumber == -1) {
+        // local build
+        versionName = getGitDescribe() + " " + getCurrentGitBranch()
+    } else {
+        // jenkins build
+        versionName = getGitDescribe()
+    }
+    return versionName
 }
