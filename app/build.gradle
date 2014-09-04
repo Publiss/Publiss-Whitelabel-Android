@@ -38,7 +38,7 @@ android {
         release {
             zipAlign true
             runProguard false
-//            signingConfig signingConfigs.publiss
+            signingConfig signingConfigs.publiss
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             applicationVariants.all { variant ->
                 def file = variant.outputFile
