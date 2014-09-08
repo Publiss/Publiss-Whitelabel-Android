@@ -8,8 +8,8 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.publiss.core.activity.KioskActivity"
-            android:label="@string/title_activity_kiosk"
+            android:name="com.publiss.core.ui.KioskActivity"
+            android:label="@string/app_name"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Publiss Playstore</string>
-    <string name="hello_world">Hello world2!</string>
+    <string name="app_name">Publiss</string>
 </resources>
