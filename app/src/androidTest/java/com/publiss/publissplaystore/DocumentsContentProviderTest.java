@@ -1,8 +1,11 @@
 package com.publiss.publissplaystore;
 
+import android.content.ContentProviderOperation;
 import android.content.ContentValues;
+import android.content.OperationApplicationException;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.RemoteException;
 import android.test.ProviderTestCase2;
 import android.test.mock.MockContentResolver;
 import android.util.Log;
@@ -11,6 +14,8 @@ import com.publiss.core.provider.DocumentsContentProvider;
 import com.publiss.core.provider.DocumentsContract;
 
 import junit.framework.Assert;
+
+import java.util.ArrayList;
 
 public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsContentProvider> {
 
@@ -21,6 +26,7 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
     private ContentValues givenDocumentValues;
     private Cursor result;
     private ContentValues givenUpdatedValues;
+    private ArrayList<ContentProviderOperation> givenPatchOperations;
 
     public DocumentsContentProviderTest() {
         super(DocumentsContentProvider.class, DocumentsContract.AUTHORITY);
@@ -90,6 +96,40 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
      givenMultipleDocuments();
      whenDeleteDocumentIsCalled();
      thenDocumentIsRemoved();
+    }
+    
+    public void testBatchInsertShouldSucceed() {
+        givenThreeBatchOperations();
+        whenApplyPatchOperationsIsCalled();
+        thenResultContainsThreeDocuments();
+    }
+
+    private void whenApplyPatchOperationsIsCalled() {
+        try {
+            resolve.applyBatch(DocumentsContract.AUTHORITY, givenPatchOperations);
+        } catch (RemoteException e) {
+            Assert.fail(e.getMessage());
+        } catch (OperationApplicationException e) {
+            Assert.fail(e.getMessage());
+        }
+    }
+
+    private void givenThreeBatchOperations() {
+        givenPatchOperations = new ArrayList<ContentProviderOperation>();
+        givenPatchOperations.add(ContentProviderOperation.newInsert(DocumentsContract.Documents.CONTENT_URI)
+                .withValues(createDefaultDocumentValues())
+                .build());
+        givenPatchOperations.add(ContentProviderOperation.newInsert(DocumentsContract.Documents.CONTENT_URI)
+                .withValues(createDefaultDocumentValues())
+                .build());
+        givenPatchOperations.add(ContentProviderOperation.newInsert(DocumentsContract.Documents.CONTENT_URI)
+                .withValues(createDefaultDocumentValues())
+                .build());
+    }
+
+    private void thenResultContainsThreeDocuments() {
+        whenRetrieveDocumentsIsCalled();
+        Assert.assertEquals(3, result.getCount());
     }
 
     private void thenDocumentIsRemoved() {
