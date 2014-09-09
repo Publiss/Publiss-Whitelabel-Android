@@ -7,6 +7,24 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/PublissCoreTheme" >
+        <activity
+
+            android:name="com.publiss.core.ui.KioskActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="com.publiss.core.provider.DocumentsContentProvider"
+            android:authorities="com.publiss.core.provider.DocumentsContentProvider"
+            android:enabled="true"
+            android:exported="false" >
+        </provider>
     </application>
 
 </manifest>
