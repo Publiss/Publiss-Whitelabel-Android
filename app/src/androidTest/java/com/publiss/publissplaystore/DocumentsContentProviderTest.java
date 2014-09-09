@@ -66,11 +66,59 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
         thenResultContainsDocument();
     }
 
+    public void testRetrieveDocumentWithExistingDocumentIdShouldReturnResult() {
+        givenMultipleDocuments();
+        whenRetrieveDocumentByIdIsCalled();
+        thenResultContainsDocument();
+    }
+
+    public void testRetrieveDocumentWithNotExistingDocumentIdShouldReturnEmptyResult() {
+        givenMultipleDocuments();
+        givenNotExistingDocumentId();
+        whenRetrieveDocumentByIdIsCalled();
+        thenResultIsEmptyWithCorrectFormat();
+    }
+
     public void testUpdateDocumentShouldSucceedForExistingDocument() {
-        givenAnExistingDocument();
+        givenMultipleDocuments();
         givenUpdatedValues();
         whenUpdateDocumentIsCalled();
         thenDocumentContainsUpdatedValue();
+    }
+
+    public void testDeleteDocumentByIdShouldSucceed() {
+     givenMultipleDocuments();
+     whenDeleteDocumentIsCalled();
+     thenDocumentIsRemoved();
+    }
+
+    private void thenDocumentIsRemoved() {
+        whenRetrieveDocumentByIdIsCalled();
+        Assert.assertEquals(0, result.getCount());
+        whenRetrieveDocumentsIsCalled();
+        Assert.assertEquals(1, result.getCount());
+    }
+
+    private void whenDeleteDocumentIsCalled() {
+        resolve.delete(givenDocumentUri, null, null);
+    }
+
+    private void whenRetrieveDocumentByIdIsCalled() {
+        String[] projection = DocumentsContract.Documents.PROJECTION_ALL;
+        String selection = null;
+        String[] selectionArgs = null;
+        String sortOrder = DocumentsContract.Documents.SORT_ORDER_DEFAULT;
+
+        result = resolve.query(givenDocumentUri, projection, selection, selectionArgs, sortOrder);
+    }
+
+    private void givenNotExistingDocumentId() {
+        givenDocumentUri = Uri.withAppendedPath(DocumentsContract.Documents.CONTENT_URI, "66666");
+    }
+
+    private void givenMultipleDocuments() {
+        givenAnExistingDocument();
+        givenAnExistingDocument();
     }
 
     private void givenUpdatedValues() {
@@ -79,19 +127,16 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
     }
 
     private void thenDocumentContainsUpdatedValue() {
-        whenRetrieveDocumentsIsCalled();
+        whenRetrieveDocumentByIdIsCalled();
         result.moveToFirst();
         String updatedDescription = result.getString(3);
         Assert.assertEquals("updated description", updatedDescription);
     }
 
     private void whenUpdateDocumentIsCalled() {
-        String where = DocumentsContract.Documents.ID;
-        String[] arguments = null;
-        int updatedRowsCount = resolve.update(givenDocumentUri, givenUpdatedValues, where, arguments);
+        int updatedRowsCount = resolve.update(givenDocumentUri, givenUpdatedValues, null, null);
         Assert.assertEquals(1, updatedRowsCount);
     }
-
 
     private void thenResultIsEmptyWithCorrectFormat() {
         Assert.assertEquals(0, result.getCount());
@@ -109,13 +154,13 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
 
     private void thenResultContainsDocument() {
         Assert.assertNotNull(result);
+        Assert.assertEquals(1, result.getCount());
 
         result.moveToNext();
         Log.i(TAG, "retrieved data: ");
         for (int columnIndex = 0; columnIndex < result.getColumnCount(); columnIndex++) {
             Log.i(TAG, result.getColumnName(columnIndex) + ": " + result.getString(columnIndex));
         }
-        Assert.assertEquals(1, result.getCount());
         Assert.assertEquals(givenDocumentUri.getLastPathSegment(), String.valueOf(result.getLong(0)));
     }
 
