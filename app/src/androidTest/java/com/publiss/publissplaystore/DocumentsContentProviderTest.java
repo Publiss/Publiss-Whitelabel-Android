@@ -16,6 +16,7 @@ import com.publiss.core.provider.DocumentsContract;
 import junit.framework.Assert;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsContentProvider> {
 
@@ -163,13 +164,18 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
 
     private void givenUpdatedValues() {
         givenUpdatedValues = createDefaultDocumentValues();
-        givenUpdatedValues.put(DocumentsContract.Documents.FILE_DESCRIPTION, "updated description");
+        givenUpdatedValues.put(DocumentsContract.Documents.DESCRIPTION, "updated description");
     }
 
     private void thenDocumentContainsUpdatedValue() {
         whenRetrieveDocumentByIdIsCalled();
-        result.moveToFirst();
-        String updatedDescription = result.getString(3);
+        String updatedDescription = "";
+
+        if (result != null && result.moveToFirst()) {
+            updatedDescription = result.getString(2);
+            result.close();
+        }
+
         Assert.assertEquals("updated description", updatedDescription);
     }
 
@@ -180,7 +186,7 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
 
     private void thenResultIsEmptyWithCorrectFormat() {
         Assert.assertEquals(0, result.getCount());
-        Assert.assertEquals(5, result.getColumnCount());
+        Assert.assertEquals(9, result.getColumnCount());
     }
 
     private void whenRetrieveDocumentsIsCalled() {
@@ -225,10 +231,16 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
 
     private ContentValues createDefaultDocumentValues() {
         ContentValues values = new ContentValues();
-        values.put(DocumentsContract.Documents.SIZE, Integer.valueOf(100));
-        values.put(DocumentsContract.Documents.DOWNLOADED_SIZE, Integer.valueOf(50));
-        values.put(DocumentsContract.Documents.FILE_DESCRIPTION, "File Description");
-        //        values.put("updated_at", new Date());
+
+        values.put(DocumentsContract.Documents.NAME, "Name");
+        values.put(DocumentsContract.Documents.DESCRIPTION, "Description");
+        values.put(DocumentsContract.Documents.COVER_IMAGE_URL, "www.apple.com/watch");
+        values.put(DocumentsContract.Documents.PAID, Integer.valueOf(123));
+        values.put(DocumentsContract.Documents.SIZE, Integer.valueOf(123));
+        values.put(DocumentsContract.Documents.FILE_SIZE, Integer.valueOf(123));
+        values.put(DocumentsContract.Documents.PRIORITY, Integer.valueOf(123));
+        values.put(DocumentsContract.Documents.UPDATED_AT, "2014-09-09 12:12:12:123"); //TODO: How are dates persisted?
+
         return values;
     }
 
