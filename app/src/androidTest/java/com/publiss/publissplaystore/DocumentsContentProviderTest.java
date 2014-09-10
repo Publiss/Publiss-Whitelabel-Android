@@ -229,7 +229,7 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
         String updatedDescription = "";
 
         if (result != null && result.moveToFirst()) {
-            updatedDescription = result.getString(2);
+            updatedDescription = result.getString(3);
             result.close();
         }
 
@@ -243,7 +243,7 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
 
     private void thenResultIsEmptyWithCorrectFormat() {
         Assert.assertEquals(0, result.getCount());
-        Assert.assertEquals(9, result.getColumnCount());
+        Assert.assertEquals(10, result.getColumnCount());
     }
 
     private void whenRetrieveDocumentsIsCalled() {
