@@ -15,8 +15,13 @@ import com.publiss.core.provider.DocumentsContract;
 
 import junit.framework.Assert;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
+import java.util.TimeZone;
 
 public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsContentProvider> {
 
@@ -28,6 +33,9 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
     private Cursor result;
     private ContentValues givenUpdatedValues;
     private ArrayList<ContentProviderOperation> givenPatchOperations;
+    private Date givenDate;
+    private String givenDateSting;
+    private String givenDatePattern;
 
     public DocumentsContentProviderTest() {
         super(DocumentsContentProvider.class, DocumentsContract.AUTHORITY);
@@ -103,6 +111,55 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
         givenThreeBatchOperations();
         whenApplyPatchOperationsIsCalled();
         thenResultContainsThreeDocuments();
+    }
+
+    public void testRetrieveRightDateFormatShouldSucceed() {
+        givenAnExistingDocument();
+        givenAnRFCFormattedDate();
+        whenDateIsSetWithTheRightFormat();
+        thenTheDateCanBeParsedFromThePersistedValue();
+    }
+
+    private void givenAnRFCFormattedDate() {
+        givenDateSting = "2014-03-11T15:41:26Z";
+        givenDateSting = givenDateSting.replace("Z", "GMT+00:00");
+        givenDatePattern = "yyyy-MM-dd'T'HH:mm:ssz";
+        SimpleDateFormat format = new SimpleDateFormat(givenDatePattern);
+        try {
+            givenDate = format.parse(givenDateSting);
+        } catch (ParseException e) {
+            Assert.fail(e.getMessage());
+        }
+    }
+
+    private void whenDateIsSetWithTheRightFormat() {
+        givenDocumentValues.put(DocumentsContract.Documents.UPDATED_AT, givenDateSting);
+    }
+
+    private void thenTheDateCanBeParsedFromThePersistedValue() {
+        whenRetrieveDocumentByIdIsCalled();
+        String updatedDescription = "";
+
+        if (result != null && result.moveToFirst()) {
+            updatedDescription = result.getString(7);
+            result.close();
+        }
+
+        Date retrievedDate = new Date();
+
+        SimpleDateFormat format = new SimpleDateFormat(givenDatePattern);
+        try {
+            retrievedDate = format.parse(givenDateSting);
+        } catch (ParseException e) {
+            Assert.fail(e.getMessage());
+        }
+
+        SimpleDateFormat formatter = new SimpleDateFormat(givenDatePattern, Locale.US);
+        formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
+        String dateStringFromRetrievedDate = formatter.format(retrievedDate);
+
+        Assert.assertEquals(givenDate.getTime(), retrievedDate.getTime());
+        Assert.assertEquals(givenDateSting, dateStringFromRetrievedDate);
     }
 
     private void whenApplyPatchOperationsIsCalled() {
@@ -239,7 +296,7 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
         values.put(DocumentsContract.Documents.SIZE, Integer.valueOf(123));
         values.put(DocumentsContract.Documents.FILE_SIZE, Integer.valueOf(123));
         values.put(DocumentsContract.Documents.PRIORITY, Integer.valueOf(123));
-        values.put(DocumentsContract.Documents.UPDATED_AT, "2014-09-09 12:12:12:123"); //TODO: How are dates persisted?
+        values.put(DocumentsContract.Documents.UPDATED_AT, "2014-03-11T15:41:26Z"); //TODO: How are dates persisted?
 
         return values;
     }
