@@ -281,7 +281,6 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
         givenDocumentUri = resolve.insert(DocumentsContract.Documents.CONTENT_URI, givenDocumentValues);
     }
 
-
     private void givenDocumentContentValues() {
         givenDocumentValues = createDefaultDocumentValues();
     }
