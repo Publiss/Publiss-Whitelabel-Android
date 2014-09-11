@@ -29,7 +29,6 @@
             </intent-filter>
         </activity>
 
-
         <!-- Document Provider -->
         <provider
             android:name="com.publiss.core.provider.DocumentsContentProvider"
