@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply from: '../gradle/quality.gradle'
 
 android {
-    compileSdkVersion 19
+    compileSdkVersion 20
     buildToolsVersion "20.0.0"
 
     signingConfigs {
@@ -27,7 +27,7 @@ android {
     defaultConfig {
         applicationId "com.publiss.publissplaystore"
         minSdkVersion 15
-        targetSdkVersion 19
+        targetSdkVersion 20
         versionCode retrieveVersionCode()
         println "VersionCode: " + versionCode
         versionName generateVersionName(versionCode)
