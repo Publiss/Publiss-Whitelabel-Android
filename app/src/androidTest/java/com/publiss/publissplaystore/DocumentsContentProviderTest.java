@@ -290,12 +290,12 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
 
         values.put(DocumentsContract.Documents.NAME, "Name");
         values.put(DocumentsContract.Documents.DESCRIPTION, "Description");
-        values.put(DocumentsContract.Documents.COVER_IMAGE_URL, "www.apple.com/watch");
+        values.put(DocumentsContract.Documents.COVER_IMAGE_PATH, "www.apple.com/watch");
         values.put(DocumentsContract.Documents.PAID, Integer.valueOf(123));
         values.put(DocumentsContract.Documents.SIZE, Integer.valueOf(123));
         values.put(DocumentsContract.Documents.FILE_SIZE, Integer.valueOf(123));
         values.put(DocumentsContract.Documents.PRIORITY, Integer.valueOf(123));
-        values.put(DocumentsContract.Documents.UPDATED_AT, "2014-03-11T15:41:26Z"); //TODO: How are dates persisted?
+        values.put(DocumentsContract.Documents.UPDATED_AT, "2014-03-11T15:41:26Z");
 
         return values;
     }

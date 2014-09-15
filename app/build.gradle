@@ -52,6 +52,18 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
     }
+
+    android.applicationVariants.all{ variant ->
+        variant.mergeResources.doLast{
+            ext.env = System.getenv()
+                File valuesFile = file("${buildDir}/intermediates/res/${variant.dirName}/values/values.xml")
+                println("Replacing package ID in " + valuesFile)
+                println("Package ID = " + defaultConfig.applicationId)
+                String content = valuesFile.getText('UTF-8')
+                content = content.replaceAll(/raplaceablePackageId/, defaultConfig.applicationId)
+                valuesFile.write(content, 'UTF-8')
+        }
+    }
 }
 
 dependencies {
@@ -94,3 +106,15 @@ def generateVersionName(buildNumber) {
     }
     return versionName
 }
+
+def overwritePackageName() {
+    try {
+        /*commands = 'FILE="$WORKSPACE/app/src/main/res/values/publiss_config.xml"\n' +
+                   'PID=$' + packageName + '\n' +
+                   'sed -i \'\' "s/\$' + placeholder + '/$PID/g" $FILE\n'*/
+        'A_FILE="A_File"'.execute()
+    } catch (IOException exception) {
+        throw new UnsupportedOperationException("Overwriting package name in strings failed", exception)
+    }
+}
+
