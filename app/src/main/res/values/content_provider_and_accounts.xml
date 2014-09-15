@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="content_provider_authority" translatable="false">raplaceablePackageId</string>
-    <string name="sync_account_type" translatable="false">raplaceablePackageId.account</string>
-</resources>

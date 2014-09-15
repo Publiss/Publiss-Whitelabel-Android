@@ -25,7 +25,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.publiss.publissplaystore"
+        applicationId PACKAGE_PREFIX + ".publissplaystore"
         minSdkVersion 15
         targetSdkVersion 19
         versionCode retrieveVersionCode()
@@ -56,12 +56,12 @@ android {
     android.applicationVariants.all{ variant ->
         variant.mergeResources.doLast{
             ext.env = System.getenv()
-                File valuesFile = file("${buildDir}/intermediates/res/${variant.dirName}/values/values.xml")
-                println("Replacing package ID in " + valuesFile)
-                println("Package ID = " + defaultConfig.applicationId)
-                String content = valuesFile.getText('UTF-8')
-                content = content.replaceAll(/raplaceablePackageId/, defaultConfig.applicationId)
-                valuesFile.write(content, 'UTF-8')
+            File valuesFile = file("${buildDir}/intermediates/res/${variant.dirName}/values/values.xml")
+            println("Replacing content provider authority in " + valuesFile)
+            println("Content provider authority = " + PACKAGE_PREFIX)
+            String content = valuesFile.getText('UTF-8')
+            content = content.replaceAll(/content_provider_authority_placeholder/, PACKAGE_PREFIX)
+            valuesFile.write(content, 'UTF-8')
         }
     }
 }
