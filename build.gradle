@@ -1,5 +1,9 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
+ext {
+    PACKAGE_PREFIX="com.publiss" // WARNING Must be unique for every app you submit.
+}
+
 buildscript {
     repositories {
         jcenter()
@@ -17,3 +21,4 @@ allprojects {
         jcenter()
     }
 }
+
