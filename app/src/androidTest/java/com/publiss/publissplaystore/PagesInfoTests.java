@@ -10,6 +10,7 @@ import android.test.ProviderTestCase2;
 import android.test.mock.MockContentResolver;
 import android.util.Log;
 
+import com.publiss.core.helper.StringArrayMapper;
 import com.publiss.core.provider.DocumentsContentProvider;
 import com.publiss.core.provider.DocumentsContract;
 
@@ -221,35 +222,16 @@ public class PagesInfoTests extends ProviderTestCase2<DocumentsContentProvider> 
         ContentValues values = new ContentValues();
 
         Integer count = 3;
-        String[] dimensions = "553,765".split(strSeparator);
-        String[] checksums = "27e7ba1999c89ac9205d0bc8b2111bb5,d63d69b6db3923061b1f8248908f753d,fb2de190dc61a69835f744f2d7846e2e".split(strSeparator);
-        String[] sizes = "158232,157691,67514".split(strSeparator);
+        String[] dimensions = StringArrayMapper.stringToArray("553,765");
+        String[] checksums = StringArrayMapper.stringToArray("27e7ba1999c89ac9205d0bc8b2111bb5,d63d69b6db3923061b1f8248908f753d,fb2de190dc61a69835f744f2d7846e2e");
+        String[] sizes = StringArrayMapper.stringToArray("158232,157691,67514");
 
         values.put(DocumentsContract.PagesInfo.DOCUMENT_ID, Integer.valueOf(id));
         values.put(DocumentsContract.PagesInfo.COUNT, Integer.valueOf(count));
-        values.put(DocumentsContract.PagesInfo.DIMENSIONS, convertArrayToString(dimensions));
-        values.put(DocumentsContract.PagesInfo.CHECKSUMS, convertArrayToString(checksums));
-        values.put(DocumentsContract.PagesInfo.SIZES, convertArrayToString(sizes));
+        values.put(DocumentsContract.PagesInfo.DIMENSIONS, StringArrayMapper.arrayToString(dimensions));
+        values.put(DocumentsContract.PagesInfo.CHECKSUMS, StringArrayMapper.arrayToString(checksums));
+        values.put(DocumentsContract.PagesInfo.SIZES, StringArrayMapper.arrayToString(sizes));
 
         return values;
-    }
-
-    // TODO: Extract in own helper class...
-
-    public static String strSeparator = "__,__";
-    public static String convertArrayToString(String[] array){
-        String str = "";
-        for (int i = 0;i<array.length; i++) {
-            str = str+array[i];
-            // Do not append comma at the end of last element
-            if(i<array.length-1){
-                str = str+strSeparator;
-            }
-        }
-        return str;
-    }
-    public static String[] convertStringToArray(String str){
-        String[] arr = str.split(strSeparator);
-        return arr;
     }
 }

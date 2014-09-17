@@ -74,7 +74,6 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
         thenResultIsEmptyWithCorrectFormat();
     }
 
-
     public void testRetrieveDocumentsWithExistingDocumentShouldReturnResult() {
         givenAnExistingDocument();
         whenRetrieveDocumentsIsCalled();
