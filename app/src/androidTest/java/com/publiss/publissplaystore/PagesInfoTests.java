@@ -222,15 +222,15 @@ public class PagesInfoTests extends ProviderTestCase2<DocumentsContentProvider> 
         ContentValues values = new ContentValues();
 
         Integer count = 3;
-        String[] dimensions = StringArrayMapper.stringToArray("553,765");
-        String[] checksums = StringArrayMapper.stringToArray("27e7ba1999c89ac9205d0bc8b2111bb5,d63d69b6db3923061b1f8248908f753d,fb2de190dc61a69835f744f2d7846e2e");
-        String[] sizes = StringArrayMapper.stringToArray("158232,157691,67514");
+        String[] dimensions = StringArrayMapper.stringToArray("553,765", StringArrayMapper.SEPERATOR);
+        String[] checksums = StringArrayMapper.stringToArray("27e7ba1999c89ac9205d0bc8b2111bb5,d63d69b6db3923061b1f8248908f753d,fb2de190dc61a69835f744f2d7846e2e", StringArrayMapper.SEPERATOR);
+        String[] sizes = StringArrayMapper.stringToArray("158232,157691,67514", StringArrayMapper.SEPERATOR);
 
         values.put(DocumentsContract.PagesInfo.DOCUMENT_ID, Integer.valueOf(id));
         values.put(DocumentsContract.PagesInfo.COUNT, Integer.valueOf(count));
-        values.put(DocumentsContract.PagesInfo.DIMENSIONS, StringArrayMapper.arrayToString(dimensions));
-        values.put(DocumentsContract.PagesInfo.CHECKSUMS, StringArrayMapper.arrayToString(checksums));
-        values.put(DocumentsContract.PagesInfo.SIZES, StringArrayMapper.arrayToString(sizes));
+        values.put(DocumentsContract.PagesInfo.DIMENSIONS, StringArrayMapper.arrayToString(dimensions, StringArrayMapper.SEPERATOR));
+        values.put(DocumentsContract.PagesInfo.CHECKSUMS, StringArrayMapper.arrayToString(checksums, StringArrayMapper.SEPERATOR));
+        values.put(DocumentsContract.PagesInfo.SIZES, StringArrayMapper.arrayToString(sizes, StringArrayMapper.SEPERATOR));
 
         return values;
     }
