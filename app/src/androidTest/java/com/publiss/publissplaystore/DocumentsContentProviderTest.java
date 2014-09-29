@@ -242,7 +242,7 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
 
     private void thenResultIsEmptyWithCorrectFormat() {
         Assert.assertEquals(0, result.getCount());
-        Assert.assertEquals(9, result.getColumnCount());
+        Assert.assertEquals(DocumentsContract.Documents.PROJECTION_ALL.length, result.getColumnCount());
     }
 
     private void whenRetrieveDocumentsIsCalled() {
