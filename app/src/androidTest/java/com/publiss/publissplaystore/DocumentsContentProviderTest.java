@@ -74,7 +74,6 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
         thenResultIsEmptyWithCorrectFormat();
     }
 
-
     public void testRetrieveDocumentsWithExistingDocumentShouldReturnResult() {
         givenAnExistingDocument();
         whenRetrieveDocumentsIsCalled();
@@ -243,7 +242,7 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
 
     private void thenResultIsEmptyWithCorrectFormat() {
         Assert.assertEquals(0, result.getCount());
-        Assert.assertEquals(10, result.getColumnCount());
+        Assert.assertEquals(DocumentsContract.Documents.PROJECTION_ALL.length, result.getColumnCount());
     }
 
     private void whenRetrieveDocumentsIsCalled() {
@@ -292,12 +291,13 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
         values.put(DocumentsContract.Documents.DESCRIPTION, "Description");
         values.put(DocumentsContract.Documents.COVER_IMAGE_PATH, "www.apple.com/watch");
         values.put(DocumentsContract.Documents.PAID, Integer.valueOf(123));
-        values.put(DocumentsContract.Documents.SIZE, Integer.valueOf(123));
         values.put(DocumentsContract.Documents.FILE_SIZE, Integer.valueOf(123));
         values.put(DocumentsContract.Documents.PRIORITY, Integer.valueOf(123));
         values.put(DocumentsContract.Documents.UPDATED_AT, "2014-03-11T15:41:26Z");
 
         return values;
     }
+
+
 
 }
