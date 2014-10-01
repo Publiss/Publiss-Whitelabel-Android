@@ -55,7 +55,11 @@ android {
             println("Replacing content provider authority in " + valuesFile)
             println("Content provider authority = " + PACKAGE_PREFIX)
             String content = valuesFile.getText('UTF-8')
-            content = content.replaceAll(/content_provider_authority_placeholder/, PACKAGE_PREFIX)
+
+            String pdfProviderAuthority = PACKAGE_PREFIX + ".pdf";
+
+            content = content.replaceAll(/documents_content_provider_authority_placeholder/, PACKAGE_PREFIX)
+            content = content.replaceAll(/pdf_content_provider_authority_placeholder/, pdfProviderAuthority)
             valuesFile.write(content, 'UTF-8')
         }
     }
