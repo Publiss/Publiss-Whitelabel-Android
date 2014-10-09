@@ -6,6 +6,6 @@
 !/.idea/dictionaries/bytepoets.xml
 .DS_Store
 build
-app.iml
+*.iml
 modules.xml
 /build
