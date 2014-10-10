@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply from: '../gradle/quality.gradle'
 
 android {
-    compileSdkVersion 19
+    compileSdkVersion 20
     buildToolsVersion "20.0.0"
 
     signingConfigs {
@@ -25,9 +25,9 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.publiss.publissplaystore"
+        applicationId PACKAGE_PREFIX + ".publissplaystore"
         minSdkVersion 15
-        targetSdkVersion 19
+        targetSdkVersion 20
         versionCode retrieveVersionCode()
         println "VersionCode: " + versionCode
         versionName generateVersionName(versionCode)
@@ -48,14 +48,33 @@ android {
         }
     }
 
+    android.applicationVariants.all{ variant ->
+        variant.mergeResources.doLast{
+            ext.env = System.getenv()
+            File valuesFile = file("${buildDir}/intermediates/res/${variant.dirName}/values/values.xml")
+            println("Replacing content provider authority in " + valuesFile)
+            println("Content provider authority = " + PACKAGE_PREFIX)
+            String content = valuesFile.getText('UTF-8')
+
+            String pdfProviderAuthority = PACKAGE_PREFIX + ".pdf";
+
+            content = content.replaceAll(/documents_content_provider_authority_placeholder/, PACKAGE_PREFIX)
+            content = content.replaceAll(/pdf_content_provider_authority_placeholder/, pdfProviderAuthority)
+            valuesFile.write(content, 'UTF-8')
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
     }
+
+    lintOptions {
+        lintConfig file("lint.xml")
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':publiss-android-core')
 }
 
@@ -94,3 +113,15 @@ def generateVersionName(buildNumber) {
     }
     return versionName
 }
+
+def overwritePackageName() {
+    try {
+        /*commands = 'FILE="$WORKSPACE/app/src/main/res/values/publiss_config.xml"\n' +
+                   'PID=$' + packageName + '\n' +
+                   'sed -i \'\' "s/\$' + placeholder + '/$PID/g" $FILE\n'*/
+        'A_FILE="A_File"'.execute()
+    } catch (IOException exception) {
+        throw new UnsupportedOperationException("Overwriting package name in strings failed", exception)
+    }
+}
+

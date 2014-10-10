@@ -1,2 +1,2 @@
-include ':publiss-android-core'
+include ':fadingactionbar', ':publiss-android-core'
 include ':app'
