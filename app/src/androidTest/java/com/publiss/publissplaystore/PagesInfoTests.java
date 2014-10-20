@@ -110,7 +110,7 @@ public class PagesInfoTests extends ProviderTestCase2<DocumentsContentProvider> 
     }
 
     private void givenMultipleInsertBatchOperations(int numberOfOperations) {
-        givenBatchOperations = new ArrayList<ContentProviderOperation>();
+        givenBatchOperations = new ArrayList<>();
 
         for (int i = 0; i < numberOfOperations; i++) {
             ContentValues values = createDefaultPagesInfoValues(i);
@@ -158,9 +158,7 @@ public class PagesInfoTests extends ProviderTestCase2<DocumentsContentProvider> 
     private void whenApplyBatchOperationsIsCalled() {
         try {
             resolve.applyBatch(DocumentsContract.AUTHORITY, givenBatchOperations);
-        } catch (RemoteException e) {
-            Assert.fail(e.getMessage());
-        } catch (OperationApplicationException e) {
+        } catch (RemoteException | OperationApplicationException e) {
             Assert.fail(e.getMessage());
         }
     }

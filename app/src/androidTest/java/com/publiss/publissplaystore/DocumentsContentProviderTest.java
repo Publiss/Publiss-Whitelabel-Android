@@ -184,15 +184,13 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
     private void whenApplyPatchOperationsIsCalled() {
         try {
             resolve.applyBatch(DocumentsContract.AUTHORITY, givenPatchOperations);
-        } catch (RemoteException e) {
-            Assert.fail(e.getMessage());
-        } catch (OperationApplicationException e) {
+        } catch (RemoteException | OperationApplicationException e) {
             Assert.fail(e.getMessage());
         }
     }
 
     private void givenThreeBatchOperations() {
-        givenPatchOperations = new ArrayList<ContentProviderOperation>();
+        givenPatchOperations = new ArrayList<>();
         givenPatchOperations.add(ContentProviderOperation.newInsert(DocumentsContract.Documents.CONTENT_URI)
                 .withValues(createDefaultDocumentValues())
                 .build());
@@ -275,7 +273,7 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
         result = resolve.query(DocumentsContract.Documents.CONTENT_URI, projection, selection, selectionArgs, sortOrder);
     }
 
-    private void whenRetrieveFeaturedDocumentsIsCalled(Boolean featured) {
+    private void whenRetrieveFeaturedDocumentsIsCalled(boolean featured) {
         result = PublishedDocumentDatabaseHelper.allDocuments(resolve, featured);
     }
 
