@@ -23,6 +23,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.MeasureSpec;
@@ -185,16 +186,8 @@ public abstract class FadingActionBarHelperBase {
         try {
             Method method = activity.getClass().getMethod(methodName);
             return (T)method.invoke(activity);
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (ClassCastException e) {
-            e.printStackTrace();
+        } catch (NoSuchMethodException | IllegalArgumentException | IllegalAccessException | InvocationTargetException | ClassCastException e) {
+            Log.e(TAG, "Action Bar not found!", e);
         }
         return null;
     }

@@ -10,6 +10,7 @@ import android.test.ProviderTestCase2;
 import android.test.mock.MockContentResolver;
 import android.util.Log;
 
+import com.publiss.core.data.model.PublishedDocumentDatabaseHelper;
 import com.publiss.core.provider.DocumentsContentProvider;
 import com.publiss.core.provider.DocumentsContract;
 
@@ -81,27 +82,27 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
     }
 
     public void testRetrieveDocumentWithExistingDocumentIdShouldReturnResult() {
-        givenMultipleDocuments();
+        givenMultipleDocuments(3);
         whenRetrieveDocumentByIdIsCalled();
         thenResultContainsDocument();
     }
 
     public void testRetrieveDocumentWithNotExistingDocumentIdShouldReturnEmptyResult() {
-        givenMultipleDocuments();
+        givenMultipleDocuments(3);
         givenNotExistingDocumentId();
         whenRetrieveDocumentByIdIsCalled();
         thenResultIsEmptyWithCorrectFormat();
     }
 
     public void testUpdateDocumentShouldSucceedForExistingDocument() {
-        givenMultipleDocuments();
+        givenMultipleDocuments(3);
         givenUpdatedValues();
         whenUpdateDocumentIsCalled();
         thenDocumentContainsUpdatedValue();
     }
 
     public void testDeleteDocumentByIdShouldSucceed() {
-     givenMultipleDocuments();
+     givenMultipleDocuments(2);
      whenDeleteDocumentIsCalled();
      thenDocumentIsRemoved();
     }
@@ -117,6 +118,20 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
         givenAnRFCFormattedDate();
         whenDateIsSetWithTheRightFormat();
         thenTheDateCanBeParsedFromThePersistedValue();
+    }
+
+    public void testQueryAllFeaturedDocuments() {
+        givenMultipleDocuments(6);
+        givenAnFeaturedDocument();
+        whenRetrieveFeaturedDocumentsIsCalled(true);
+        thenTheDocumntCountIsRight(1);
+    }
+
+    public void testQueryAllNonFeaturedDocuments() {
+        givenMultipleDocuments(6);
+        givenAnFeaturedDocument();
+        whenRetrieveFeaturedDocumentsIsCalled(false);
+        thenTheDocumntCountIsRight(6);
     }
 
     private void givenAnRFCFormattedDate() {
@@ -161,18 +176,21 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
         Assert.assertEquals(givenDateSting, dateStringFromRetrievedDate);
     }
 
+    private void thenTheDocumntCountIsRight(int expectedCount) {
+        Assert.assertNotNull(result);
+        Assert.assertEquals(expectedCount, result.getCount());
+    }
+
     private void whenApplyPatchOperationsIsCalled() {
         try {
             resolve.applyBatch(DocumentsContract.AUTHORITY, givenPatchOperations);
-        } catch (RemoteException e) {
-            Assert.fail(e.getMessage());
-        } catch (OperationApplicationException e) {
+        } catch (RemoteException | OperationApplicationException e) {
             Assert.fail(e.getMessage());
         }
     }
 
     private void givenThreeBatchOperations() {
-        givenPatchOperations = new ArrayList<ContentProviderOperation>();
+        givenPatchOperations = new ArrayList<>();
         givenPatchOperations.add(ContentProviderOperation.newInsert(DocumentsContract.Documents.CONTENT_URI)
                 .withValues(createDefaultDocumentValues())
                 .build());
@@ -213,9 +231,10 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
         givenDocumentUri = Uri.withAppendedPath(DocumentsContract.Documents.CONTENT_URI, "66666");
     }
 
-    private void givenMultipleDocuments() {
-        givenAnExistingDocument();
-        givenAnExistingDocument();
+    private void givenMultipleDocuments(int count) {
+        for (Integer i = 0; i < count; i++) {
+            givenAnExistingDocument();
+        }
     }
 
     private void givenUpdatedValues() {
@@ -254,6 +273,10 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
         result = resolve.query(DocumentsContract.Documents.CONTENT_URI, projection, selection, selectionArgs, sortOrder);
     }
 
+    private void whenRetrieveFeaturedDocumentsIsCalled(boolean featured) {
+        result = PublishedDocumentDatabaseHelper.allDocuments(resolve, featured);
+    }
+
     private void thenResultContainsDocument() {
         Assert.assertNotNull(result);
         Assert.assertEquals(1, result.getCount());
@@ -280,6 +303,12 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
         givenDocumentUri = resolve.insert(DocumentsContract.Documents.CONTENT_URI, givenDocumentValues);
     }
 
+    private void givenAnFeaturedDocument() {
+        givenDocumentContentValues();
+        givenDocumentValues.put(DocumentsContract.Documents.FEATURED, 1);
+        givenDocumentUri = resolve.insert(DocumentsContract.Documents.CONTENT_URI, givenDocumentValues);
+    }
+
     private void givenDocumentContentValues() {
         givenDocumentValues = createDefaultDocumentValues();
     }
@@ -294,6 +323,7 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
         values.put(DocumentsContract.Documents.FILE_SIZE, Integer.valueOf(123));
         values.put(DocumentsContract.Documents.PRIORITY, Integer.valueOf(123));
         values.put(DocumentsContract.Documents.UPDATED_AT, "2014-03-11T15:41:26Z");
+        values.put(DocumentsContract.Documents.FEATURED, Integer.valueOf(0));
 
         return values;
     }
