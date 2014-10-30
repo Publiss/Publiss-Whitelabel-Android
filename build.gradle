@@ -2,7 +2,7 @@
 apply plugin: 'idea'
 
 ext {
-    PACKAGE_PREFIX="com.publiss" // WARNING Must be unique for every app you submit.
+    PACKAGE_PREFIX = "com.publiss" // WARNING Must be unique for every app you submit.
 }
 
 buildscript {
@@ -20,7 +20,11 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        flatDir {
+            dirs "$rootDir/aar"
+        }
     }
+
 }
 
 idea {
