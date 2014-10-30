@@ -15,3 +15,46 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+
+# removes all logs
+#-assumenosideeffects class android.util.Log {
+#    public static boolean isLoggable(java.lang.String, int);
+#    public static int v(...);
+#    public static int i(...);
+#    public static int w(...);
+#    public static int d(...);
+#    public static int e(...);
+#}
+
+-keepclassmembers class ** {
+    public void onEvent*(**);
+#    public void register*(**);
+#    public void registerSticky*(**);
+}
+
+
+-keepclassmembernames class ** {
+    public void onEvent*(**);
+#    public void register*(**);
+#    public void registerSticky*(**);
+}
+#-dontskipnonpubliclibraryclasses
+
+# listviewanimation
+#-keep class com.nhaarman.listviewanimations.** { *; }
+#-keep interface com.nhaarman.listviewanimations.** { *; }
+-dontwarn com.nhaarman.listviewanimations.**
+#-keep class se.emilsjolander.stickylistheaders.** { *; }
+#-keep interface se.emilsjolander.stickylistheaders.** { *; }
+-dontwarn se.emilsjolander.stickylistheaders.**
+
+# web
+#-keep class com.squareup.okhttp.internal.** { *; }
+#-keep interface com.squareup.okhttp.internal.** { *; }
+-dontwarn com.squareup.okhttp.internal.**
+
+-dontwarn okio.Okio
+-dontwarn okio.DeflaterSink
+-dontwarn retrofit.**
+
