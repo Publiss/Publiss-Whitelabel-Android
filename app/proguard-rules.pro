@@ -26,35 +26,43 @@
 #    public static int d(...);
 #    public static int e(...);
 #}
-
+#
 -keepclassmembers class ** {
     public void onEvent*(**);
-#    public void register*(**);
-#    public void registerSticky*(**);
 }
 
+-keepnames class * implements java.io.Serializable
 
--keepclassmembernames class ** {
-    public void onEvent*(**);
-#    public void register*(**);
-#    public void registerSticky*(**);
+-keepclassmembers class * implements java.io.Serializable {
+    static final long serialVersionUID;
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    !static !transient <fields>;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
 }
-#-dontskipnonpubliclibraryclasses
+#
+#
+-keepattributes *Annotation*,Signature
 
-# listviewanimation
-#-keep class com.nhaarman.listviewanimations.** { *; }
-#-keep interface com.nhaarman.listviewanimations.** { *; }
+# Gson specific classes
+-keep class sun.misc.Unsafe { *; }
+#-keep class com.google.gson.stream.** { *; }
+
+# Application classes that will be serialized/deserialized over Gson
+-keep class com.google.gson.examples.android.model.** { *; }
+
+#retrofit
+-keep class com.viselabs.aquariummanager.util.seneye.SeneyeService { *; }
+-keep class com.viselabs.aquariummanager.util.seneye.model.* { *; }
+-keep class retrofit.http.* { *; }
+#
+#
 -dontwarn com.nhaarman.listviewanimations.**
-#-keep class se.emilsjolander.stickylistheaders.** { *; }
-#-keep interface se.emilsjolander.stickylistheaders.** { *; }
 -dontwarn se.emilsjolander.stickylistheaders.**
-
-# web
-#-keep class com.squareup.okhttp.internal.** { *; }
-#-keep interface com.squareup.okhttp.internal.** { *; }
 -dontwarn com.squareup.okhttp.internal.**
 
 -dontwarn okio.Okio
 -dontwarn okio.DeflaterSink
 -dontwarn retrofit.**
-
