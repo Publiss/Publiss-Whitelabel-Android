@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Publiss App Configuration -->
+    <string name="app_name" translatable="false">Publiss W</string>
+    <color name="publiss_first_color">#03ACC1</color>
+    <color name="publiss_first_color_pressed">#CC03ACC1</color> <!-- Just take the first color and write 'CC' as alpha value before -->
+    <color name="publiss_secondary_color">#FFFFFF</color>
+
+    <string name="api_base_url" translatable="false"></string>
+    <string name="app_secret" translatable="false"></string>
+    <string name="app_token" translatable="false" tools:ignore="TypographyDashes"></string>
+</resources>
