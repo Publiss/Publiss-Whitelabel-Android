@@ -25,7 +25,7 @@ android {
     }
 
     defaultConfig {
-        applicationId PACKAGE_PREFIX + ".publissplaystore"
+        applicationId PACKAGE_PREFIX + "." + "publissplaystore"
         minSdkVersion 15
         targetSdkVersion 20
         versionCode retrieveVersionCode()
@@ -36,11 +36,16 @@ android {
 
     buildTypes {
         debug {
+            debuggable true
+            runProguard false
+        }
+        debugwithproguard {
+            debuggable true
             runProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-
         release {
+            debuggable false
             zipAlign true
             runProguard true
             signingConfig signingConfigs.publiss
