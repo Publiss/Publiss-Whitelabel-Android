@@ -191,13 +191,13 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
 
     private void givenThreeBatchOperations() {
         givenPatchOperations = new ArrayList<>();
-        givenPatchOperations.add(ContentProviderOperation.newInsert(DocumentsContract.Documents.CONTENT_URI)
+        givenPatchOperations.add(ContentProviderOperation.newInsert(DocumentsContract.Documents.getContentUri())
                 .withValues(createDefaultDocumentValues())
                 .build());
-        givenPatchOperations.add(ContentProviderOperation.newInsert(DocumentsContract.Documents.CONTENT_URI)
+        givenPatchOperations.add(ContentProviderOperation.newInsert(DocumentsContract.Documents.getContentUri())
                 .withValues(createDefaultDocumentValues())
                 .build());
-        givenPatchOperations.add(ContentProviderOperation.newInsert(DocumentsContract.Documents.CONTENT_URI)
+        givenPatchOperations.add(ContentProviderOperation.newInsert(DocumentsContract.Documents.getContentUri())
                 .withValues(createDefaultDocumentValues())
                 .build());
     }
@@ -228,7 +228,7 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
     }
 
     private void givenNotExistingDocumentId() {
-        givenDocumentUri = Uri.withAppendedPath(DocumentsContract.Documents.CONTENT_URI, "66666");
+        givenDocumentUri = Uri.withAppendedPath(DocumentsContract.Documents.getContentUri(), "66666");
     }
 
     private void givenMultipleDocuments(int count) {
@@ -270,7 +270,7 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
         String[] selectionArgs = null;
         String sortOrder = DocumentsContract.Documents.SORT_ORDER_DEFAULT;
 
-        result = resolve.query(DocumentsContract.Documents.CONTENT_URI, projection, selection, selectionArgs, sortOrder);
+        result = resolve.query(DocumentsContract.Documents.getContentUri(), projection, selection, selectionArgs, sortOrder);
     }
 
     private void whenRetrieveFeaturedDocumentsIsCalled(boolean featured) {
@@ -295,18 +295,18 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
     }
 
     private void whenInsertIsCalled() {
-        givenDocumentUri = resolve.insert(DocumentsContract.Documents.CONTENT_URI, givenDocumentValues);
+        givenDocumentUri = resolve.insert(DocumentsContract.Documents.getContentUri(), givenDocumentValues);
     }
 
     private void givenAnExistingDocument() {
         givenDocumentContentValues();
-        givenDocumentUri = resolve.insert(DocumentsContract.Documents.CONTENT_URI, givenDocumentValues);
+        givenDocumentUri = resolve.insert(DocumentsContract.Documents.getContentUri(), givenDocumentValues);
     }
 
     private void givenAnFeaturedDocument() {
         givenDocumentContentValues();
         givenDocumentValues.put(DocumentsContract.Documents.FEATURED, 1);
-        givenDocumentUri = resolve.insert(DocumentsContract.Documents.CONTENT_URI, givenDocumentValues);
+        givenDocumentUri = resolve.insert(DocumentsContract.Documents.getContentUri(), givenDocumentValues);
     }
 
     private void givenDocumentContentValues() {

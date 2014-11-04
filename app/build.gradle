@@ -1,7 +1,12 @@
 apply plugin: 'com.android.application'
 apply from: '../gradle/quality.gradle'
 
+ext {
+    PACKAGE_NAME = "com.publiss.publissplaystore"
+}
+
 android {
+
     compileSdkVersion 20
     buildToolsVersion "20.0.0"
 
@@ -25,7 +30,7 @@ android {
     }
 
     defaultConfig {
-        applicationId PACKAGE_PREFIX + "." + "publissplaystore"
+        applicationId PACKAGE_NAME
         minSdkVersion 15
         targetSdkVersion 20
         versionCode retrieveVersionCode()
@@ -62,14 +67,10 @@ android {
         variant.mergeResources.doLast{
             ext.env = System.getenv()
             File valuesFile = file("${buildDir}/intermediates/res/${variant.dirName}/values/values.xml")
-            println("Replacing content provider authority in " + valuesFile)
-            println("Content provider authority = " + PACKAGE_PREFIX)
+            println("Replacing package name placeholder in " + valuesFile + " with " + PACKAGE_NAME)
             String content = valuesFile.getText('UTF-8')
 
-            String pdfProviderAuthority = PACKAGE_PREFIX + ".pdf";
-
-            content = content.replaceAll(/documents_content_provider_authority_placeholder/, PACKAGE_PREFIX)
-            content = content.replaceAll(/pdf_content_provider_authority_placeholder/, pdfProviderAuthority)
+            content = content.replaceAll(/PACKAGE_NAME_INSERTED_BY_GRADLE/, PACKAGE_NAME)
             valuesFile.write(content, 'UTF-8')
         }
     }
