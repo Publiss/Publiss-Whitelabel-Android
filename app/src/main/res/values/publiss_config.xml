@@ -11,4 +11,7 @@
 
     <string name="app_secret" translatable="false"></string>
     <string name="app_token" translatable="false" tools:ignore="TypographyDashes"></string>
+    <!-- app drawer header -->
+    <string name="publiss_menu_title">This is menu</string>
+    <string name="publiss_menu_subtitle">This is sub</string>
 </resources>
