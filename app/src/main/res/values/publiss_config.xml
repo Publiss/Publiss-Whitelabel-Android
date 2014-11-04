@@ -6,6 +6,9 @@
     <color name="publiss_first_color_pressed">#CC03ACC1</color> <!-- Just take the first color and write 'CC' as alpha value before -->
     <color name="publiss_secondary_color">#FFFFFF</color>
 
+    <!-- customized styling -->
+    <string name="kiosk_custom_actionbar_title_font"></string>
+
     <string name="app_secret" translatable="false"></string>
     <string name="app_token" translatable="false" tools:ignore="TypographyDashes"></string>
 </resources>

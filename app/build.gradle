@@ -7,6 +7,7 @@ repositories {
 }
 
 ext {
+    // ATTENTION do not forget to run "gradlew clean" when changing the package name!
     PACKAGE_NAME = "com.publiss.whitelabel"
 }
 
