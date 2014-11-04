@@ -8,4 +8,7 @@
 
     <string name="app_secret" translatable="false">9fc4153103bd73cbe36c88738dc9e8bb</string>
     <string name="app_token" translatable="false" tools:ignore="TypographyDashes">1d3ae766-0206-4eb7-90e1-f2e2917a4635</string>
+
+    <!-- customized styling -->
+    <string name="kiosk_custom_actionbar_title_font">TextMeOne-Regular.ttf</string>
 </resources>
