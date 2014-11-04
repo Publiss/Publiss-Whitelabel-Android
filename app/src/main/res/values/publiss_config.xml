@@ -7,7 +7,7 @@
     <string name="app_secret" translatable="false">9fc4153103bd73cbe36c88738dc9e8bb</string>
     <string name="app_token" translatable="false" tools:ignore="TypographyDashes">1d3ae766-0206-4eb7-90e1-f2e2917a4635</string>
 
-    <string name="content_provider_authority" translatable="false">com.publiss.publissplaystore</string>
-    <string name="pdf_content_provider_authority" translatable="false">com.publiss.publissplaystore.pdf</string>
-    <string name="sync_account_type" translatable="false">com.publiss.publissplaystore.account</string>
+    <string name="content_provider_authority" translatable="false">PACKAGE_NAME_INSERTED_BY_GRADLE</string>
+    <string name="pdf_content_provider_authority" translatable="false">PACKAGE_NAME_INSERTED_BY_GRADLE.pdf</string>
+    <string name="sync_account_type" translatable="false">PACKAGE_NAME_INSERTED_BY_GRADLE.account</string>
 </resources>
