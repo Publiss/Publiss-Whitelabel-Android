@@ -9,8 +9,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/fadingactionbar" />
             <option value="$PROJECT_DIR$/publiss-android-core" />
+            <option value="$PROJECT_DIR$/publiss-android-core/fadingactionbar" />
           </set>
         </option>
       </GradleProjectSettings>
