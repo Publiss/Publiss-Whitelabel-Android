@@ -2,8 +2,12 @@ apply plugin: 'com.android.application'
 
 repositories {
     flatDir {
-        dirs 'libs'
+        dirs 'aar'
     }
+}
+
+ext {
+    PACKAGE_NAME = "com.publiss.whitelabel"
 }
 
 android {
@@ -11,7 +15,7 @@ android {
     buildToolsVersion "20.0.0"
 
     defaultConfig {
-        applicationId PACKAGE_PREFIX + "whitelabel"
+        applicationId PACKAGE_NAME
         minSdkVersion 15
         targetSdkVersion 20
         versionCode 1
@@ -30,14 +34,10 @@ android {
         variant.mergeResources.doLast{
             ext.env = System.getenv()
             File valuesFile = file("${buildDir}/intermediates/res/${variant.dirName}/values/values.xml")
-            println("Replacing content provider authority in " + valuesFile)
-            println("Content provider authority = " + PACKAGE_PREFIX)
+            println("Replacing package name placeholder in " + valuesFile + " with " + PACKAGE_NAME)
             String content = valuesFile.getText('UTF-8')
 
-            String pdfProviderAuthority = PACKAGE_PREFIX + ".pdf";
-
-            content = content.replaceAll(/documents_content_provider_authority_placeholder/, PACKAGE_PREFIX)
-            content = content.replaceAll(/pdf_content_provider_authority_placeholder/, pdfProviderAuthority)
+            content = content.replaceAll(/PACKAGE_NAME_INSERTED_BY_GRADLE/, PACKAGE_NAME)
             valuesFile.write(content, 'UTF-8')
         }
     }
@@ -53,6 +53,11 @@ dependencies {
     compile ('com.publiss.core:publiss-android-core@aar') {
         transitive=true
     }
+    compile ('com.manuelpeinado.fadingactionbar:fadingactionbar@aar') {
+        transitive=true
+    }
+    compile 'com.pspdfkit:pspdfkit:1.+@aar'
+
     compile 'com.android.support:support-v4:20.0.0'
     compile 'com.android.support:support-v13:20.0.0'
     compile 'com.squareup.okhttp:okhttp:2.0.0'
@@ -68,5 +73,8 @@ dependencies {
     compile 'com.path:android-priority-jobqueue:1.1.2'
     compile 'it.sephiroth.android.library.horizontallistview:hlistview:1.2.2'
     compile 'com.github.castorflex.smoothprogressbar:library:1.0.0'
+    compile 'com.netflix.rxjava:rxjava-core:0.20.5'
+    compile 'com.netflix.rxjava:rxjava-android:0.20.5'
+    compile 'com.google.guava:guava:18.0'
 
 }

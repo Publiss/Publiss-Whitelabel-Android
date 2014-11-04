@@ -13,6 +13,48 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Document Provider -->
+        <provider
+            android:name="com.publiss.core.provider.DocumentsContentProvider"
+            android:authorities="@string/content_provider_authority"
+            android:enabled="true"
+            android:exported="false"
+            android:grantUriPermissions="false">
+            <grant-uri-permission android:pathPattern="/documents/" />
+        </provider>
+
+        <!-- PDF Provider -->
+        <provider
+            android:name="com.publiss.core.provider.PDFContentProvider"
+            android:authorities="@string/pdf_content_provider_authority"
+            android:enabled="true"
+            android:exported="true" >
+        </provider>
+
+        <!-- Account Service -->
+        <service android:name="com.publiss.core.service.PublissAccountService" >
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" />
+        </service>
+
+        <!-- Sync Service -->
+        <service
+            android:name="com.publiss.core.service.DocumentsSyncService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/sync_adapter" />
+        </service>
     </application>
 
 </manifest>
