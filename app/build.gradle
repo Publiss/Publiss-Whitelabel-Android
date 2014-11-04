@@ -40,7 +40,17 @@ android {
     }
 
     buildTypes {
+        debug {
+            debuggable true
+            runProguard false
+        }
+        debugwithproguard {
+            debuggable true
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
         release {
+            debuggable false
             zipAlign true
             runProguard false
             signingConfig signingConfigs.publiss
@@ -114,15 +124,3 @@ def generateVersionName(buildNumber) {
     }
     return versionName
 }
-
-def overwritePackageName() {
-    try {
-        /*commands = 'FILE="$WORKSPACE/app/src/main/res/values/publiss_config.xml"\n' +
-                   'PID=$' + packageName + '\n' +
-                   'sed -i \'\' "s/\$' + placeholder + '/$PID/g" $FILE\n'*/
-        'A_FILE="A_File"'.execute()
-    } catch (IOException exception) {
-        throw new UnsupportedOperationException("Overwriting package name in strings failed", exception)
-    }
-}
-
