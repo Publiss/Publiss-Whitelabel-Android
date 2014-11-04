@@ -51,10 +51,7 @@ android {
 
 dependencies {
 //    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile ('com.publiss.core:publiss-android-core@aar') {
-        transitive=true
-    }
-    compile ('com.manuelpeinado.fadingactionbar:fadingactionbar@aar') {
+    compile ('com.publiss.core:publiss-android-core:1.+@aar') {
         transitive=true
     }
     compile 'com.pspdfkit:pspdfkit:1.+@aar'
