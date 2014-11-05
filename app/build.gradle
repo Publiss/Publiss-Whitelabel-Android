@@ -48,7 +48,7 @@ android {
         release {
             debuggable false
             zipAlign true
-            runProguard false
+            runProguard true
             signingConfig signingConfigs.publiss
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             applicationVariants.all { variant ->
