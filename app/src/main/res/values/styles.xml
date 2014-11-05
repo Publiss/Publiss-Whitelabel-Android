@@ -1,8 +1,12 @@
 <resources>
 
     <!-- Base application theme. -->
-    <!--<style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">-->
+    <style name="AppTheme" parent="BasePublissCoreTheme">
         <!-- Customize your theme here. -->
-    <!--</style>-->
+    </style>
+
+    <style name="ActionBarStyle.KioskTitleTextStyle" parent="@android:style/TextAppearance.Large.Inverse">
+
+    </style>
 
 </resources>
