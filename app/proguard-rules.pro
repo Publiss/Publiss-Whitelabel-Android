@@ -62,3 +62,4 @@
 -dontwarn okio.Okio
 -dontwarn okio.DeflaterSink
 -dontwarn retrofit.**
+-dontwarn com.google.**
