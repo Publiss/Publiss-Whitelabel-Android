@@ -50,7 +50,7 @@ android {
             zipAlign true
             runProguard true
             signingConfig signingConfigs.publiss
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-project.txt'), 'proguard-rules.pro'
             applicationVariants.all { variant ->
                 def file = variant.outputFile
                 def manifestParser = new com.android.builder.core.DefaultManifestParser()
