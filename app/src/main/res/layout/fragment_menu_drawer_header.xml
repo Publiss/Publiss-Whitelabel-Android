@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="80dp">
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/publiss_first_color_pressed"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/publiss_first_color"
+        android:padding="8dp"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/line">
+
+        <!--<ImageView-->
+            <!--android:id="@+id/headerImageView"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:maxHeight="48dp"-->
+            <!--android:src="@drawable/ic_menu_banner"-->
+            <!--android:layout_margin="4dp"-->
+            <!--android:layout_centerHorizontal="true"/>-->
+
+        <TextView
+            android:id="@+id/titleTextView"
+            style="@style/PublissMenuTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/publiss_menu_title"
+            android:gravity="center"
+            android:layout_margin="4dp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/subTitleTextView"
+            style="@style/PublissMenuSubtitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/publiss_menu_subtitle"
+            android:layout_margin="4dp"
+            android:layout_below="@+id/titleTextView"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+</RelativeLayout>

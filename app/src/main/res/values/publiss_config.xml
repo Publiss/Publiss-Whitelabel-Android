@@ -6,14 +6,23 @@
     <color name="publiss_first_color_pressed">#CC03ACC1</color> <!-- Just take the first color and write 'CC' as alpha value before -->
     <color name="publiss_secondary_color">#FFFFFF</color>
 
+    <string name="app_secret" translatable="false">9fc4153103bd73cbe36c88738dc9e8bb</string>
+    <string name="app_token" translatable="false" tools:ignore="TypographyDashes">1d3ae766-0206-4eb7-90e1-f2e2917a4635</string>
+
     <!-- customized styling -->
-    <string name="kiosk_custom_actionbar_title_font"></string>
+    <string name="kiosk_custom_actionbar_title_font" translatable="false"></string>
 
     <!-- app drawer header -->
     <string name="publiss_menu_title">Menu Title</string>
     <string name="publiss_menu_subtitle">Menu Sub</string>
 
-    <string name="app_secret" translatable="false">9fc4153103bd73cbe36c88738dc9e8bb</string>
-    <string name="app_token" translatable="false" tools:ignore="TypographyDashes">1d3ae766-0206-4eb7-90e1-f2e2917a4635</string>
+    <!-- FEEDBACK -->
+    <string name="feedback_to" translatable="false">office@publiss.com</string>
+    <string name="feedback_subject">Publiss Feedback</string>
+    <string name="feedback_description">Send Feedback to Publiss</string>
+    <string name="feedback_body">Your Feedback:</string>
+
+
+
 
 </resources>

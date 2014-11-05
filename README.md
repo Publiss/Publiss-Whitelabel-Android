@@ -13,3 +13,14 @@ Setup instructions
 * Personalize app_name and colors and configure app_secret and app_token in `$PROJ_DIR/app/src/main/res/values/publiss_config.xml`
 * Set a new `PACKAGE_NAME` in `$PROJ_DIR/app/build.gradle`
 * Run a clean build
+
+Customizations
+==============
+
+1. App icon
+2. App colors
+3. Sidebar menu items (describe how to change the action triggered by menu item)
+4. Sidebar menu header layout
+5. About Text
+6. Actionbar Font
+
