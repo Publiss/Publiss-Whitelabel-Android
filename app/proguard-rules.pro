@@ -40,6 +40,7 @@
 -keep class com.publiss.core.ui.KioskActivity { *; }
 -keep class com.publiss.core.BuildConfig { *; }
 -keep class com.publiss.core.provider.PDFContentProvider
+-keep class com.publiss.core.provider.DocumentsContentProvider
 
 -keepnames class * implements java.io.Serializable
 -keepclassmembers class * implements java.io.Serializable {
