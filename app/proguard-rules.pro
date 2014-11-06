@@ -39,6 +39,7 @@
 -keep class com.google.gson.examples.android.model.** { *; }
 -keep class com.publiss.core.ui.KioskActivity { *; }
 -keep class com.publiss.core.BuildConfig { *; }
+-keep class android.support.v4.** { *; }
 
 -keepnames class * implements java.io.Serializable
 -keepclassmembers class * implements java.io.Serializable {
