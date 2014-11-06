@@ -2,7 +2,7 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="80dp">
+    android:layout_height="wrap_content">
 
     <View
         android:id="@+id/line"
@@ -10,22 +10,28 @@
         android:layout_height="0dp"
         android:background="@color/publiss_first_color_pressed"/>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:background="@color/publiss_first_color"
         android:padding="8dp"
+        android:orientation="vertical"
         android:gravity="center_horizontal"
         android:layout_below="@id/line">
 
-        <!--<ImageView-->
-            <!--android:id="@+id/headerImageView"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:maxHeight="48dp"-->
-            <!--android:src="@drawable/ic_menu_banner"-->
-            <!--android:layout_margin="4dp"-->
-            <!--android:layout_centerHorizontal="true"/>-->
+        <com.publiss.core.ui.widget.MenuHeaderAspectRatioRelativeLayout
+            android:id="@+id/menuHeader"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_menu_banner"/>
+
+        </com.publiss.core.ui.widget.MenuHeaderAspectRatioRelativeLayout>
 
         <TextView
             android:id="@+id/titleTextView"
@@ -34,8 +40,7 @@
             android:layout_height="wrap_content"
             android:text="@string/publiss_menu_title"
             android:gravity="center"
-            android:layout_margin="4dp"
-            android:layout_centerHorizontal="true"/>
+            android:layout_margin="4dp"/>
 
         <TextView
             android:id="@+id/subTitleTextView"
@@ -44,9 +49,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/publiss_menu_subtitle"
-            android:layout_margin="4dp"
-            android:layout_below="@+id/titleTextView"
-            android:layout_centerHorizontal="true"/>
+            android:layout_margin="4dp"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 </RelativeLayout>
