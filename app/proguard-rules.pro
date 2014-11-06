@@ -46,6 +46,7 @@
 -keep class com.publiss.core.ui.PreviewActivity
 -keep class com.publiss.core.ui.ReadIssueActivity
 -keep class com.pspdfkit.** { *; }
+-keep class com.publiss.core.ui.widget.MenuHeaderAspectRatioRelativeLayout
 
 -keepnames class * implements java.io.Serializable
 -keepclassmembers class * implements java.io.Serializable {
