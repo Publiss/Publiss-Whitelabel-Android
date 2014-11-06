@@ -53,6 +53,7 @@
 -keep class com.viselabs.aquariummanager.util.seneye.SeneyeService { *; }
 -keep class com.viselabs.aquariummanager.util.seneye.model.* { *; }
 -keep class retrofit.http.* { *; }
+-keep class com.google.**
 
 
 # only ignore warning, class keeping is handled by gradle
@@ -63,3 +64,13 @@
 -dontwarn okio.DeflaterSink
 -dontwarn retrofit.**
 -dontwarn com.google.**
+-dontwarn javax.**
+-dontwarn rx.internal.**
+
+-dontpreverify
+-dontskipnonpubliclibraryclasses
+-dontskipnonpubliclibraryclassmembers
+-dontusemixedcaseclassnames
+-dontnote sun.misc.Unsafe
+-dontnote javax.**
+-dontnote com.google.common.**
