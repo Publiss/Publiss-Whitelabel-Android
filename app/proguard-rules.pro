@@ -37,6 +37,9 @@
 -keepattributes *Annotation*,Signature
 -keep class sun.misc.Unsafe { *; }
 -keep class com.google.gson.examples.android.model.** { *; }
+-keep class com.publiss.core.ui.KioskActivity { *; }
+-keep class com.publiss.core.BuildConfig { *; }
+-keep class com.publiss.core.provider.PDFContentProvider
 
 -keepnames class * implements java.io.Serializable
 -keepclassmembers class * implements java.io.Serializable {
@@ -54,8 +57,6 @@
 -keep class com.viselabs.aquariummanager.util.seneye.model.* { *; }
 -keep class retrofit.http.* { *; }
 -keep class com.google.**
--keep class com.publiss.core.ui.KioskActivity { *; }
--keep class com.publiss.core.BuildConfig { *; }
 
 
 # only ignore warning, class keeping is handled by gradle
