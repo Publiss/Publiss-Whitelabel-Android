@@ -42,6 +42,7 @@
 -keep class com.publiss.core.provider.PDFContentProvider
 -keep class com.publiss.core.provider.DocumentsContentProvider
 -keep class com.publiss.core.service.DocumentsSyncService
+-keep class com.publiss.core.service.PublissAccountService
 
 -keepnames class * implements java.io.Serializable
 -keepclassmembers class * implements java.io.Serializable {
