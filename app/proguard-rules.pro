@@ -1,6 +1,6 @@
 # Add project specific ProGuard rules here.
 # By default, the flags in this file are appended to flags specified
-# in /usr/local/Cellar/android-sdk/23.0.2/tools/proguard/proguard-android.txt
+# in /Applications/Android Studio.app/sdk/tools/proguard/proguard-android.txt
 # You can edit the include path and order by changing the proguardFiles
 # directive in build.gradle.
 #
@@ -15,6 +15,7 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
 
 # removes all logs
 -assumenosideeffects class android.util.Log { *; }
@@ -36,6 +37,8 @@
 -keepattributes *Annotation*,Signature
 -keep class sun.misc.Unsafe { *; }
 -keep class com.google.gson.examples.android.model.** { *; }
+-keep class com.publiss.core.ui.KioskActivity { *; }
+-keep class com.publiss.core.BuildConfig { *; }
 
 -keepnames class * implements java.io.Serializable
 -keepclassmembers class * implements java.io.Serializable {
