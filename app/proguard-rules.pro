@@ -40,6 +40,13 @@
 -keep class com.publiss.core.ui.KioskActivity { *; }
 -keep class com.publiss.core.BuildConfig { *; }
 -keep class android.support.v4.** { *; }
+-keep class com.publiss.core.provider.PDFContentProvider
+-keep class com.publiss.core.provider.DocumentsContentProvider
+-keep class com.publiss.core.service.DocumentsSyncService
+-keep class com.publiss.core.service.PublissAccountService
+-keep class com.publiss.core.ui.PreviewActivity
+-keep class com.publiss.core.ui.ReadIssueActivity
+-keep class com.pspdfkit.** { *; }
 
 -keepnames class * implements java.io.Serializable
 -keepclassmembers class * implements java.io.Serializable {
