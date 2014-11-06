@@ -87,7 +87,7 @@ dependencies {
     }
     compile 'com.pspdfkit:pspdfkit:1.+@aar'
 
-    compile 'com.android.support:support-v4:20.0.0'
+    compile 'com.android.support:support-v4:21.0.0'
     compile 'com.android.support:support-v13:20.0.0'
     compile 'com.squareup.okhttp:okhttp:2.0.0'
     compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
