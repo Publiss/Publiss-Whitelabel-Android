@@ -54,6 +54,8 @@
 -keep class com.viselabs.aquariummanager.util.seneye.model.* { *; }
 -keep class retrofit.http.* { *; }
 -keep class com.google.**
+-keep class com.publiss.core.ui.KioskActivity { *; }
+-keep class com.publiss.core.BuildConfig { *; }
 
 
 # only ignore warning, class keeping is handled by gradle
