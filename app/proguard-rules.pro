@@ -60,6 +60,10 @@
     java.lang.Object readResolve();
 }
 
+-keep class * implements android.os.Parcelable {
+   public static final android.os.Parcelable$Creator *;
+}
+
 # retrofit
 -keep class com.viselabs.aquariummanager.util.seneye.SeneyeService { *; }
 -keep class com.viselabs.aquariummanager.util.seneye.model.* { *; }
