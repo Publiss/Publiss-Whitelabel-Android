@@ -27,6 +27,7 @@
 #    public static int e(...);
 #}
 
+
 # eventbus
 -keepclassmembers class ** {
     public void onEvent*(**);
@@ -62,8 +63,12 @@
 # retrofit
 -keep class com.viselabs.aquariummanager.util.seneye.SeneyeService { *; }
 -keep class com.viselabs.aquariummanager.util.seneye.model.* { *; }
--keep class retrofit.http.* { *; }
 -keep class com.google.**
+
+-keep class retrofit.** { *; }
+-keepclasseswithmembers class * {
+    @retrofit.http.* <methods>;
+}
 
 
 # only ignore warning, class keeping is handled by gradle
