@@ -43,23 +43,29 @@ android {
     buildTypes {
         debug {
             debuggable true
-            runProguard false
+            minifyEnabled false
         }
         debugwithproguard {
             debuggable true
-            runProguard false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
             debuggable false
-            zipAlign true
-            runProguard true
+            zipAlignEnabled true
+            minifyEnabled true
             signingConfig signingConfigs.publiss
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             applicationVariants.all { variant ->
-                def file = variant.outputFile
-                def manifestParser = new com.android.builder.core.DefaultManifestParser()
-                variant.outputFile = new File(file.parent, file.name.replace("app-", "publiss-" + System.getenv("ANDROID_APK_TYPE") + "-"))
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                        def manifestParser = new com.android.builder.core.DefaultManifestParser()
+//                        def versionName = manifestParser.getVersionName(android.sourceSets.main.manifest.srcFile);
+                        def fileName = outputFile.name.replace("app-", "publiss-" + System.getenv("ANDROID_APK_TYPE") + "-")
+                        output.outputFile = new File(outputFile.parent, fileName)
+                    }
+                }
             }
         }
     }

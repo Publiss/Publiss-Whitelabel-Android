@@ -21,7 +21,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Random;
 import java.util.TimeZone;
 
 public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsContentProvider> {
