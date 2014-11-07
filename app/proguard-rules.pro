@@ -39,7 +39,7 @@
 -keep class com.google.gson.examples.android.model.** { *; }
 -keep class com.publiss.core.ui.KioskActivity { *; }
 -keep class com.publiss.core.BuildConfig { *; }
--keep class android.support.v4.** { *; }
+-keep class android.** { *; }
 -keep class com.publiss.core.provider.PDFContentProvider
 -keep class com.publiss.core.provider.DocumentsContentProvider
 -keep class com.publiss.core.service.DocumentsSyncService
@@ -77,6 +77,7 @@
 -dontwarn com.google.**
 -dontwarn javax.**
 -dontwarn rx.internal.**
+-dontwarn android.**
 
 -dontpreverify
 -dontskipnonpubliclibraryclasses
