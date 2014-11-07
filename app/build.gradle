@@ -47,13 +47,13 @@ android {
     buildTypes {
         release {
             debuggable false
-            zipAlign true
-            runProguard false
+            zipAlignEnabled true
+            minifyEnabled true
             signingConfig signingConfigs.publiss
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-project.txt'), 'proguard-rules.pro'
             applicationVariants.all { variant ->
                 def file = variant.outputFile
-                def manifestParser = new com.android.builder.core.DefaultManifestParser()
+//                def manifestParser = new com.android.builder.core.DefaultManifestParser()
                 variant.outputFile = new File(file.parent, file.name.replace("app-", "publiss-wl-" + System.getenv("ANDROID_APK_TYPE") + "-"))
             }
         }
@@ -82,9 +82,12 @@ dependencies {
     compile ('com.publiss.core:publiss-android-core:1.+@aar') {
         transitive=true
     }
+    compile ('com.manuelpeinado.fadingactionbar:fadingactionbar:3.+@aar') {
+        transitive=true
+    }
     compile 'com.pspdfkit:pspdfkit:1.+@aar'
 
-    compile 'com.android.support:support-v4:20.0.0'
+    compile 'com.android.support:support-v4:21.0.0'
     compile 'com.android.support:support-v13:20.0.0'
     compile 'com.squareup.okhttp:okhttp:2.0.0'
     compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'

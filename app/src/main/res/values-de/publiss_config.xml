@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- app drawer header -->
+    <string name="publiss_menu_title">Menu Title</string>
+    <string name="publiss_menu_subtitle">Menu Sub</string>
+
+    <!--FEEDBACK-->
+    <string name="feedback_subject">Publiss WL Feedback</string>
+    <string name="feedback_description">Sende Feedback an Publiss WL</string>
+    <string name="feedback_body">Dein Feedback:</string>
+
+</resources>
