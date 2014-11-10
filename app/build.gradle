@@ -8,7 +8,7 @@ repositories {
 
 ext {
     // ATTENTION do not forget to run "gradlew clean" when changing the package name!
-    PACKAGE_NAME = "com.publiss.whitelabel"
+    PACKAGE_NAME = "com.publiss.whitelabel" // Take Bundle Id from Publiss Online
 }
 
 android {
@@ -54,7 +54,7 @@ android {
             applicationVariants.all { variant ->
                 def file = variant.outputFile
 //                def manifestParser = new com.android.builder.core.DefaultManifestParser()
-                variant.outputFile = new File(file.parent, file.name.replace("app-", "publiss-wl-" + System.getenv("ANDROID_APK_TYPE") + "-"))
+                variant.outputFile = new File(file.parent, file.name.replace("app-", "app-" + System.getenv("ANDROID_APK_TYPE") + "-"))
             }
         }
     }

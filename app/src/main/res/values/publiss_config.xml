@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Publiss App Configuration -->
-    <string name="app_name" translatable="false">Publiss W</string>
+    <string name="app_name" translatable="false">Publiss</string>
+    <string name="short_app_name" translatable="false">Publiss W</string>
     <color name="publiss_first_color">#03ACC1</color>
     <color name="publiss_first_color_pressed">#CC03ACC1</color> <!-- Just take the first color and write 'CC' as alpha value before -->
     <color name="publiss_secondary_color">#FFFFFF</color>
@@ -13,8 +14,10 @@
     <string name="kiosk_custom_actionbar_title_font" translatable="false"></string>
 
     <!-- app drawer header -->
-    <string name="publiss_menu_title">Menu Title</string>
-    <string name="publiss_menu_subtitle">Menu Sub</string>
+    <string name="publiss_menu_title">Menu Header Title</string>
+    <string name="publiss_menu_subtitle">Menu Header Subtitle</string>
+
+    <string name="publiss_hompage_link" translatable="false">http://www.publiss.com</string>
 
     <!-- FEEDBACK -->
     <string name="feedback_to" translatable="false">office@publiss.com</string>
