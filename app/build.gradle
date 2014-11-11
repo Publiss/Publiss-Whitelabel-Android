@@ -8,7 +8,7 @@ repositories {
 
 ext {
     // ATTENTION do not forget to run "gradlew clean" when changing the package name!
-    PACKAGE_NAME = "com.publiss.whitelabel"
+    PACKAGE_NAME = "com.publiss.whitelabel" // Take Bundle Id from Publiss Online
 }
 
 android {
@@ -39,9 +39,9 @@ android {
         applicationId PACKAGE_NAME
         minSdkVersion 15
         targetSdkVersion 20
-        versionCode 1
+        versionCode retrieveVersionCode()
         println "VersionCode: " + versionCode
-        versionName "1.0"
+        versionName generateVersionName(versionCode)
         println "VersionName: " + versionName
     }
     buildTypes {
@@ -54,7 +54,7 @@ android {
             applicationVariants.all { variant ->
                 def file = variant.outputFile
 //                def manifestParser = new com.android.builder.core.DefaultManifestParser()
-                variant.outputFile = new File(file.parent, file.name.replace("app-", "publiss-wl-" + System.getenv("ANDROID_APK_TYPE") + "-"))
+                variant.outputFile = new File(file.parent, file.name.replace("app-", "app-" + System.getenv("ANDROID_APK_TYPE") + "-"))
             }
         }
     }
@@ -106,4 +106,40 @@ dependencies {
     compile 'com.netflix.rxjava:rxjava-android:0.20.5'
     compile 'com.google.guava:guava:18.0'
 
+}
+
+def retrieveVersionCode() {
+    def calculatedVersionCode = System.getenv("BUILD_NUMBER");
+    if (null == calculatedVersionCode) {
+        calculatedVersionCode = "-1";
+    }
+    return Integer.parseInt(calculatedVersionCode)
+}
+
+def getGitDescribe() {
+    try {
+        return 'git describe --tags'.execute().text.trim()
+    } catch (IOException exception) {
+        throw new UnsupportedOperationException("Could not find git! Maybe it is not in \$PATH variable?", exception)
+    }
+}
+
+def getCurrentGitBranch() {
+    try {
+        return 'git rev-parse --abbrev-ref HEAD'.execute().text.trim()
+    } catch (IOException exception) {
+        throw new UnsupportedOperationException("Could not find git! Maybe it is not in \$PATH variable?", exception)
+    }
+}
+
+def generateVersionName(buildNumber) {
+    def versionName
+    if (buildNumber == -1) {
+        // local build
+        versionName = getGitDescribe() + " " + getCurrentGitBranch()
+    } else {
+        // jenkins build
+        versionName = getGitDescribe()
+    }
+    return versionName
 }

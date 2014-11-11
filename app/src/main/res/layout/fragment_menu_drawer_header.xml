@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/publiss_first_color"
-        android:padding="8dp"
+        android:padding="12dp"
+        android:dividerPadding="8dp"
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:layout_below="@id/line">
@@ -23,13 +24,16 @@
             android:id="@+id/menuHeader"
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="fill_parent"
+            android:gravity="center">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_menu_banner"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_menu_banner"
+            android:padding="12dp"/>
 
         </com.publiss.core.ui.widget.MenuHeaderAspectRatioRelativeLayout>
 
@@ -39,8 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/publiss_menu_title"
-            android:gravity="center"
-            android:layout_margin="4dp"/>
+            android:gravity="center"/>
 
         <TextView
             android:id="@+id/subTitleTextView"
