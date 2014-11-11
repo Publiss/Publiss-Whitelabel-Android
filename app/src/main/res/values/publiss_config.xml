@@ -14,8 +14,8 @@
     <string name="kiosk_custom_actionbar_title_font" translatable="false"></string>
 
     <!-- app drawer header -->
-    <string name="publiss_menu_title">Menu Header Title</string>
-    <string name="publiss_menu_subtitle">Menu Header Subtitle</string>
+    <string name="publiss_menu_title">Digital Publishing.</string>
+    <string name="publiss_menu_subtitle">Turning Heads Not Just Pages</string>
 
     <string name="publiss_hompage_link" translatable="false">http://www.publiss.com</string>
 

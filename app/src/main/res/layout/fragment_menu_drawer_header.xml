@@ -29,10 +29,11 @@
 
 
         <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_menu_banner"/>
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_menu_banner"
+            android:padding="12dp"/>
 
         </com.publiss.core.ui.widget.MenuHeaderAspectRatioRelativeLayout>
 
@@ -42,8 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/publiss_menu_title"
-            android:gravity="center"
-            android:layout_margin="4dp"/>
+            android:gravity="center"/>
 
         <TextView
             android:id="@+id/subTitleTextView"
