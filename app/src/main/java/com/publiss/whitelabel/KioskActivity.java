@@ -12,7 +12,8 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
         else if (selectedMenuItem == 1) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(getString(com.publiss.core.R.string.app_name));
-            builder.setMessage("Version " + com.publiss.core.BuildConfig.VERSION_NAME);
+            CharSequence[] versions = {"Version " + com.publiss.whitelabel.BuildConfig.VERSION_NAME, "Core Version " + com.publiss.core.BuildConfig.VERSION_NAME};
+            builder.setItems(versions, null);
             builder.setPositiveButton("OK", null);
             AlertDialog dialog = builder.create();
             dialog.show();
