@@ -11,4 +11,6 @@
 
     <!-- customized styling -->
     <string name="kiosk_custom_actionbar_title_font">TextMeOne-Regular.ttf</string>
+
+    <dimen name="kiosk_action_bar_title_nav_padding">52dp</dimen>
 </resources>
