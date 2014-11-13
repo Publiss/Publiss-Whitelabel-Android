@@ -94,7 +94,6 @@ android {
 }
 
 dependencies {
-    compile project(':publiss-android-core:fadingactionbar')
     compile project(':publiss-android-core')
 }
 
