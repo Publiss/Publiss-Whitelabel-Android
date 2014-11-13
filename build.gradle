@@ -15,6 +15,9 @@ buildscript {
 
 allprojects {
     repositories {
+        maven {
+            url "http://10.0.1.254:8081/nexus/content/repositories/BYTEPOETS-releases/"
+        }
         jcenter()
         flatDir {
             dirs "$rootDir/aar"
