@@ -1,14 +1,5 @@
 apply plugin: 'com.android.application'
 
-repositories {
-    maven {
-        url "http://10.0.1.254:8081/nexus/content/repositories/BYTEPOETS-releases/"
-    }
-    flatDir {
-        dirs 'aar'
-    }
-}
-
 ext {
     // ATTENTION do not forget to run "gradlew clean" when changing the package name!
     PACKAGE_NAME = "com.publiss.whitelabel" // Take Bundle Id from Publiss Online
@@ -82,7 +73,7 @@ android {
 
 dependencies {
 //    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile ('com.publiss.core:publiss-android-core:v0.0.5@aar') {
+    compile ('com.publiss.core:publiss-android-core:v0.0.6@aar') {
         transitive=true
     }
     compile ('com.manuelpeinado.fadingactionbar:fadingactionbar:3.+@aar') {
