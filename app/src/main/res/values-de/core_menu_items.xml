@@ -2,9 +2,9 @@
 <resources>
     <!-- core Menu Items -->
     <string-array name="core_menu_items">
-        <item>Publiss WL Website besuchen</item>
-        <item>Über Publiss WL</item>
-        <item>Kontakt</item>
+        <item>Besuche unsere Webseite</item>
+        <item>Kontaktiere uns</item>
+        <item>Über Publiss</item>
     </string-array>
 
     <integer-array name="core_menu_items_draw_seperater_before">

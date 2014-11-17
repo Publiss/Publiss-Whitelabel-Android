@@ -10,6 +10,12 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
             startOpenInBrowserActivity(url);
         }
         else if (selectedMenuItem == 1) {
+            String mailBody = getString(com.publiss.core.R.string.feedback_body);
+            String receiver = getString(com.publiss.core.R.string.feedback_to);
+            String subject = getString(com.publiss.core.R.string.feedback_subject);
+            startFeedbackActivity(receiver, subject, mailBody);
+        }
+        else if (selectedMenuItem == 2) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(getString(com.publiss.core.R.string.app_name));
             CharSequence[] versions = {"Version " + com.publiss.whitelabel.BuildConfig.VERSION_NAME, "Core Version " + com.publiss.core.BuildConfig.VERSION_NAME};
@@ -17,12 +23,6 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
             builder.setPositiveButton("OK", null);
             AlertDialog dialog = builder.create();
             dialog.show();
-        }
-        else if (selectedMenuItem == 2) {
-            String mailBody = getString(com.publiss.core.R.string.feedback_body);
-            String receiver = getString(com.publiss.core.R.string.feedback_to);
-            String subject = getString(com.publiss.core.R.string.feedback_subject);
-            startFeedbackActivity(receiver, subject, mailBody);
         }
     }
 }
