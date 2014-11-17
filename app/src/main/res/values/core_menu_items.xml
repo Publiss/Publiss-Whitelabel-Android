@@ -2,9 +2,9 @@
 <resources>
     <!-- core Menu Items -->
     <string-array name="core_menu_items">
-        <item>Visit WL Website</item>
-        <item>About Publiss WL</item>
+        <item>Visit our Website</item>
         <item>Contact Us</item>
+        <item>About Publiss WL</item>
     </string-array>
 
     <integer-array name="core_menu_items_draw_seperater_before">
