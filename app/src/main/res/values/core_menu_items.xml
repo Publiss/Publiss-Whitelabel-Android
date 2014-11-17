@@ -4,7 +4,7 @@
     <string-array name="core_menu_items">
         <item>Visit our Website</item>
         <item>Contact Us</item>
-        <item>About Publiss WL</item>
+        <item>About Publiss</item>
     </string-array>
 
     <integer-array name="core_menu_items_draw_seperater_before">
