@@ -13,7 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/publiss_first_color"
+        android:background="@color/publiss_menu_header_background_color"
         android:padding="12dp"
         android:dividerPadding="8dp"
         android:orientation="vertical"
