@@ -24,5 +24,8 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
             String subject = getString(com.publiss.core.R.string.feedback_subject);
             startFeedbackActivity(receiver, subject, mailBody);
         }
+        else if (selectedMenuItem == 3) {
+            openLoginFragment();
+        }
     }
 }
