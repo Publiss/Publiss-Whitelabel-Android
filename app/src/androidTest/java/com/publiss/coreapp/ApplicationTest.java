@@ -1,4 +1,4 @@
-package com.publiss.publissplaystore;
+package com.publiss.coreapp;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

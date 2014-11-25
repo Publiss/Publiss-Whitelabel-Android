@@ -1,11 +1,6 @@
-package com.publiss.publissplaystore;
+package com.publiss.coreapp;
 
 import android.app.AlertDialog;
-import android.content.Intent;
-import android.net.Uri;
-
-
-import com.publiss.core.ui.navigation.MenuDrawerFragment;
 
 public class KioskActivity extends com.publiss.core.ui.KioskActivity {
 

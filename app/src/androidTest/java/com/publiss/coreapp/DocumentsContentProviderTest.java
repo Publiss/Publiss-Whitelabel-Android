@@ -1,4 +1,4 @@
-package com.publiss.publissplaystore;
+package com.publiss.coreapp;
 
 import android.content.ContentProviderOperation;
 import android.content.ContentValues;

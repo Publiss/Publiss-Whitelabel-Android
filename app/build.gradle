@@ -3,7 +3,7 @@ apply from: '../gradle/quality.gradle'
 
 ext {
     // ATTENTION do not forget to run "gradlew clean" when changing the package name!
-    PACKAGE_NAME = "com.publiss.publissplaystore"
+    PACKAGE_NAME = "com.publiss.coreapp"
 }
 
 
