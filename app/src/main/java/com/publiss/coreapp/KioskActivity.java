@@ -6,6 +6,7 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
 
     @Override
     public void onMenuDrawerItemSelected(Integer selectedMenuItem) {
+        super.onMenuItemSelected(selectedMenuItem);
         if (selectedMenuItem == 0) {
             String url = getString(com.publiss.core.R.string.publiss_hompage_link);
             startOpenInBrowserActivity(url);
