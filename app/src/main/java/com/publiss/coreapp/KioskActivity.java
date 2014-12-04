@@ -26,7 +26,7 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
             startFeedbackActivity(receiver, subject, mailBody);
         }
         else if (selectedMenuItem == 3) {
-            openLoginActivity();
+            openLoginActivityOrLogout();
         }
     }
 }
