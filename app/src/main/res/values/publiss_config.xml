@@ -6,8 +6,10 @@
     <color name="publiss_first_color_pressed">#CC0dc132</color> <!-- Just take the first color and write 'CC' as alpha value before -->
     <color name="publiss_secondary_color">#FFFFFF</color>
 
-    <string name="app_secret" translatable="false">9fc4153103bd73cbe36c88738dc9e8bb</string>
-    <string name="app_token" translatable="false" tools:ignore="TypographyDashes">1d3ae766-0206-4eb7-90e1-f2e2917a4635</string>
+    <!-- Publiss App Configuration -->
+    <string name="api_base_url" translatable="false">http://10.0.1.21:3333</string>
+    <string name="app_secret" translatable="false">418b1b7a86243b0570c3fa1c299ce7df</string>
+    <string name="app_token" translatable="false" tools:ignore="TypographyDashes">1a0859bd-ba4b-488c-b466-43d2a890e7f3</string>
 
     <!-- customized styling -->
     <string name="kiosk_custom_actionbar_title_font">TextMeOne-Regular.ttf</string>
