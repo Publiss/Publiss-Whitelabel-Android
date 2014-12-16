@@ -273,7 +273,7 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
     }
 
     private void whenRetrieveFeaturedDocumentsIsCalled(boolean featured) {
-        result = PublishedDocumentDatabaseHelper.allDocuments(resolve, featured);
+        result = PublishedDocumentDatabaseHelper.allDocumentsForList(resolve, featured);
     }
 
     private void thenResultContainsDocument() {
