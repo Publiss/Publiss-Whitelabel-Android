@@ -22,6 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name="com.publiss.core.ui.ReadIssueActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -55,7 +56,7 @@
             android:parentActivityName=".KioskActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.publiss.core.ui.KioskActivity" />
+                android:value=".KioskActivity" />
         </activity>
 
 
