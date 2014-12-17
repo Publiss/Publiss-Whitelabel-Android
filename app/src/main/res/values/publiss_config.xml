@@ -7,7 +7,7 @@
     <color name="publiss_secondary_color">#FFFFFF</color>
 
     <!-- Publiss App Configuration -->
-    <string name="api_base_url" translatable="false">https://staging-backend.publiss.com/</string>
+    <string name="api_base_url" translatable="false">https://staging-backend.publiss.com</string>
     <string name="app_secret" translatable="false">b2a9975ccd5b50dd09cdf622427353ee</string>
     <string name="app_token" translatable="false" tools:ignore="TypographyDashes">cf59bf5d-d528-483d-904c-b9f54688ed51</string>
 
