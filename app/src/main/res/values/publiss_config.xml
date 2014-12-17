@@ -8,8 +8,8 @@
 
     <!-- Publiss App Configuration -->
     <string name="api_base_url" translatable="false">https://staging-backend.publiss.com/</string>
-    <string name="app_secret" translatable="false">1b110f2791a3c18ebda397c925400cc4</string>
-    <string name="app_token" translatable="false" tools:ignore="TypographyDashes">17d4a87e-d32d-4982-b8b9-2e35ffe801f0</string>
+    <string name="app_secret" translatable="false">b2a9975ccd5b50dd09cdf622427353ee</string>
+    <string name="app_token" translatable="false" tools:ignore="TypographyDashes">cf59bf5d-d528-483d-904c-b9f54688ed51</string>
 
     <!-- customized styling -->
     <string name="kiosk_custom_actionbar_title_font">TextMeOne-Regular.ttf</string>
