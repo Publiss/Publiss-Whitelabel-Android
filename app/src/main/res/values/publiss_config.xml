@@ -7,9 +7,9 @@
     <color name="publiss_secondary_color">#FFFFFF</color>
 
     <!-- Publiss App Configuration -->
-    <string name="api_base_url" translatable="false">http://10.0.1.21:3333</string>
-    <string name="app_secret" translatable="false">418b1b7a86243b0570c3fa1c299ce7df</string>
-    <string name="app_token" translatable="false" tools:ignore="TypographyDashes">1a0859bd-ba4b-488c-b466-43d2a890e7f3</string>
+    <string name="api_base_url" translatable="false">https://staging-backend.publiss.com/</string>
+    <string name="app_secret" translatable="false">1b110f2791a3c18ebda397c925400cc4</string>
+    <string name="app_token" translatable="false" tools:ignore="TypographyDashes">17d4a87e-d32d-4982-b8b9-2e35ffe801f0</string>
 
     <!-- customized styling -->
     <string name="kiosk_custom_actionbar_title_font">TextMeOne-Regular.ttf</string>
