@@ -10,7 +10,7 @@ import android.test.ProviderTestCase2;
 import android.test.mock.MockContentResolver;
 import android.util.Log;
 
-import com.publiss.core.data.model.PublishedDocumentDatabaseHelper;
+import com.publiss.core.data.model.DatabaseHelper;
 import com.publiss.core.provider.DocumentsContentProvider;
 import com.publiss.core.provider.DocumentsContract;
 
@@ -273,7 +273,7 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
     }
 
     private void whenRetrieveFeaturedDocumentsIsCalled(boolean featured) {
-        result = PublishedDocumentDatabaseHelper.allDocumentsForList(resolve, featured);
+        result = DatabaseHelper.allDocumentsForList(resolve, featured);
     }
 
     private void thenResultContainsDocument() {
