@@ -38,6 +38,7 @@
 -keep class sun.misc.Unsafe { *; }
 -keep class com.google.gson.examples.android.model.** { *; }
 -keep class com.publiss.core.ui.KioskActivity { *; }
+-keep class com.publiss.core.ui.LoginActivity { *; }
 -keep class com.publiss.core.BuildConfig { *; }
 -keep class com.publiss.core.provider.PDFContentProvider
 -keep class com.publiss.core.provider.DocumentsContentProvider

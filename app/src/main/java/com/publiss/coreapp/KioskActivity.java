@@ -6,6 +6,7 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
 
     @Override
     public void onMenuDrawerItemSelected(Integer selectedMenuItem) {
+        super.onMenuItemSelected(selectedMenuItem);
         if (selectedMenuItem == 0) {
             String url = getString(com.publiss.core.R.string.publiss_hompage_link);
             startOpenInBrowserActivity(url);
@@ -23,6 +24,9 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
             String receiver = getString(com.publiss.core.R.string.feedback_to);
             String subject = getString(com.publiss.core.R.string.feedback_subject);
             startFeedbackActivity(receiver, subject, mailBody);
+        }
+        else if (selectedMenuItem == 3) {
+            openLoginActivityOrLogout();
         }
     }
 }
