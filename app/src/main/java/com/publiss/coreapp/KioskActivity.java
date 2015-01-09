@@ -44,33 +44,19 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
             }
         });
 
-        MenuItem loginMenuItem = new MenuItem("Login", true, new MenuItemCallbacks() {
+        LoginLogoutMenuItem loginLogoutMenuItem = new LoginLogoutMenuItem(this, "Login", "Logout", true, new MenuItemCallbacks() {
             @Override
             public void menuItemSelected(MenuItem menuItem) {
                 openLoginActivityOrLogout();
             }
         });
-        loginMenuItem.setSubTitle("dsoifopsdfopsbdfop");
-
-        MenuItem logoutMenuItem = new MenuItem("Logout", true, new MenuItemCallbacks() {
-            @Override
-            public void menuItemSelected(MenuItem menuItem) {
-                openLoginActivityOrLogout();
-            }
-        });
-        logoutMenuItem.setSubTitle(PublissConfig.getLoginValue(this, "email"));
+        loginLogoutMenuItem.setLogoutSubTitle(PublissConfig.getLoginValue(this, "email"));
 
         MenuItemManager.getInstance().clearMenuItems();
         MenuItemManager.getInstance().addMenuItem(homepageMenuItem);
         MenuItemManager.getInstance().addMenuItem(aboutMenuItem);
         MenuItemManager.getInstance().addMenuItem(contactMenuItem);
-
-        if (!PublissConfig.isLoggedIn(this)) {
-            MenuItemManager.getInstance().addMenuItem(loginMenuItem);
-        }
-        else {
-            MenuItemManager.getInstance().addMenuItem(logoutMenuItem);
-        }
+        MenuItemManager.getInstance().addMenuItem(loginLogoutMenuItem);
     }
 
 }
