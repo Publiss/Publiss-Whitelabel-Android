@@ -3,8 +3,7 @@ package com.publiss.coreapp;
 import android.app.AlertDialog;
 import android.os.Bundle;
 
-import com.publiss.core.SharedPreferences;
-import com.publiss.core.network.PublissConfig;
+import com.publiss.core.PublissConfig;
 import com.publiss.core.ui.menu.*;
 
 public class KioskActivity extends com.publiss.core.ui.KioskActivity {
@@ -35,7 +34,7 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
             }
         });
 
-        MenuItem contactMenuItem = new MenuItem("Contact", true, new MenuItemCallbacks() {
+        MenuItem contactMenuItem = new MenuItem("Contact", false, new MenuItemCallbacks() {
             @Override
             public void menuItemSelected(MenuItem menuItem) {
                 String mailBody = getString(com.publiss.core.R.string.feedback_body);
@@ -45,22 +44,23 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
             }
         });
 
-        MenuItem loginMenuItem = new MenuItem("Login", false, new MenuItemCallbacks() {
+        MenuItem loginMenuItem = new MenuItem("Login", true, new MenuItemCallbacks() {
             @Override
             public void menuItemSelected(MenuItem menuItem) {
                 openLoginActivityOrLogout();
             }
         });
+        loginMenuItem.setSubTitle("dsoifopsdfopsbdfop");
 
-        MenuItem logoutMenuItem = new MenuItem("Logout", false, new MenuItemCallbacks() {
+        MenuItem logoutMenuItem = new MenuItem("Logout", true, new MenuItemCallbacks() {
             @Override
             public void menuItemSelected(MenuItem menuItem) {
                 openLoginActivityOrLogout();
             }
         });
+        logoutMenuItem.setSubTitle(PublissConfig.getLoginValue(this, "email"));
 
         MenuItemManager.getInstance().clearMenuItems();
-
         MenuItemManager.getInstance().addMenuItem(homepageMenuItem);
         MenuItemManager.getInstance().addMenuItem(aboutMenuItem);
         MenuItemManager.getInstance().addMenuItem(contactMenuItem);
