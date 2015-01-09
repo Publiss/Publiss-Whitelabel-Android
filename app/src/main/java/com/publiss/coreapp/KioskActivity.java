@@ -50,7 +50,6 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
                 openLoginActivityOrLogout();
             }
         });
-        loginLogoutMenuItem.setLogoutSubTitle(PublissConfig.getLoginValue(this, "email"));
 
         MenuItemManager.getInstance().clearMenuItems();
         MenuItemManager.getInstance().addMenuItem(homepageMenuItem);
