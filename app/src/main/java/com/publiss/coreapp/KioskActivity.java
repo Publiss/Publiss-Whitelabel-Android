@@ -14,7 +14,7 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
 
         final KioskActivity self = this;
 
-        MenuItem homepageMenuItem = new MenuItem("Visit Publiss", false, new MenuItemCallbacks() {
+        MenuItem homepageMenuItem = new MenuItem(getString(R.string.menu_item_title_homepage), false, new MenuItemCallbacks() {
             @Override
             public void menuItemSelected(MenuItem menuItem) {
                 String url = getString(com.publiss.core.R.string.publiss_hompage_link);
@@ -22,7 +22,7 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
             }
         });
 
-        MenuItem aboutMenuItem = new MenuItem("About Publiss", false, new MenuItemCallbacks() {
+        MenuItem aboutMenuItem = new MenuItem(getString(R.string.menu_item_title_about), false, new MenuItemCallbacks() {
             @Override
             public void menuItemSelected(MenuItem menuItem) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(self);
@@ -34,7 +34,7 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
             }
         });
 
-        MenuItem contactMenuItem = new MenuItem("Contact", false, new MenuItemCallbacks() {
+        MenuItem contactMenuItem = new MenuItem(getString(R.string.menu_item_title_contact), false, new MenuItemCallbacks() {
             @Override
             public void menuItemSelected(MenuItem menuItem) {
                 String mailBody = getString(com.publiss.core.R.string.feedback_body);
@@ -44,7 +44,7 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
             }
         });
 
-        LoginLogoutMenuItem loginLogoutMenuItem = new LoginLogoutMenuItem(this, "Login", "Logout", true, new MenuItemCallbacks() {
+        LoginLogoutMenuItem loginLogoutMenuItem = new LoginLogoutMenuItem(this, getString(R.string.menu_item_title_login), getString(R.string.menu_item_title_logout), false, new MenuItemCallbacks() {
             @Override
             public void menuItemSelected(MenuItem menuItem) {
                 openLoginActivityOrLogout();
