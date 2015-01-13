@@ -273,7 +273,22 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
     }
 
     private void whenRetrieveFeaturedDocumentsIsCalled(boolean featured) {
-        result = DatabaseHelper.allDocumentsForList(resolve, featured);
+
+        Uri uri = DocumentsContract.Documents.getContentUri();
+        String[] projection = DocumentsContract.Documents.PROJECTION_ALL;
+        String selection = DocumentsContract.Documents.FEATURED + " = ? AND " + DocumentsContract.Documents.PAID + " = ?";
+
+        String[] selectionArgs;
+
+        if (featured) {
+            selectionArgs = new String[] { String.valueOf(1), String.valueOf(0) };
+        }
+        else {
+            selectionArgs = new String[] { String.valueOf(0), String.valueOf(0) };
+        }
+
+        String sortOrder = DocumentsContract.Documents.SORT_ORDER_DEFAULT;
+        result = resolve.query(uri, projection, selection, selectionArgs, sortOrder);
     }
 
     private void thenResultContainsDocument() {
@@ -318,11 +333,16 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
         values.put(DocumentsContract.Documents.NAME, "Name");
         values.put(DocumentsContract.Documents.DESCRIPTION, "Description");
         values.put(DocumentsContract.Documents.COVER_IMAGE_PATH, "www.apple.com/watch");
-        values.put(DocumentsContract.Documents.PAID, Integer.valueOf(123));
+        values.put(DocumentsContract.Documents.PAID, Integer.valueOf(0));
         values.put(DocumentsContract.Documents.FILE_SIZE, Integer.valueOf(123));
+        values.put(DocumentsContract.Documents.PDF_DOCUMENT_PATH, "www.apple.com/watch");
         values.put(DocumentsContract.Documents.PRIORITY, Integer.valueOf(123));
         values.put(DocumentsContract.Documents.UPDATED_AT, "2014-03-11T15:41:26Z");
         values.put(DocumentsContract.Documents.FEATURED, Integer.valueOf(0));
+        values.put(DocumentsContract.Documents.FEATURE_IMAGE_PATH, "www.apple.com/watch");
+        values.put(DocumentsContract.Documents.FEATURED_UPDATED_AT, "2014-03-11T15:41:26Z");
+        values.put(DocumentsContract.Documents.SHOW_IN_KIOSK, Integer.valueOf(1));
+        values.put(DocumentsContract.Documents.LANGUAGE_INFO, "");
 
         return values;
     }
