@@ -6,11 +6,16 @@ import android.os.Bundle;
 import com.publiss.core.PublissConfig;
 import com.publiss.core.ui.menu.*;
 
+import java.util.Locale;
+
 public class KioskActivity extends com.publiss.core.ui.KioskActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Uncomment to opt-in to publiss localization features.
+        // PublissConfig.getInstance().setPreferredLanguage(Locale.getDefault().getLanguage());
 
         final KioskActivity self = this;
 

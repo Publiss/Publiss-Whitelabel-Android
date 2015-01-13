@@ -20,7 +20,7 @@
 # removes all logs
 -assumenosideeffects class android.util.Log { *; }
 #-assumenosideeffects class android.util.Log {
-#    public static boolean isLoggable(java.lang.String, int);
+#    public static boolean isLoggable(java.languageTag.String, int);
 #    public static int v(...);
 #    public static int i(...);
 #    public static int w(...);
@@ -56,8 +56,8 @@
     !static !transient <fields>;
     private void writeObject(java.io.ObjectOutputStream);
     private void readObject(java.io.ObjectInputStream);
-    java.lang.Object writeReplace();
-    java.lang.Object readResolve();
+    java.languageTag.Object writeReplace();
+    java.languageTag.Object readResolve();
 }
 
 # retrofit
