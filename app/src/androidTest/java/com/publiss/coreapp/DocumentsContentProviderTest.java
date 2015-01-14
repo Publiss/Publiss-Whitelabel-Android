@@ -342,7 +342,9 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
         values.put(DocumentsContract.Documents.FEATURE_IMAGE_PATH, "www.apple.com/watch");
         values.put(DocumentsContract.Documents.FEATURED_UPDATED_AT, "2014-03-11T15:41:26Z");
         values.put(DocumentsContract.Documents.SHOW_IN_KIOSK, Integer.valueOf(1));
-        values.put(DocumentsContract.Documents.LANGUAGE_INFO, "");
+        values.putNull(DocumentsContract.Documents.LINKED_TAG);
+        values.putNull(DocumentsContract.Documents.LANGUAGE_TAG);
+        values.putNull(DocumentsContract.Documents.LANGUAGE_TITLE);
 
         return values;
     }
