@@ -15,7 +15,7 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
         super.onCreate(savedInstanceState);
 
         // Uncomment to opt-in to publiss localization features.
-        PublissConfig.getInstance().setPreferredLanguage(Locale.getDefault().getLanguage());
+        //PublissConfig.getInstance().setPreferredLanguage(Locale.getDefault().getLanguage());
         //PublissConfig.getInstance().setFallbackLanguage("en");
         //PublissConfig.getInstance().setShowAnyLocalizedDocumentIfThereIsNoFallback(false);
         //PublissConfig.getInstance().setShowUnlocalizedDocuments(true);
@@ -35,7 +35,7 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
             public void menuItemSelected(MenuItem menuItem) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(self);
                 builder.setTitle(getString(com.publiss.core.R.string.app_name));
-                builder.setMessage("Version " + com.publiss.core.BuildConfig.VERSION_NAME);
+                builder.setMessage("Publiss " + com.publiss.core.BuildConfig.VERSION_NAME + " (30.01.2015)");
                 builder.setPositiveButton("OK", null);
                 AlertDialog dialog = builder.create();
                 dialog.show();
