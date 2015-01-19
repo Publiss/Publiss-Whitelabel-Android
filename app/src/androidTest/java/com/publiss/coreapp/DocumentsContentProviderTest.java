@@ -1,4 +1,4 @@
-package com.publiss.publissplaystore;
+package com.publiss.coreapp;
 
 import android.content.ContentProviderOperation;
 import android.content.ContentValues;
@@ -10,7 +10,7 @@ import android.test.ProviderTestCase2;
 import android.test.mock.MockContentResolver;
 import android.util.Log;
 
-import com.publiss.core.data.model.PublishedDocumentDatabaseHelper;
+import com.publiss.core.data.model.DatabaseHelper;
 import com.publiss.core.provider.DocumentsContentProvider;
 import com.publiss.core.provider.DocumentsContract;
 
@@ -21,7 +21,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Random;
 import java.util.TimeZone;
 
 public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsContentProvider> {
@@ -191,13 +190,13 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
 
     private void givenThreeBatchOperations() {
         givenPatchOperations = new ArrayList<>();
-        givenPatchOperations.add(ContentProviderOperation.newInsert(DocumentsContract.Documents.CONTENT_URI)
+        givenPatchOperations.add(ContentProviderOperation.newInsert(DocumentsContract.Documents.getContentUri())
                 .withValues(createDefaultDocumentValues())
                 .build());
-        givenPatchOperations.add(ContentProviderOperation.newInsert(DocumentsContract.Documents.CONTENT_URI)
+        givenPatchOperations.add(ContentProviderOperation.newInsert(DocumentsContract.Documents.getContentUri())
                 .withValues(createDefaultDocumentValues())
                 .build());
-        givenPatchOperations.add(ContentProviderOperation.newInsert(DocumentsContract.Documents.CONTENT_URI)
+        givenPatchOperations.add(ContentProviderOperation.newInsert(DocumentsContract.Documents.getContentUri())
                 .withValues(createDefaultDocumentValues())
                 .build());
     }
@@ -228,7 +227,7 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
     }
 
     private void givenNotExistingDocumentId() {
-        givenDocumentUri = Uri.withAppendedPath(DocumentsContract.Documents.CONTENT_URI, "66666");
+        givenDocumentUri = Uri.withAppendedPath(DocumentsContract.Documents.getContentUri(), "66666");
     }
 
     private void givenMultipleDocuments(int count) {
@@ -270,11 +269,26 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
         String[] selectionArgs = null;
         String sortOrder = DocumentsContract.Documents.SORT_ORDER_DEFAULT;
 
-        result = resolve.query(DocumentsContract.Documents.CONTENT_URI, projection, selection, selectionArgs, sortOrder);
+        result = resolve.query(DocumentsContract.Documents.getContentUri(), projection, selection, selectionArgs, sortOrder);
     }
 
     private void whenRetrieveFeaturedDocumentsIsCalled(boolean featured) {
-        result = PublishedDocumentDatabaseHelper.allDocuments(resolve, featured);
+
+        Uri uri = DocumentsContract.Documents.getContentUri();
+        String[] projection = DocumentsContract.Documents.PROJECTION_ALL;
+        String selection = DocumentsContract.Documents.FEATURED + " = ? AND " + DocumentsContract.Documents.PAID + " = ?";
+
+        String[] selectionArgs;
+
+        if (featured) {
+            selectionArgs = new String[] { String.valueOf(1), String.valueOf(0) };
+        }
+        else {
+            selectionArgs = new String[] { String.valueOf(0), String.valueOf(0) };
+        }
+
+        String sortOrder = DocumentsContract.Documents.SORT_ORDER_DEFAULT;
+        result = resolve.query(uri, projection, selection, selectionArgs, sortOrder);
     }
 
     private void thenResultContainsDocument() {
@@ -295,18 +309,18 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
     }
 
     private void whenInsertIsCalled() {
-        givenDocumentUri = resolve.insert(DocumentsContract.Documents.CONTENT_URI, givenDocumentValues);
+        givenDocumentUri = resolve.insert(DocumentsContract.Documents.getContentUri(), givenDocumentValues);
     }
 
     private void givenAnExistingDocument() {
         givenDocumentContentValues();
-        givenDocumentUri = resolve.insert(DocumentsContract.Documents.CONTENT_URI, givenDocumentValues);
+        givenDocumentUri = resolve.insert(DocumentsContract.Documents.getContentUri(), givenDocumentValues);
     }
 
     private void givenAnFeaturedDocument() {
         givenDocumentContentValues();
         givenDocumentValues.put(DocumentsContract.Documents.FEATURED, 1);
-        givenDocumentUri = resolve.insert(DocumentsContract.Documents.CONTENT_URI, givenDocumentValues);
+        givenDocumentUri = resolve.insert(DocumentsContract.Documents.getContentUri(), givenDocumentValues);
     }
 
     private void givenDocumentContentValues() {
@@ -319,11 +333,18 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
         values.put(DocumentsContract.Documents.NAME, "Name");
         values.put(DocumentsContract.Documents.DESCRIPTION, "Description");
         values.put(DocumentsContract.Documents.COVER_IMAGE_PATH, "www.apple.com/watch");
-        values.put(DocumentsContract.Documents.PAID, Integer.valueOf(123));
+        values.put(DocumentsContract.Documents.PAID, Integer.valueOf(0));
         values.put(DocumentsContract.Documents.FILE_SIZE, Integer.valueOf(123));
+        values.put(DocumentsContract.Documents.PDF_DOCUMENT_PATH, "www.apple.com/watch");
         values.put(DocumentsContract.Documents.PRIORITY, Integer.valueOf(123));
         values.put(DocumentsContract.Documents.UPDATED_AT, "2014-03-11T15:41:26Z");
         values.put(DocumentsContract.Documents.FEATURED, Integer.valueOf(0));
+        values.put(DocumentsContract.Documents.FEATURE_IMAGE_PATH, "www.apple.com/watch");
+        values.put(DocumentsContract.Documents.FEATURED_UPDATED_AT, "2014-03-11T15:41:26Z");
+        values.put(DocumentsContract.Documents.SHOW_IN_KIOSK, Integer.valueOf(1));
+        values.putNull(DocumentsContract.Documents.LINKED_TAG);
+        values.putNull(DocumentsContract.Documents.LANGUAGE_TAG);
+        values.putNull(DocumentsContract.Documents.LANGUAGE_TITLE);
 
         return values;
     }

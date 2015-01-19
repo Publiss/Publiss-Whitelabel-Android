@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="content_provider_authority" translatable="false">PACKAGE_NAME_INSERTED_BY_GRADLE</string>
+    <string name="pdf_content_provider_authority" translatable="false">PACKAGE_NAME_INSERTED_BY_GRADLE.pdf</string>
+    <string name="sync_account_type" translatable="false">PACKAGE_NAME_INSERTED_BY_GRADLE.account</string>
+</resources>

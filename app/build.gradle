@@ -1,7 +1,14 @@
 apply plugin: 'com.android.application'
 apply from: '../gradle/quality.gradle'
 
+ext {
+    // ATTENTION do not forget to run "gradlew clean" when changing the package name!
+    PACKAGE_NAME = "com.publiss.coreapp"
+}
+
+
 android {
+
     compileSdkVersion 20
     buildToolsVersion "20.0.0"
 
@@ -25,7 +32,7 @@ android {
     }
 
     defaultConfig {
-        applicationId PACKAGE_PREFIX + ".publissplaystore"
+        applicationId PACKAGE_NAME
         minSdkVersion 15
         targetSdkVersion 20
         versionCode retrieveVersionCode()
@@ -35,15 +42,31 @@ android {
     }
 
     buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+        }
+        debugwithproguard {
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
         release {
-            zipAlign true
-            runProguard false
+            debuggable false
+            zipAlignEnabled true
+            minifyEnabled true
             signingConfig signingConfigs.publiss
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             applicationVariants.all { variant ->
-                def file = variant.outputFile
-                def manifestParser = new com.android.builder.core.DefaultManifestParser()
-                variant.outputFile = new File(file.parent, file.name.replace("app-", "publiss-" + System.getenv("ANDROID_APK_TYPE") + "-"))
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                        def manifestParser = new com.android.builder.core.DefaultManifestParser()
+//                        def versionName = manifestParser.getVersionName(android.sourceSets.main.manifest.srcFile);
+                        def fileName = outputFile.name.replace("app-", "publiss-" + System.getenv("ANDROID_APK_TYPE") + "-")
+                        output.outputFile = new File(outputFile.parent, fileName)
+                    }
+                }
             }
         }
     }
@@ -52,14 +75,10 @@ android {
         variant.mergeResources.doLast{
             ext.env = System.getenv()
             File valuesFile = file("${buildDir}/intermediates/res/${variant.dirName}/values/values.xml")
-            println("Replacing content provider authority in " + valuesFile)
-            println("Content provider authority = " + PACKAGE_PREFIX)
+            println("Replacing package name placeholder in " + valuesFile + " with " + PACKAGE_NAME)
             String content = valuesFile.getText('UTF-8')
 
-            String pdfProviderAuthority = PACKAGE_PREFIX + ".pdf";
-
-            content = content.replaceAll(/documents_content_provider_authority_placeholder/, PACKAGE_PREFIX)
-            content = content.replaceAll(/pdf_content_provider_authority_placeholder/, pdfProviderAuthority)
+            content = content.replaceAll(/PACKAGE_NAME_INSERTED_BY_GRADLE/, PACKAGE_NAME)
             valuesFile.write(content, 'UTF-8')
         }
     }
@@ -72,6 +91,10 @@ android {
     lintOptions {
         lintConfig file("lint.xml")
     }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.1'
 }
 
 dependencies {
@@ -113,15 +136,3 @@ def generateVersionName(buildNumber) {
     }
     return versionName
 }
-
-def overwritePackageName() {
-    try {
-        /*commands = 'FILE="$WORKSPACE/app/src/main/res/values/publiss_config.xml"\n' +
-                   'PID=$' + packageName + '\n' +
-                   'sed -i \'\' "s/\$' + placeholder + '/$PID/g" $FILE\n'*/
-        'A_FILE="A_File"'.execute()
-    } catch (IOException exception) {
-        throw new UnsupportedOperationException("Overwriting package name in strings failed", exception)
-    }
-}
-

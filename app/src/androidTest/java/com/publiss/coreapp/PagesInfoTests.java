@@ -1,4 +1,4 @@
-package com.publiss.publissplaystore;
+package com.publiss.coreapp;
 
 import android.content.ContentProviderOperation;
 import android.content.ContentValues;
@@ -16,6 +16,7 @@ import com.publiss.core.provider.DocumentsContract;
 
 import junit.framework.Assert;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class PagesInfoTests extends ProviderTestCase2<DocumentsContentProvider> {
@@ -26,6 +27,7 @@ public class PagesInfoTests extends ProviderTestCase2<DocumentsContentProvider> 
     private ContentValues givenPagesInfoValues;
     private ContentValues givenUpdatedValues;
     private Uri givenPagesInfoUri;
+    private Uri pagesInfoContentUri;
     private Cursor result;
     private ArrayList<ContentProviderOperation> givenBatchOperations;
 
@@ -39,6 +41,9 @@ public class PagesInfoTests extends ProviderTestCase2<DocumentsContentProvider> 
             Log.i(TAG, "Entered Setup");
             super.setUp();
             resolve = this.getMockContentResolver();
+            Field contentUriField = DocumentsContract.PagesInfo.class.getDeclaredField("CONTENT_URI");
+            contentUriField.setAccessible(true);
+            pagesInfoContentUri = (Uri) contentUriField.get(new DocumentsContract.PagesInfo());
         } catch (Exception e) {
             Log.e(TAG, e.getMessage());
             Assert.fail("Content Repository setUp failed");
@@ -114,7 +119,7 @@ public class PagesInfoTests extends ProviderTestCase2<DocumentsContentProvider> 
 
         for (int i = 0; i < numberOfOperations; i++) {
             ContentValues values = createDefaultPagesInfoValues(i);
-            givenBatchOperations.add(ContentProviderOperation.newInsert(DocumentsContract.PagesInfo.CONTENT_URI)
+            givenBatchOperations.add(ContentProviderOperation.newInsert(pagesInfoContentUri)
                     .withValues(values)
                     .build());
         }
@@ -123,7 +128,7 @@ public class PagesInfoTests extends ProviderTestCase2<DocumentsContentProvider> 
     // WHEN
 
     public void whenInsertIsCalled() {
-        givenPagesInfoUri = resolve.insert(DocumentsContract.PagesInfo.CONTENT_URI, givenPagesInfoValues);
+        givenPagesInfoUri = resolve.insert(pagesInfoContentUri, givenPagesInfoValues);
     }
 
     private void whenRetrievePagesInfoByIdsIsCalled() {
@@ -136,13 +141,12 @@ public class PagesInfoTests extends ProviderTestCase2<DocumentsContentProvider> 
     }
 
     private void whenRetrievePagesInfoIsCalled() {
-        Uri uri = DocumentsContract.PagesInfo.CONTENT_URI;
         String[] projection = DocumentsContract.PagesInfo.PROJECTION_ALL;
         String selection = null;
         String[] selectionArgs = null;
         String sortOrder = DocumentsContract.PagesInfo.SORT_ORDER_DEFAULT;
 
-        result = resolve.query(uri, projection, selection, selectionArgs, sortOrder);
+        result = resolve.query(pagesInfoContentUri, projection, selection, selectionArgs, sortOrder);
     }
 
     public void whenUpdateIsCalled() {
