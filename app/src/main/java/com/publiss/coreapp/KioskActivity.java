@@ -15,8 +15,8 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
         super.onCreate(savedInstanceState);
 
         // Uncomment to opt-in to publiss localization features.
-        //PublissConfig.getInstance().setPreferredLanguage(Locale.getDefault().getLanguage());
-        //PublissConfig.getInstance().setFallbackLanguage("en");
+        PublissConfig.getInstance().setPreferredLanguage(Locale.getDefault().getLanguage());
+        PublissConfig.getInstance().setFallbackLanguage("en");
         //PublissConfig.getInstance().setShowAnyLocalizedDocumentIfThereIsNoFallback(false);
         //PublissConfig.getInstance().setShowUnlocalizedDocuments(true);
 
