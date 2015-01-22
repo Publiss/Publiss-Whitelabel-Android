@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<!--suppress CheckTagEmptyBody -->
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="TypographyDashes">
     <!-- Publiss App Configuration -->
     <string name="app_name" translatable="false">Publiss Core</string>
     <color name="publiss_first_color">#0dc132</color>
@@ -13,9 +15,12 @@
 
     <!-- customized styling -->
     <string name="kiosk_custom_actionbar_title_font">TextMeOne-Regular.ttf</string>
-
     <dimen name="kiosk_action_bar_title_nav_padding">52dp</dimen>
 
     <!--feature login: forgotten password uri-->
-    <string name="forgottenPasswordUri" translatable="false"/> <!--hidden, if empty-->
+    <string name="forgottenPasswordUri" translatable="false"></string> <!--hidden, if empty-->
+
+    <!--feature Google Analytics-->
+    <bool name="ga_global_tracker_active">false</bool> <!-- set TrackingID in global_tracker.xml -->
+    <string name="ga_trackingId"></string> <!-- TrackingID for the App Tracker. Currently not in use. -->
 </resources>
