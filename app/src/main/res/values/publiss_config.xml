@@ -21,6 +21,6 @@
     <string name="forgottenPasswordUri" translatable="false"></string> <!--hidden, if empty-->
 
     <!--feature Google Analytics-->
-    <bool name="ga_global_tracker_active">false</bool> <!-- set TrackingID in global_tracker.xml -->
-    <string name="ga_trackingId"></string> <!-- TrackingID for the App Tracker. Currently not in use. -->
+    <bool name="ga_global_tracker_active">false</bool> <!-- set ga_trackingId in res/xml/global_tracker.xml -->
+    <bool name="ga_global_tracker_advertising_collection_active">false</bool> <!--Advertising Features with Remarketing, Demographics & Interests reports-->
 </resources>
