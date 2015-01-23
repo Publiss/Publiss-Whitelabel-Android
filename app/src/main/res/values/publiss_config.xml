@@ -10,8 +10,8 @@
 
     <!-- Publiss App Configuration -->
     <string name="api_base_url" translatable="false">https://staging-backend.publiss.com</string>
-    <string name="app_secret" translatable="false">b2a9975ccd5b50dd09cdf622427353ee</string>
-    <string name="app_token" translatable="false" tools:ignore="TypographyDashes">cf59bf5d-d528-483d-904c-b9f54688ed51</string>
+    <string name="app_secret" translatable="false">5d73465dc2f0c70340b8d07a67394fa1</string>
+    <string name="app_token" translatable="false" tools:ignore="TypographyDashes">288b57c9-d4ea-4777-9b33-4c96e7939584</string>
 
     <!-- customized styling -->
     <string name="kiosk_custom_actionbar_title_font">TextMeOne-Regular.ttf</string>
@@ -23,4 +23,7 @@
     <!--feature Google Analytics-->
     <bool name="ga_global_tracker_active">false</bool> <!-- set ga_trackingId in res/xml/global_tracker.xml -->
     <bool name="ga_global_tracker_advertising_collection_active">false</bool> <!--Advertising Features with Remarketing, Demographics & Interests reports-->
+
+    <!--feature Push Support-->
+    <string name="gcm_sender_id" translatable="false"></string>
 </resources>
