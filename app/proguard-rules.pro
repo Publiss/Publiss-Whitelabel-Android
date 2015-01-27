@@ -49,6 +49,11 @@
 -keep class com.pspdfkit.** { *; }
 -keep class com.publiss.core.ui.widget.MenuHeaderAspectRatioRelativeLayout
 
+#push classes
+-keep class com.publiss.core.service.GcmBroadcastReceiver { *; }
+-keep class com.publiss.core.service.GcmIntentService { *; }
+-keep class com.publiss.core.service.NewIssueNotificationDismissedReceiver { *; }
+
 -keepnames class * implements java.io.Serializable
 -keepclassmembers class * implements java.io.Serializable {
     static final long serialVersionUID;

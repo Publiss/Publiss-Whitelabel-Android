@@ -11,6 +11,14 @@
     <string name="app_secret" translatable="false">9fc4153103bd73cbe36c88738dc9e8bb</string>
     <string name="app_token" translatable="false" tools:ignore="TypographyDashes">1d3ae766-0206-4eb7-90e1-f2e2917a4635</string>
 
+
+    <!--feature login: forgotten password uri-->
+    <string name="forgottenPasswordUri" translatable="false"></string> <!--hidden, if empty-->
+
+    <!--feature Google Analytics-->
+    <bool name="ga_global_tracker_active">false</bool> <!-- set ga_trackingId in res/xml/global_tracker.xml -->
+    <bool name="ga_global_tracker_advertising_collection_active">false</bool> <!--Advertising Features with Remarketing, Demographics & Interests reports-->
+
     <!-- customized styling -->
     <string name="kiosk_custom_actionbar_title_font" translatable="false"></string>
 
