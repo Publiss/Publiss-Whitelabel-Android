@@ -25,5 +25,5 @@
     <bool name="ga_global_tracker_advertising_collection_active">false</bool> <!--Advertising Features with Remarketing, Demographics & Interests reports-->
 
     <!--feature Push Support-->
-    <string name="gcm_sender_id" translatable="false"></string>
+    <string name="gcm_sender_id" translatable="false">373329065124</string>
 </resources>
