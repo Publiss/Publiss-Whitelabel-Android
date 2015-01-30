@@ -12,25 +12,6 @@ android {
     compileSdkVersion 20
     buildToolsVersion "20.0.0"
 
-    signingConfigs {
-        publiss {
-            def keyStoreFile = System.getenv("ANDROID_PUBLISS_KEYSTORE_PATH")
-
-            if (keyStoreFile == null) {
-                keyStoreFile = "/dummy.pks"
-            }
-            // We can leave these in environment variables
-            storeFile file(keyStoreFile)
-            keyAlias System.getenv("ANDROID_PUBLISS_KEY_ALIAS")
-
-            // These two lines make gradle believe that the signingConfigs
-            // section is complete. Without them, tasks like installRelease
-            // will not be available!
-            storePassword System.getenv("ANDROID_PUBLISS_KEYSTORE_PASSWORD")
-            keyPassword System.getenv("ANDROID_PUBLISS_KEY_PASSWORD")
-        }
-    }
-
     defaultConfig {
         applicationId PACKAGE_NAME
         minSdkVersion 15
@@ -55,7 +36,6 @@ android {
             debuggable false
             zipAlignEnabled true
             minifyEnabled true
-            signingConfig signingConfigs.publiss
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             applicationVariants.all { variant ->
                 variant.outputs.each { output ->
@@ -135,4 +115,14 @@ def generateVersionName(buildNumber) {
         versionName = getGitDescribe()
     }
     return versionName
+}
+
+def signing_config_path = System.getenv("SIGNING_CONFIGURATION_FILE")
+if (null != signing_config_path && !signing_config_path.isEmpty()) {
+    def signing_config_file = file(signing_config_path)
+    if (signing_config_file.exists()) {
+        apply from: signing_config_file.absolutePath
+    } else {
+        apply from: file("../gradle/signing_config.gradle")
+    }
 }
