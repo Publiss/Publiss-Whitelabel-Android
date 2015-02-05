@@ -1,0 +1,3 @@
+[submodule "publiss-android-core"]
+	path = publiss-android-core
+	url = ssh://git@bitbucket.org/bytepoets/publiss-android-core.git
