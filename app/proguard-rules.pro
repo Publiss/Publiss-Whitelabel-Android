@@ -50,8 +50,8 @@
 -keep class com.publiss.core.ui.widget.MenuHeaderAspectRatioRelativeLayout
 
 #push classes
--keep class com.publiss.core.service.GcmBroadcastReceiver { *; }
--keep class com.publiss.core.service.GcmIntentService { *; }
+-keep class com.publiss.core.service.push.GcmBroadcastReceiver { *; }
+-keep class com.publiss.core.service.push.GcmIntentService { *; }
 -keep class com.publiss.core.service.NewIssueNotificationDismissedReceiver { *; }
 
 -keepnames class * implements java.io.Serializable

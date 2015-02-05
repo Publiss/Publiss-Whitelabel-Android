@@ -52,7 +52,7 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
             }
         });
 
-        LoginLogoutMenuItem loginLogoutMenuItem = new LoginLogoutMenuItem(this, getString(R.string.menu_item_title_login), getString(R.string.menu_item_title_logout), false, new MenuItemCallbacks() {
+        LoginLogoutMenuItem loginLogoutMenuItem = new CustomLoginLogoutMenuItem(this, getString(R.string.menu_item_title_login), getString(R.string.menu_item_title_logout), false, new MenuItemCallbacks() {
             @Override
             public void menuItemSelected(MenuItem menuItem) {
                 openLoginActivityOrLogout();
