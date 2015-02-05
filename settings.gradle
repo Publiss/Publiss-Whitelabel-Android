@@ -1,1 +1,2 @@
-include ':app', ':publiss-android-core'
+include ':publiss-android-core'
+include ':app'

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content">
@@ -14,8 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/publiss_menu_header_background_color"
-        android:padding="12dp"
-        android:dividerPadding="8dp"
+        android:padding="8dp"
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:layout_below="@id/line">
@@ -43,7 +41,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/publiss_menu_title"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:layout_margin="4dp"/>
 
         <TextView
             android:id="@+id/subTitleTextView"

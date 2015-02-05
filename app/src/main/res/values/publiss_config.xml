@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress CheckTagEmptyBody -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Publiss App Configuration -->
-    <color name="publiss_first_color">#03ACC1</color>
-    <color name="publiss_first_color_pressed">#CC03ACC1</color> <!-- Just take the first color and write 'CC' as alpha value before -->
-    <color name="publiss_secondary_color">#FFFFFF</color>
-    <color name="publiss_menu_header_background_color">#03ACC1</color> <!-- Normally same as publiss_first_color -->
-    <string name="app_secret" translatable="false">9fc4153103bd73cbe36c88738dc9e8bb</string>
-    <string name="app_token" translatable="false" tools:ignore="TypographyDashes">1d3ae766-0206-4eb7-90e1-f2e2917a4635</string>
-
-    <string name="app_name" translatable="false">Publiss</string>
-    <string name="short_app_name" translatable="false">Publiss W</string>
 
 
-    <!-- customized styling -->
-    <string name="kiosk_custom_actionbar_title_font" translatable="false"></string>
 
     <!-- app drawer header -->
     <string name="publiss_menu_title">Digital Publishing.</string>
@@ -23,12 +13,25 @@
 
     <!-- FEEDBACK -->
     <string name="feedback_to" translatable="false">office@publiss.com</string>
-    <string name="feedback_subject">Publiss Feedback</string>
-    <string name="feedback_description">Send Feedback to Publiss</string>
-    <string name="feedback_body">Your Feedback:</string>
 
-    <!--feature Push Support-->
-    <string name="gcm_sender_id" translatable="false">373329065124</string>
+<!--=======-->
+    <!-- Publiss App Configuration -->
+    <string name="app_name" translatable="false">Publiss WL</string>
+    <string name="short_app_name" translatable="false">Publiss WL</string>
+    <color name="publiss_first_color">#03ACC1</color>
+    <color name="publiss_first_color_pressed">#CC03ACC1</color> <!-- Just take the first color and write 'CC' as alpha value before -->
+    <color name="publiss_menu_header_background_color">#03ACC1</color> <!-- Normally same as publiss_first_color -->
+    <color name="publiss_secondary_color">#FFFFFF</color>
+
+    <!-- Publiss App Configuration -->
+    <string name="api_base_url" translatable="false">https://backend.publiss.com</string>
+    <string name="app_secret" translatable="false">9fc4153103bd73cbe36c88738dc9e8bb</string>
+    <string name="app_token" translatable="false" tools:ignore="TypographyDashes">1d3ae766-0206-4eb7-90e1-f2e2917a4635</string>
+
+    <!-- customized styling -->
+    <string name="kiosk_custom_actionbar_title_font" translatable="false">TextMeOne-Regular.ttf</string>
+    <dimen name="kiosk_action_bar_title_nav_padding">52dp</dimen>
+<!-->>>>>>> coreapp-develop-->
 
     <!--feature login: forgotten password uri-->
     <string name="forgottenPasswordUri" translatable="false"></string> <!--hidden, if empty-->
@@ -37,6 +40,6 @@
     <bool name="ga_global_tracker_active">false</bool> <!-- set ga_trackingId in res/xml/global_tracker.xml -->
     <bool name="ga_global_tracker_advertising_collection_active">false</bool> <!--Advertising Features with Remarketing, Demographics & Interests reports-->
 
-
-
+    <!--feature Push Support-->
+    <string name="gcm_sender_id" translatable="false">373329065124</string>
 </resources>
