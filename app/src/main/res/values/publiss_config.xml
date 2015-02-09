@@ -27,6 +27,7 @@
 
     <!-- customized styling -->
     <string name="kiosk_custom_actionbar_title_font" translatable="false">TextMeOne-Regular.ttf</string>
+    <string name="kiosk_custom_menu_title_font" translatable="false"></string>
     
     <!--feature login: forgotten password uri-->
     <string name="forgottenPasswordUri" translatable="false"></string> <!--hidden, if empty-->
