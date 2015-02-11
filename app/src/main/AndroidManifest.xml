@@ -45,7 +45,7 @@
             tools:ignore="UnusedAttribute">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".KioskActivity" />
+                android:value="com.publiss.whitelabel.KioskActivity" />
         </activity>
 
         <activity
@@ -56,7 +56,7 @@
             tools:ignore="UnusedAttribute">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".KioskActivity" />
+                android:value="com.publiss.whitelabel.KioskActivity" />
         </activity>
 
         <activity android:name="com.pspdfkit.ui.PSPDFKitActivity"
@@ -65,11 +65,10 @@
         <activity
             android:name="com.publiss.core.ui.LoginActivity"
             android:label="@string/title_activity_login"
-            android:theme="@style/PublissCoreLoginTheme"
             android:parentActivityName=".KioskActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".KioskActivity" />
+                android:value="com.publiss.whitelabel.KioskActivity" />
         </activity>
 
 
