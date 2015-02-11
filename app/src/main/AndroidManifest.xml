@@ -65,7 +65,6 @@
         <activity
             android:name="com.publiss.core.ui.LoginActivity"
             android:label="@string/title_activity_login"
-            android:theme="@style/PublissCoreLoginTheme"
             android:parentActivityName=".KioskActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
