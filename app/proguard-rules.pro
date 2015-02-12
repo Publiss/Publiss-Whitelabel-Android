@@ -35,6 +35,7 @@
 # content provider (serialization)
 -keepattributes *Annotation*,Signature
 -keep class sun.misc.Unsafe { *; }
+-keep class android.support.v7.** { *; }
 -keep class com.google.gson.examples.android.model.** { *; }
 -keep class com.publiss.core.ui.KioskActivity { *; }
 -keep class android.** { *; }
