@@ -10,25 +10,6 @@ android {
     compileSdkVersion 21
     buildToolsVersion "21.1.2"
 
-    signingConfigs {
-        publiss {
-            def keyStoreFile = System.getenv("ANDROID_PUBLISS_KEYSTORE_PATH")
-
-            if (keyStoreFile == null) {
-                keyStoreFile = "/dummy.pks"
-            }
-            // We can leave these in environment variables
-            storeFile file(keyStoreFile)
-            keyAlias System.getenv("ANDROID_PUBLISS_KEY_ALIAS")
-
-            // These two lines make gradle believe that the signingConfigs
-            // section is complete. Without them, tasks like installRelease
-            // will not be available!
-            storePassword System.getenv("ANDROID_PUBLISS_KEYSTORE_PASSWORD")
-            keyPassword System.getenv("ANDROID_PUBLISS_KEY_PASSWORD")
-        }
-    }
-
     configurations.all {
         resolutionStrategy {
             // don't cache changing modules at all
@@ -71,7 +52,6 @@ android {
             debuggable true
             zipAlignEnabled true
             minifyEnabled false
-            signingConfig signingConfigs.publiss
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             applicationVariants.all { variant ->
                 variant.outputs.each { output ->
