@@ -86,7 +86,7 @@ android {
 }
 
 dependencies {
-    nexusCompile ('com.publiss.core:publiss-android-core:+@aar')
+    nexusCompile ('com.publiss.core:publiss-android-core:dev-SNAPSHOT@aar')
     submoduleCompile project(':publiss-android-core')
     compile ('com.manuelpeinado.fadingactionbar:fadingactionbar:3.+@aar')
     compile 'com.pspdfkit:pspdfkit:1.0.0@aar'
