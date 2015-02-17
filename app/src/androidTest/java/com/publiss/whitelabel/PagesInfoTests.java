@@ -1,4 +1,4 @@
-package com.publiss.coreapp;
+package com.publiss.whitelabel;
 
 import android.content.ContentProviderOperation;
 import android.content.ContentValues;

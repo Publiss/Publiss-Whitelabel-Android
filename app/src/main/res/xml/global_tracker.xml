@@ -10,7 +10,7 @@
     <screenName name="com.publiss.core.ui.LoginActivity">
         Login
     </screenName>
-    <screenName name="com.publiss.coreapp.KioskActivity">
+    <screenName name="com.publiss.whitelabel.KioskActivity">
         Kiosk
     </screenName>
     <screenName name="com.publiss.core.ui.PreviewActivity">
