@@ -157,7 +157,13 @@ def generateVersionName(buildNumber) {
         // jenkins build
         versionName = getGitDescribe()
     }
-    return versionName
+    return versionName.concat(" (" + getDate() + ")")
+}
+
+def getDate() {
+    def date = new Date()
+    def formattedDate = date.format('yyyy-MM-dd')
+    return formattedDate
 }
 
 def signing_config_path = System.getenv("SIGNING_CONFIGURATION_FILE")
