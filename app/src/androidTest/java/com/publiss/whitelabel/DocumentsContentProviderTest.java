@@ -10,6 +10,7 @@ import android.test.ProviderTestCase2;
 import android.test.mock.MockContentResolver;
 import android.util.Log;
 
+import com.publiss.core.helper.StringArrayMapper;
 import com.publiss.core.provider.DocumentsContentProvider;
 import com.publiss.core.provider.DocumentsContract;
 
@@ -130,6 +131,60 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
         givenAnFeaturedDocument();
         whenRetrieveFeaturedDocumentsIsCalled(false);
         thenTheDocumntCountIsRight(6);
+    }
+
+    public void testRetieveDocumentWithoutPermissionShouldReturnDocumentWithOtherPermission() {
+        String[] documentAPermissions = new String[1];
+        documentAPermissions[0] = "lyoness";
+
+        String[] documentBPermissions = new String[1];
+        documentBPermissions[0] = "permissionwithlyonesssubstring";
+
+        Uri uriA = givenADocumentWithPermissions(documentAPermissions);
+        Uri uriB = givenADocumentWithPermissions(documentBPermissions);
+
+        whenRetrieveDocumentWithoutPermissionNameIsCalled(documentBPermissions[0]);
+        thenResultContainsDocumentWithPermission(documentAPermissions[0]);
+    }
+
+    private void thenResultContainsDocumentWithPermission(String permissionName) {
+        Assert.assertNotNull(result);
+        Assert.assertEquals(1, result.getCount());
+
+        result.moveToNext();
+        Log.i(TAG, "retrieved data: ");
+        for (int columnIndex = 0; columnIndex < result.getColumnCount(); columnIndex++) {
+            Log.i(TAG, result.getColumnName(columnIndex) + ": " + result.getString(columnIndex));
+        }
+
+        if (result.moveToFirst()) {
+            String permissionsString = result.getString(result.getColumnIndex(DocumentsContract.Documents.PERMISSIONS));
+            String[] permissions = null;
+            if (null != permissionsString && permissionsString.length() > 0) {
+                permissions = StringArrayMapper.stringToArray(permissionsString, StringArrayMapper.COMMA_SEPERATOR);
+            }
+
+            Assert.assertTrue(permissions != null);
+            Assert.assertEquals(permissions.length, 1);
+            Assert.assertEquals(permissionName, permissions[0]);
+        }
+    }
+
+    private void whenRetrieveDocumentWithoutPermissionNameIsCalled(String permissionName) {
+        String[] projection = DocumentsContract.Documents.PROJECTION_ALL;
+        String selection = null;
+        String[] selectionArgs = null;
+        String sortOrder = DocumentsContract.Documents.SORT_ORDER_DEFAULT;
+
+        Uri uri = Uri.withAppendedPath(DocumentsContract.Documents.getContentUri(), "without_permission/" + permissionName);
+        result = resolve.query(uri, projection, selection, selectionArgs, sortOrder);
+    }
+
+    private Uri givenADocumentWithPermissions(String[] permissions) {
+        givenDocumentContentValues();
+        String permissionsString = StringArrayMapper.arrayToString(permissions, StringArrayMapper.COMMA_SEPERATOR, true);
+        givenDocumentValues.put(DocumentsContract.Documents.PERMISSIONS, permissionsString);
+        return resolve.insert(DocumentsContract.Documents.getContentUri(), givenDocumentValues);
     }
 
     private void givenAnRFCFormattedDate() {
