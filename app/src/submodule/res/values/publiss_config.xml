@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Publiss App Configuration -->
+    <string name="app_name" translatable="false">Publiss Dev</string>
+    <string name="short_app_name" translatable="false">Publiss Dev</string>
+    <color name="publiss_first_color">#0dc132</color>
+    <color name="publiss_first_color_pressed">#CC0dc132</color> <!-- Just take the first color and write 'CC' as alpha value before -->
+    <color name="publiss_menu_header_background_color">#0dc132</color> <!-- Normally same as publiss_first_color -->
+    <color name="publiss_secondary_color">#FFFFFF</color>
+    
+    <string name="api_base_url" translatable="false">https://staging-backend.publiss.com</string>
+    <string name="app_secret" translatable="false">5d73465dc2f0c70340b8d07a67394fa1</string>
+    <string name="app_token" translatable="false" tools:ignore="TypographyDashes">288b57c9-d4ea-4777-9b33-4c96e7939584</string>
+</resources>

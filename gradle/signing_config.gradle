@@ -1,0 +1,26 @@
+android {
+    signingConfigs {
+        publiss {
+            def keyStoreFile = System.getenv("ANDROID_PUBLISS_KEYSTORE_PATH")
+
+            if (keyStoreFile == null) {
+                keyStoreFile = "/dummy.pks"
+            }
+            // We can leave these in environment variables
+            storeFile file(keyStoreFile)
+            keyAlias System.getenv("ANDROID_PUBLISS_KEY_ALIAS")
+
+            // These two lines make gradle believe that the signingConfigs
+            // section is complete. Without them, tasks like installRelease
+            // will not be available!
+            storePassword System.getenv("ANDROID_PUBLISS_KEYSTORE_PASSWORD")
+            keyPassword System.getenv("ANDROID_PUBLISS_KEY_PASSWORD")
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.publiss
+        }
+    }
+}

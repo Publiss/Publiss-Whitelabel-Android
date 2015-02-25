@@ -27,7 +27,6 @@
 #    public static int e(...);
 #}
 
-
 # eventbus
 -keepclassmembers class ** {
     public void onEvent*(**);
@@ -36,10 +35,12 @@
 # content provider (serialization)
 -keepattributes *Annotation*,Signature
 -keep class sun.misc.Unsafe { *; }
+-keep class android.support.v7.** { *; }
 -keep class com.google.gson.examples.android.model.** { *; }
 -keep class com.publiss.core.ui.KioskActivity { *; }
--keep class com.publiss.core.BuildConfig { *; }
 -keep class android.** { *; }
+-keep class com.publiss.core.ui.LoginActivity { *; }
+-keep class com.publiss.core.BuildConfig { *; }
 -keep class com.publiss.core.provider.PDFContentProvider
 -keep class com.publiss.core.provider.DocumentsContentProvider
 -keep class com.publiss.core.service.DocumentsSyncService
@@ -48,6 +49,11 @@
 -keep class com.publiss.core.ui.ReadIssueActivity
 -keep class com.pspdfkit.** { *; }
 -keep class com.publiss.core.ui.widget.MenuHeaderAspectRatioRelativeLayout
+
+#push classes
+-keep class com.publiss.core.service.push.GcmBroadcastReceiver { *; }
+-keep class com.publiss.core.service.push.GcmIntentService { *; }
+-keep class com.publiss.core.service.NewIssueNotificationDismissedReceiver { *; }
 
 -keepnames class * implements java.io.Serializable
 -keepclassmembers class * implements java.io.Serializable {
@@ -67,13 +73,8 @@
 # retrofit
 -keep class com.viselabs.aquariummanager.util.seneye.SeneyeService { *; }
 -keep class com.viselabs.aquariummanager.util.seneye.model.* { *; }
+-keep class retrofit.http.* { *; }
 -keep class com.google.**
-
--keep class retrofit.** { *; }
--keepclasseswithmembers class * {
-    @retrofit.http.* <methods>;
-}
-
 
 # only ignore warning, class keeping is handled by gradle
 -dontwarn com.nhaarman.listviewanimations.**

@@ -1,12 +1,17 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="BasePublissCoreTheme">
-        <!-- Customize your theme here. -->
-    </style>
-
-    <style name="ActionBarStyle.KioskTitleTextStyle" parent="@android:style/TextAppearance.Medium.Inverse">
-
+    <style name="ToolbarBarStyle" parent="Base.ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="toolbar_foreground_color">@color/white</item>
+        <item name="android:textColor">?attr/toolbar_foreground_color</item>
+        <item name="android:textColorPrimary">?attr/toolbar_foreground_color</item>
+        <item name="android:textColorSecondary">?attr/toolbar_foreground_color</item>
+        <item name="android:titleTextStyle">@style/ToolBarStyle.KioskTitleTextStyle</item>
+        <!--<item name="android:colorPressedHighlight">@android:color/transparent</item>-->
+        <!--<item name="android:colorActivatedHighlight">@android:color/transparent</item>-->
+        <!--<item name="colorControlActivated">@android:color/transparent</item>-->
+        <!--<item name="colorControlHighlight">@android:color/transparent</item>-->
+        <!--<item name="android:colorFocusedHighlight">@android:color/transparent</item>-->
     </style>
 
 </resources>

@@ -1,6 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.publiss.whitelabel">
+
+    <!-- Push Permissions -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.SEND"/>
+    <permission android:name="${applicationId}.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+    <uses-permission android:name="${applicationId}.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
 
     <application
         tools:ignore="UnusedAttribute"
@@ -11,6 +20,8 @@
         android:theme="@style/PublissCoreTheme"
         android:supportsRtl="false">
 
+        <meta-data android:name="new_issue_notification_action" android:value="${applicationId}.LaunchKiosk"/>
+
         <activity
             android:name=".KioskActivity"
             android:label="@string/short_app_name"
@@ -18,8 +29,11 @@
             android:theme="@style/PublissCoreKioskTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="${applicationId}.LaunchKiosk"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
         <activity
@@ -31,7 +45,7 @@
             tools:ignore="UnusedAttribute">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".KioskActivity" />
+                android:value="com.publiss.whitelabel.KioskActivity" />
         </activity>
 
         <activity
@@ -42,11 +56,20 @@
             tools:ignore="UnusedAttribute">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".KioskActivity" />
+                android:value="com.publiss.whitelabel.KioskActivity" />
         </activity>
 
         <activity android:name="com.pspdfkit.ui.PSPDFKitActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>/>
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+
+        <activity
+            android:name="com.publiss.core.ui.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:parentActivityName=".KioskActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.publiss.whitelabel.KioskActivity" />
+        </activity>
 
 
 
@@ -91,6 +114,18 @@
                 android:name="android.content.SyncAdapter"
                 android:resource="@xml/sync_adapter" />
         </service>
+
+        <receiver
+            android:name="com.publiss.core.service.push.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.OPEN" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>
