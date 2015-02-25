@@ -31,7 +31,7 @@ android {
     defaultConfig {
         applicationId PACKAGE_NAME
         minSdkVersion 15
-        targetSdkVersion 20
+        targetSdkVersion 21
         versionCode retrieveVersionCode()
         println "VersionCode: " + versionCode
         versionName generateVersionName(versionCode)
@@ -86,7 +86,7 @@ android {
 }
 
 dependencies {
-    nexusCompile ('com.publiss.core:publiss-android-core:dev-SNAPSHOT@aar')
+    nexusCompile ('com.publiss.core:publiss-android-core:1.2.+@aar')
     submoduleCompile project(':publiss-android-core')
     compile ('com.manuelpeinado.fadingactionbar:fadingactionbar:3.+@aar')
     compile 'com.pspdfkit:pspdfkit:1.0.0@aar'

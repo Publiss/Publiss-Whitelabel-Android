@@ -21,9 +21,9 @@
     <color name="publiss_secondary_color">#FFFFFF</color>
 
     <!-- Publiss App Configuration -->
-    <string name="api_base_url" translatable="false">https://backend.publiss.com</string>
-    <string name="app_secret" translatable="false">9fc4153103bd73cbe36c88738dc9e8bb</string>
-    <string name="app_token" translatable="false" tools:ignore="TypographyDashes">1d3ae766-0206-4eb7-90e1-f2e2917a4635</string>
+    <string name="api_base_url" translatable="false">https://staging-backend.publiss.com</string>
+    <string name="app_secret" translatable="false">5d73465dc2f0c70340b8d07a67394fa1</string>
+    <string name="app_token" translatable="false" tools:ignore="TypographyDashes">288b57c9-d4ea-4777-9b33-4c96e7939584</string>
 
     <!-- customized styling -->
     <string name="kiosk_custom_actionbar_title_font" translatable="false">TextMeOne-Regular.ttf</string>
@@ -33,8 +33,11 @@
     <string name="forgottenPasswordUri" translatable="false"></string> <!--hidden, if empty-->
 
     <!--feature Google Analytics-->
-    <bool name="ga_global_tracker_active">false</bool> <!-- set ga_trackingId in res/xml/global_tracker.xml -->
+    <bool name="ga_global_tracker_active">false</bool>
     <bool name="ga_global_tracker_advertising_collection_active">false</bool> <!--Advertising Features with Remarketing, Demographics & Interests reports-->
+
+    <!--  The following value should be replaced with correct property id. -->
+    <string name="ga_trackingId">UA-XXXXXXX-Y</string>
 
     <!--feature Push Support-->
     <string name="gcm_sender_id" translatable="false">373329065124</string>
