@@ -20,6 +20,8 @@ android {
     productFlavors {
         submodule {
         }
+        nexussnapshot {
+        }
         nexus {
         }
     }
@@ -43,11 +45,6 @@ android {
             debuggable true
             minifyEnabled false
         }
-        debugwithproguard {
-            debuggable true
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
         release {
             debuggable true
             zipAlignEnabled true
@@ -59,23 +56,15 @@ android {
                     if (outputFile != null && outputFile.name.endsWith('.apk')) {
 //                        def manifestParser = new com.android.builder.core.DefaultManifestParser()
 //                        def versionName = manifestParser.getVersionName(android.sourceSets.main.manifest.srcFile);
-                        def fileName = outputFile.name.replace("app-", "app-" + System.getenv("ANDROID_APK_TYPE") + "-")
+                        def apkType = System.getenv("ANDROID_APK_TYPE")
+                        if (apkType.equals("null")) {
+                            apkType = "local"
+                        }
+                        def fileName = outputFile.name.replace("app-", "app-" + PACKAGE_NAME.replace(".", "-") + "-" + apkType + "-")
                         output.outputFile = new File(outputFile.parent, fileName)
                     }
                 }
             }
-        }
-    }
-
-    android.applicationVariants.all{ variant ->
-        variant.mergeResources.doLast{
-            ext.env = System.getenv()
-            File valuesFile = file("${buildDir}/intermediates/res/${variant.dirName}/values/values.xml")
-            println("Replacing package name placeholder in " + valuesFile + " with " + PACKAGE_NAME)
-            String content = valuesFile.getText('UTF-8')
-
-            content = content.replaceAll(/PACKAGE_NAME_INSERTED_BY_GRADLE/, PACKAGE_NAME)
-            valuesFile.write(content, 'UTF-8')
         }
     }
 
@@ -85,47 +74,58 @@ android {
     }
 }
 
-dependencies {
-    nexusCompile ('com.publiss.core:publiss-android-core:1.2.+@aar')
-    submoduleCompile project(':publiss-android-core')
-    compile ('com.manuelpeinado.fadingactionbar:fadingactionbar:3.+@aar')
-    compile 'com.pspdfkit:pspdfkit:1.0.0@aar'
-    compile 'com.android.support:support-v4:21.0.3'
-    compile "com.android.support:appcompat-v7:21.0.3"
-    compile 'com.android.support:support-v13:20.0.0'
-    compile 'com.squareup.okhttp:okhttp:2.0.0'
-    compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
-    compile 'com.squareup.picasso:picasso:2.3.4'
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.nhaarman.listviewanimations:lib-core:3.1.0@aar'
-    compile 'com.nhaarman.listviewanimations:lib-manipulation:3.1.0@aar'
-    compile 'com.nhaarman.listviewanimations:lib-core-slh:3.1.0@aar'
-    compile 'com.squareup.retrofit:retrofit:1.7.1'
-    compile 'commons-codec:commons-codec:1.9'
-    compile 'de.greenrobot:eventbus:2.2.1'
-    compile 'com.path:android-priority-jobqueue:1.1.2'
-    compile 'com.github.navasmdc:MaterialDesign:1.+@aar'
-    compile 'it.sephiroth.android.library.horizontallistview:hlistview:1.2.2'
-    compile 'com.github.castorflex.smoothprogressbar:library:1.0.0'
-    compile 'com.netflix.rxjava:rxjava-core:0.20.5'
-    compile 'com.netflix.rxjava:rxjava-android:0.20.5'
-    compile 'com.google.guava:guava:18.0'
-    compile ('com.pnikosis:materialish-progress:1.1') {
-        exclude group: "com.android.support"
+android.applicationVariants.all{ variant ->
+    variant.mergeResources.doLast{
+        ext.env = System.getenv()
+        File valuesFile = file("${buildDir}/intermediates/res/${variant.dirName}/values/values.xml")
+        println("Replacing package name placeholder in " + valuesFile + " with " + PACKAGE_NAME)
+        String content = valuesFile.getText('UTF-8')
+
+        content = content.replaceAll(/PACKAGE_NAME_INSERTED_BY_GRADLE/, PACKAGE_NAME)
+        valuesFile.write(content, 'UTF-8')
     }
+}
+
+dependencies {
+    nexusCompile 'com.publiss.core:publiss-android-core:1.2.+@aar'
+    nexussnapshotCompile 'com.publiss.core:publiss-android-core:dev-SNAPSHOT@aar'
+    submoduleCompile project(':publiss-android-core')
+    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.android.support:support-v4:21.0.3'
     //Downgraded from play-services 6.5.87 as it has a critical bug in Google Analytics which causes the app to hang when using a tracker.xml file
     // References:
     // - https://productforums.google.com/forum/#!category-topic/analytics/report-bugs/RAgDNYFk6jo
     // - http://stackoverflow.com/questions/27533679/google-analytics-blocks-android-app
     // Should be fixed with the next play services release - we should update then and use the -base version as the current method count is close to the 65k limit
     compile 'com.google.android.gms:play-services:6.1.71'
+    compile 'com.google.guava:guava:18.0'
+    compile 'com.github.castorflex.smoothprogressbar:library:1.0.0'
     compile 'com.github.johnpersano:supertoasts:1.3.4@aar'
-    compile 'me.grantland:autofittextview:0.2.+'
+    compile 'com.manuelpeinado.fadingactionbar:fadingactionbar:3.+@aar'
+    compile 'com.netflix.rxjava:rxjava-core:0.20.5'
+    compile 'com.netflix.rxjava:rxjava-android:0.20.5'
+    compile 'com.nhaarman.listviewanimations:lib-core:3.1.0@aar'
+    compile 'com.nhaarman.listviewanimations:lib-manipulation:3.1.0@aar'
+    compile 'com.nhaarman.listviewanimations:lib-core-slh:3.1.0@aar'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.path:android-priority-jobqueue:1.1.2'
+    compile ('com.pnikosis:materialish-progress:1.1') {
+        exclude group: "com.android.support"
+    }
+    compile 'com.pspdfkit:pspdfkit:1.0.0@aar'
     compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+    compile 'com.squareup.okhttp:okhttp:2.0.0'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
+    compile 'com.squareup.picasso:picasso:2.3.4'
+    compile 'com.squareup.retrofit:retrofit:1.7.1'
+    compile 'commons-codec:commons-codec:1.9'
+    compile 'de.greenrobot:eventbus:2.2.1'
+    compile 'it.sephiroth.android.library.horizontallistview:hlistview:1.2.2'
+    compile 'me.grantland:autofittextview:0.2.+'
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.1'
+    gradleVersion = '2.2'
 }
 
 
