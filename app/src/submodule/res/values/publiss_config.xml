@@ -5,6 +5,7 @@
     <string name="short_app_name" translatable="false">Publiss Dev</string>
     <color name="publiss_first_color">#0dc132</color>
     <color name="publiss_first_color_pressed">#CC0dc132</color> <!-- Just take the first color and write 'CC' as alpha value before -->
+    <color name="publiss_first_color_dark">#0B9927</color>
     <color name="publiss_menu_header_background_color">#0dc132</color> <!-- Normally same as publiss_first_color -->
     <color name="publiss_secondary_color">#FFFFFF</color>
     
