@@ -17,6 +17,7 @@
     <string name="short_app_name" translatable="false">Publiss WL</string>
     <color name="publiss_first_color">#03ACC1</color>
     <color name="publiss_first_color_pressed">#CC03ACC1</color> <!-- Just take the first color and write 'CC' as alpha value before -->
+    <color name="publiss_first_color_dark">#028EA1</color> <!-- Darker version of the publiss first color, this colors the status bar on top of the app. http://colllor.com/ can be used to get a darker tint -->
     <color name="publiss_menu_header_background_color">#03ACC1</color> <!-- Normally same as publiss_first_color -->
     <color name="publiss_secondary_color">#FFFFFF</color>
 
@@ -33,12 +34,9 @@
     <string name="forgottenPasswordUri" translatable="false"></string> <!--hidden, if empty-->
 
     <!--feature Google Analytics-->
-    <bool name="ga_global_tracker_active">false</bool>
+    <bool name="ga_global_tracker_active">false</bool> <!-- set ga_trackingId in res/xml/global_tracker.xml to your property id (UA-XXXXXXX-Y)-->
     <bool name="ga_global_tracker_advertising_collection_active">false</bool> <!--Advertising Features with Remarketing, Demographics & Interests reports-->
 
-    <!--  The following value should be replaced with correct property id. -->
-    <string name="ga_trackingId">UA-XXXXXXX-Y</string>
-
     <!--feature Push Support-->
-    <string name="gcm_sender_id" translatable="false">373329065124</string>
+    <string name="gcm_sender_id" translatable="false"></string>
 </resources>
