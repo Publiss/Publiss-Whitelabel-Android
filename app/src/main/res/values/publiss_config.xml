@@ -20,6 +20,7 @@
     <color name="publiss_first_color_dark">#028EA1</color> <!-- Darker version of the publiss first color, this colors the status bar on top of the app. http://colllor.com/ can be used to get a darker tint -->
     <color name="publiss_menu_header_background_color">#03ACC1</color> <!-- Normally same as publiss_first_color -->
     <color name="publiss_secondary_color">#FFFFFF</color>
+    <color name="publiss_toolbar_foreground">#FFFFFF</color>
 
     <!-- Publiss App Configuration -->
     <string name="api_base_url" translatable="false">https://staging-backend.publiss.com</string>
