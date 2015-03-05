@@ -70,6 +70,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.publiss.whitelabel.KioskActivity" />
         </activity>
+        
+        <activity
+            android:name="com.publiss.core.ui.WebViewActivity"
+            android:parentActivityName=".KioskActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.publiss.whitelabel.KioskActivity" />
+        </activity>
 
 
 

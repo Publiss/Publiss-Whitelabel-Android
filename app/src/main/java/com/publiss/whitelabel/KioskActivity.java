@@ -1,5 +1,6 @@
 package com.publiss.whitelabel;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;
 
@@ -27,7 +28,7 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
 
         MenuItem homepageMenuItem = new MenuItem(getString(R.string.menu_item_title_homepage), false, new MenuItemCallbacks() {
             @Override
-            public void menuItemSelected(MenuItem menuItem) {
+            public void menuItemSelected(MenuItem menuItem, Activity activity) {
                 String url = getString(com.publiss.core.R.string.publiss_hompage_link);
                 startOpenInBrowserActivity(url);
             }
@@ -35,7 +36,7 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
 
         MenuItem aboutMenuItem = new MenuItem(getString(R.string.menu_item_title_about), false, new MenuItemCallbacks() {
             @Override
-            public void menuItemSelected(MenuItem menuItem) {
+            public void menuItemSelected(MenuItem menuItem, Activity activity) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(self);
                 builder.setTitle(getString(com.publiss.core.R.string.app_name));
                 builder.setMessage("Publiss " + BuildConfig.VERSION_NAME);
@@ -47,7 +48,7 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
 
         MenuItem contactMenuItem = new MenuItem(getString(R.string.menu_item_title_contact), false, new MenuItemCallbacks() {
             @Override
-            public void menuItemSelected(MenuItem menuItem) {
+            public void menuItemSelected(MenuItem menuItem, Activity activity) {
                 String mailBody = getString(com.publiss.core.R.string.feedback_body);
                 String receiver = getString(com.publiss.core.R.string.feedback_to);
                 String subject = getString(com.publiss.core.R.string.feedback_subject);
@@ -57,7 +58,7 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
 
         LoginLogoutMenuItem loginLogoutMenuItem = new CustomLoginLogoutMenuItem(this, getString(R.string.menu_item_title_login), getString(R.string.menu_item_title_logout), false, new MenuItemCallbacks() {
             @Override
-            public void menuItemSelected(MenuItem menuItem) {
+            public void menuItemSelected(MenuItem menuItem, Activity activity) {
                 openLoginActivityOrLogout();
             }
         });
