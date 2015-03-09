@@ -62,7 +62,7 @@
 
         <activity android:name="com.pspdfkit.ui.PSPDFKitAppCompatActivity"
                 android:windowSoftInputMode="adjustNothing"
-                android:theme="@style/AppTheme"
+                android:theme="@style/PublissPSPDFKitTheme"
                 android:parentActivityName="com.publiss.core.ui.PreviewActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
