@@ -31,6 +31,9 @@
     <string name="app_secret" translatable="false">5d73465dc2f0c70340b8d07a67394fa1</string>
     <string name="app_token" translatable="false" tools:ignore="TypographyDashes">288b57c9-d4ea-4777-9b33-4c96e7939584</string>
 
+    <!-- PSPDFKIT License -->
+    <string name="pspdfkit_license" translatable="false">qPQNzeDOIhHrpIrMBlGnAHGZYsi0TveL9pK1BIBRsMkeiI2j73I_4hqcAUJI_w2nqUDqUmI1YH8_UmdIQ1T0RirhQquAZsW5r7tMwq0grzlDMuQvMuzP9FToqY-K2ddxrtJdLoYpGi52_miikTnj4VTId3Sd2xQmrtvj0Tfr-DXkW7GFYxXkAlEve3UrGZDEgVUvpmEiHs_BGhX__NwY1A-gwImDIJ4QQDAc29bmOfxa5ewsS2Br1w6zPJZrEdX_aGmE0v8sxNBsHK8JgOMw3kRpQawLVek4UzZ_kseSiSvrjT3IS5GyU_6p0WRHdl7aTw_phVvzObVw9Sq5oRa7yUreU7h13mOIfcmAgbXL0FRuPPybpYe-P5nKi7B01VlcnWTL363iiMWdB3FZIS_jFgIvBxHjkYZxVPuR1b0eoOQdhFBGjWExlnX14uMNcRusZbhmYUiEXPMGy_F4Jll3SsyjGKhgiL5239j4XlD4pCBCmo7rxexkVKZgsVAC4M0h</string>
+
     <!-- customized styling -->
     <string name="kiosk_custom_actionbar_title_font" translatable="false">TextMeOne-Regular.ttf</string>
     <string name="kiosk_custom_menu_title_font" translatable="false"></string>

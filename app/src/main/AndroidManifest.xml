@@ -59,8 +59,14 @@
                 android:value="com.publiss.whitelabel.KioskActivity" />
         </activity>
 
-        <activity android:name="com.pspdfkit.ui.PSPDFKitActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.pspdfkit.ui.PSPDFKitAppCompatActivity"
+                android:windowSoftInputMode="adjustNothing"
+                android:theme="@style/AppTheme"
+                android:parentActivityName="com.publiss.core.ui.PreviewActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.publiss.core.ui.PreviewActivity" />
+        </activity>
 
         <activity
             android:name="com.publiss.core.ui.LoginActivity"
