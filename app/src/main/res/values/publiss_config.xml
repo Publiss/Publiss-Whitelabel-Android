@@ -11,8 +11,10 @@
     <!--feature webview-->
     <string name="web_view_domain_limit_base_url" translatable="false">www.publiss.com</string>
 
-    <!-- FEEDBACK -->
-    <string name="feedback_to" translatable="false">office@publiss.com</string>
+    <!--FEEDBACK-->
+    <string name="feedback_subject">Publiss WL Feedback</string>
+    <string name="feedback_description">Send Feedback about Publiss WL</string>
+    <string name="feedback_body">Your Feedback:</string>
 
     <!-- Publiss App Configuration -->
     <string name="app_name" translatable="false">Publiss WL</string>
