@@ -1,11 +1,4 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/publiss_first_color</item>
-        <!-- This will be used to tint UI elements -->
-        <item name="colorAccent">@color/publiss_first_color_pressed</item>
-        <item name="colorPrimaryDark">@color/publiss_first_color_dark</item>
-    </style>
 
 </resources>
