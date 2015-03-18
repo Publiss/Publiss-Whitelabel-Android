@@ -25,8 +25,7 @@
         <activity
             android:name=".KioskActivity"
             android:label="@string/short_app_name"
-            android:launchMode="singleTop"
-            android:theme="@style/PublissCoreKioskTheme" >
+            android:launchMode="singleTop" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -52,19 +51,32 @@
             android:name="com.publiss.core.ui.PreviewActivity"
             android:label="@string/title_activity_preview"
             android:parentActivityName=".KioskActivity"
-            android:theme="@style/PublissCorePreviewTheme"
+            android:launchMode="singleTop"
             tools:ignore="UnusedAttribute">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.publiss.whitelabel.KioskActivity" />
         </activity>
 
-        <activity android:name="com.pspdfkit.ui.PSPDFKitActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.publiss.core.ui.pspdfkit.CustomPSPDFKitAppCompatActivity"
+                android:windowSoftInputMode="adjustNothing"
+                android:parentActivityName="com.publiss.core.ui.PreviewActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.publiss.core.ui.PreviewActivity" />
+        </activity>
 
         <activity
             android:name="com.publiss.core.ui.LoginActivity"
             android:label="@string/title_activity_login"
+            android:parentActivityName=".KioskActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.publiss.whitelabel.KioskActivity" />
+        </activity>
+        
+        <activity
+            android:name="com.publiss.core.ui.WebViewActivity"
             android:parentActivityName=".KioskActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

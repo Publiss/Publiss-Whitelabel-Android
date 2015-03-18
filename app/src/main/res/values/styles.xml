@@ -1,18 +1,4 @@
 <resources>
 
-    <style name="ToolbarBarStyle" parent="Theme.AppCompat"> <!-- Base.ThemeOverlay.AppCompat.ActionBar -->
-        <item name="colorAccent">@android:color/transparent</item>
-        <item name="colorControlActivated">@android:color/transparent</item>
-        <item name="colorControlHighlight">@android:color/transparent</item>
-        <item name="android:background">@color/publiss_menu_header_background_color</item>
-        <item name="toolbar_foreground_color">@color/white</item>
-        <!--<item name="android:titleTextStyle">@style/ActionBarStyle.KioskTitleTextStyle</item>-->
-        <item name="android:textColor">?attr/toolbar_foreground_color</item>
-        <item name="android:textColorPrimary">?attr/toolbar_foreground_color</item>
-        <item name="android:textColorSecondary">?attr/toolbar_foreground_color</item>
-        <item name="actionMenuTextColor">?attr/toolbar_foreground_color</item>
-        <item name="android:actionBarDivider">?attr/toolbar_foreground_color</item>
-
-    </style>
 
 </resources>
