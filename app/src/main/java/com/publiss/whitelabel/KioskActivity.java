@@ -39,7 +39,7 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
             public void menuItemSelected(MenuItem menuItem, Activity activity) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(self);
                 builder.setTitle(getString(com.publiss.core.R.string.app_name));
-                builder.setMessage("Publiss " + BuildConfig.VERSION_NAME);
+                builder.setMessage("Publiss " + BuildConfig.VERSION_NAME + "\n" + "PublissCore " + com.publiss.core.BuildConfig.VERSION_NAME);
                 builder.setPositiveButton("OK", null);
                 AlertDialog dialog = builder.create();
                 dialog.show();
