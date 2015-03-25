@@ -34,7 +34,7 @@ android {
         applicationId PACKAGE_NAME
         minSdkVersion 15
         targetSdkVersion 21
-        versionCode retrieveVersionCode()
+        versionCode 115//retrieveVersionCode()
         println "VersionCode: " + versionCode
         versionName generateVersionName(versionCode)
         println "VersionName: " + versionName
@@ -46,7 +46,7 @@ android {
             minifyEnabled false
         }
         release {
-            debuggable false
+            debuggable true
             zipAlignEnabled true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -171,6 +171,7 @@ def getDate() {
 }
 
 def signing_config_path = System.getenv("SIGNING_CONFIGURATION_FILE")
+logger.quiet("Signing config path: " + signing_config_path)
 if (null != signing_config_path && !signing_config_path.isEmpty()) {
     def signing_config_file = file(signing_config_path)
     if (signing_config_file.exists()) {

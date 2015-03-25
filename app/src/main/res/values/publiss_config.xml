@@ -47,4 +47,7 @@
 
     <!--feature Push Support-->
     <string name="gcm_sender_id" translatable="false"></string>
+
+    <!--feature InAppPurchase-->
+    <string name="iab_public_key" translatable="false"></string>
 </resources>
