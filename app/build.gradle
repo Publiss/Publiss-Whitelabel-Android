@@ -34,7 +34,7 @@ android {
         applicationId PACKAGE_NAME
         minSdkVersion 15
         targetSdkVersion 21
-        versionCode retrieveVersionCode()
+        versionCode 115//retrieveVersionCode()
         println "VersionCode: " + versionCode
         versionName generateVersionName(versionCode)
         println "VersionName: " + versionName
