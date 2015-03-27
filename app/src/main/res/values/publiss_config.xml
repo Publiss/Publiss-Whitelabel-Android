@@ -28,8 +28,8 @@
 
     <!-- Publiss App Configuration -->
     <string name="api_base_url" translatable="false">https://staging-backend.publiss.com</string>
-    <string name="app_secret" translatable="false">5d73465dc2f0c70340b8d07a67394fa1</string>
-    <string name="app_token" translatable="false" tools:ignore="TypographyDashes">288b57c9-d4ea-4777-9b33-4c96e7939584</string>
+    <string name="app_secret" translatable="false">7d8d253176c26f694b48962e5ddefddb</string>
+    <string name="app_token" translatable="false" tools:ignore="TypographyDashes">ee07a9de-a1c5-435e-8102-e0e29cde05ca</string>
 
     <!-- PSPDFKIT License -->
     <string name="pspdfkit_license" translatable="false">qPQNzeDOIhHrpIrMBlGnAHGZYsi0TveL9pK1BIBRsMkeiI2j73I_4hqcAUJI_w2nqUDqUmI1YH8_UmdIQ1T0RirhQquAZsW5r7tMwq0grzlDMuQvMuzP9FToqY-K2ddxrtJdLoYpGi52_miikTnj4VTId3Sd2xQmrtvj0Tfr-DXkW7GFYxXkAlEve3UrGZDEgVUvpmEiHs_BGhX__NwY1A-gwImDIJ4QQDAc29bmOfxa5ewsS2Br1w6zPJZrEdX_aGmE0v8sxNBsHK8JgOMw3kRpQawLVek4UzZ_kseSiSvrjT3IS5GyU_6p0WRHdl7aTw_phVvzObVw9Sq5oRa7yUreU7h13mOIfcmAgbXL0FRuPPybpYe-P5nKi7B01VlcnWTL363iiMWdB3FZIS_jFgIvBxHjkYZxVPuR1b0eoOQdhFBGjWExlnX14uMNcRusZbhmYUiEXPMGy_F4Jll3SsyjGKhgiL5239j4XlD4pCBCmo7rxexkVKZgsVAC4M0h</string>
