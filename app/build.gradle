@@ -34,7 +34,7 @@ android {
         applicationId PACKAGE_NAME
         minSdkVersion 15
         targetSdkVersion 21
-        versionCode 115//retrieveVersionCode()
+        versionCode retrieveVersionCode()
         println "VersionCode: " + versionCode
         versionName generateVersionName(versionCode)
         println "VersionName: " + versionName
@@ -46,7 +46,7 @@ android {
             minifyEnabled false
         }
         release {
-            debuggable true
+            debuggable false
             zipAlignEnabled true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
