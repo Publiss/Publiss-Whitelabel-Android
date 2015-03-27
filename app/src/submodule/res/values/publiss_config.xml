@@ -10,6 +10,9 @@
     <color name="publiss_secondary_color">#FFFFFF</color>
     
     <string name="api_base_url" translatable="false">https://staging-backend.publiss.com</string>
-    <string name="app_secret" translatable="false">5d73465dc2f0c70340b8d07a67394fa1</string>
-    <string name="app_token" translatable="false" tools:ignore="TypographyDashes">288b57c9-d4ea-4777-9b33-4c96e7939584</string>
+    <string name="app_secret" translatable="false">7d8d253176c26f694b48962e5ddefddb</string>
+    <string name="app_token" translatable="false" tools:ignore="TypographyDashes">ee07a9de-a1c5-435e-8102-e0e29cde05ca</string>
+
+    <!--feature InAppPurchase-->
+    <string name="iab_public_key" translatable="false">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwnYW+w0UhNTpJNwEYI9j2yaOtFytNFFDjes9Ia0feNZZK3QMganJu4dJQJtoUk1M92/jl4EZoq/6sjBRy6aS7/mdAFCjiRwCLoxBnPQbUJULdMqXmcpfv6JHuw1rkL8a7c6D1NfArf/QzLxQk1qitCJQeAxC8KeLTgjK2+XNOFgsgtzWE442qm4+kujRQgxVKdr5je73jGcPnrq/FW71rSlU3j2E7ibb5Mp3oD/cPgvAsA71Ct0Leutc3IK0WtLiLFVbqvihbcCPbnbPFkfBllxy26wVUv9MQI7QpZ5PLeSXdpia75Mz1oMUinn3XW/vZk5JGrrmzHqmznYeI+JwkQIDAQAB</string>
 </resources>
