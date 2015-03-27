@@ -48,6 +48,7 @@
     <!--feature Push Support-->
     <string name="gcm_sender_id" translatable="false"></string>
 
+
     <!--feature InAppPurchase-->
-    <string name="iab_public_key" translatable="false"></string>
+    <string name="iab_public_key" translatable="false">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwnYW+w0UhNTpJNwEYI9j2yaOtFytNFFDjes9Ia0feNZZK3QMganJu4dJQJtoUk1M92/jl4EZoq/6sjBRy6aS7/mdAFCjiRwCLoxBnPQbUJULdMqXmcpfv6JHuw1rkL8a7c6D1NfArf/QzLxQk1qitCJQeAxC8KeLTgjK2+XNOFgsgtzWE442qm4+kujRQgxVKdr5je73jGcPnrq/FW71rSlU3j2E7ibb5Mp3oD/cPgvAsA71Ct0Leutc3IK0WtLiLFVbqvihbcCPbnbPFkfBllxy26wVUv9MQI7QpZ5PLeSXdpia75Mz1oMUinn3XW/vZk5JGrrmzHqmznYeI+JwkQIDAQAB</string>
 </resources>
