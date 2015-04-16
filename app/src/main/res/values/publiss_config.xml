@@ -17,7 +17,7 @@
     <string name="feedback_body">Your Feedback:</string>
 
     <!-- Publiss App Configuration -->
-    <string name="app_name" translatable="false">Publiss WL</string>
+    <string name="app_name" translatable="false">Publiss WL Full</string>
     <string name="short_app_name" translatable="false">Publiss WL</string>
     <color name="publiss_first_color">#03ACC1</color>
     <color name="publiss_first_color_pressed">#CC03ACC1</color> <!-- Just take the first color and write 'CC' as alpha value before -->
@@ -51,4 +51,13 @@
 
     <!--feature InAppPurchase-->
     <string name="iab_public_key" translatable="false">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwnYW+w0UhNTpJNwEYI9j2yaOtFytNFFDjes9Ia0feNZZK3QMganJu4dJQJtoUk1M92/jl4EZoq/6sjBRy6aS7/mdAFCjiRwCLoxBnPQbUJULdMqXmcpfv6JHuw1rkL8a7c6D1NfArf/QzLxQk1qitCJQeAxC8KeLTgjK2+XNOFgsgtzWE442qm4+kujRQgxVKdr5je73jGcPnrq/FW71rSlU3j2E7ibb5Mp3oD/cPgvAsA71Ct0Leutc3IK0WtLiLFVbqvihbcCPbnbPFkfBllxy26wVUv9MQI7QpZ5PLeSXdpia75Mz1oMUinn3XW/vZk5JGrrmzHqmznYeI+JwkQIDAQAB</string>
+
+    <!-- feature Rss Feed-->
+    <!--<string name="rss_feed_url">http://rss.cnn.com/rss/edition.rss</string>-->
+    <string name="rss_feed_url">http://feeds.macrumors.com/MacRumors-All?format=xml</string>
+    <string name="title_entry_detail">Detail</string>
+    <string name="title_activity_rss_feed">News</string>
+    <color name="rss_item_background">#1A03ACC1</color>
+
+
 </resources>

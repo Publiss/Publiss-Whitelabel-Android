@@ -2,8 +2,10 @@ package com.publiss.whitelabel;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
+import com.bytepoets.bporssreader.EntryListActivity;
 import com.publiss.core.PublissConfig;
 import com.publiss.core.ui.menu.LoginLogoutMenuItem;
 import com.publiss.core.ui.menu.MenuItem;
@@ -63,11 +65,23 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
             }
         });
 
+        MenuItem rssMenuItem = new MenuItem("News", false, new MenuItemCallbacks() {
+            @Override
+            public void menuItemSelected(MenuItem menuItem, Activity activity) {
+                Intent rssIntent = new Intent(KioskActivity.this, RSSActivity.class);
+                startActivity(rssIntent);
+            }
+        });
+
         MenuItemManager.getInstance().clearMenuItems();
         MenuItemManager.getInstance().addMenuItem(homepageMenuItem);
         MenuItemManager.getInstance().addMenuItem(aboutMenuItem);
         MenuItemManager.getInstance().addMenuItem(contactMenuItem);
         MenuItemManager.getInstance().addMenuItem(loginLogoutMenuItem);
+
+        if(!getResources().getString(R.string.rss_feed_url).isEmpty()) {
+            MenuItemManager.getInstance().addMenuItem(rssMenuItem);
+        }
     }
 
 }
