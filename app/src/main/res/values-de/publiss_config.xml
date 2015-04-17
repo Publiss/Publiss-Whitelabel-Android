@@ -10,6 +10,6 @@
     <string name="feedback_body">Dein Feedback:</string>
 
     <string name="title_entry_detail">Detail</string>
-    <string name="title_activity_rss_feed">News</string>
+    <string name="title_activity_rss_feed">Neuigkeiten</string>
 
 </resources>

@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.bytepoets.bporssreader.EntryListActivity;
 import com.publiss.core.PublissConfig;
 import com.publiss.core.ui.menu.LoginLogoutMenuItem;
 import com.publiss.core.ui.menu.MenuItem;
@@ -65,7 +64,7 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
             }
         });
 
-        MenuItem rssMenuItem = new MenuItem("News", false, new MenuItemCallbacks() {
+        MenuItem rssMenuItem = new MenuItem(getString(R.string.menu_item_title_news), false, new MenuItemCallbacks() {
             @Override
             public void menuItemSelected(MenuItem menuItem, Activity activity) {
                 Intent rssIntent = new Intent(KioskActivity.this, RSSActivity.class);
