@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="menu_item_title_about">About Publiss</string>
+    <string name="menu_item_title_contact">Contact</string>
+    <string name="menu_item_title_homepage">Visit Website</string>
+    <string name="menu_item_title_login">Login</string>
+    <string name="menu_item_title_logout">Logout</string>
+    <string name="menu_item_title_news">News</string>
 
 </resources>

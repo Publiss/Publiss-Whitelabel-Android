@@ -2,6 +2,7 @@ package com.publiss.whitelabel;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.publiss.core.PublissConfig;
@@ -63,7 +64,19 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
             }
         });
 
+        MenuItem rssMenuItem = new MenuItem(getString(R.string.menu_item_title_news), false, new MenuItemCallbacks() {
+            @Override
+            public void menuItemSelected(MenuItem menuItem, Activity activity) {
+                Intent rssIntent = new Intent(KioskActivity.this, CustomRssFeedActivity.class);
+                startActivity(rssIntent);
+            }
+        });
+
         MenuItemManager.getInstance().clearMenuItems();
+        if(!getResources().getString(R.string.rss_feed_url).isEmpty()) {
+            MenuItemManager.getInstance().addMenuItem(rssMenuItem);
+        }
+
         MenuItemManager.getInstance().addMenuItem(homepageMenuItem);
         MenuItemManager.getInstance().addMenuItem(aboutMenuItem);
         MenuItemManager.getInstance().addMenuItem(contactMenuItem);

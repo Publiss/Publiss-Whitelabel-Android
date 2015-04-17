@@ -16,7 +16,7 @@
         tools:replace="label"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/short_app_name"
         android:theme="@style/PublissCoreTheme"
         android:supportsRtl="false">
 
@@ -83,6 +83,25 @@
                 android:value="com.publiss.whitelabel.KioskActivity" />
         </activity>
 
+        <activity
+            android:name=".CustomRssFeedActivity"
+            android:launchMode="singleTop"
+            android:label="@string/title_activity_rss_feed"
+            android:parentActivityName=".KioskActivity"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.publiss.whitelabel.KioskActivity" />
+        </activity>
+
+        <activity
+            android:name="com.bytepoets.bporssreader.EntryDetailActivity"
+            android:label="@string/title_entry_detail"
+            android:parentActivityName=".CustomRssFeedActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CustomRssFeedActivity" />
+        </activity>
 
 
         <!-- Document Provider -->
