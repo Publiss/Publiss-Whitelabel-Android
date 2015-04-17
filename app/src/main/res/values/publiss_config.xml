@@ -53,8 +53,8 @@
     <!--<string name="iab_public_key" translatable="false"></string>-->
 
     <!-- feature Rss Feed-->
-    <string name="rss_feed_url">http://rss.cnn.com/rss/edition.rss</string>
-    <!--<string name="rss_feed_url">http://feeds.macrumors.com/MacRumors-All?format=xml</string>-->
+    <string name="rss_feed_url" translatable="false">http://rss.cnn.com/rss/edition.rss</string>
+    <!--<string name="rss_feed_url" translatable="false">http://feeds.macrumors.com/MacRumors-All?format=xml</string>-->
     <string name="title_entry_detail">Detail</string>
     <string name="title_activity_rss_feed">News</string>
     <color name="rss_item_background">#1A03ACC1</color>
