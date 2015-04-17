@@ -3,10 +3,10 @@ package com.publiss.whitelabel;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 
-import com.bytepoets.bporssreader.EntryListActivity;
+import com.bytepoets.bporssreader.RssFeedActivity;
 
 
-public class RSSActivity extends EntryListActivity {
+public class CustomRssFeedActivity extends RssFeedActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

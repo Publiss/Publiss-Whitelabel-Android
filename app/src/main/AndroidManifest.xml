@@ -84,7 +84,7 @@
         </activity>
 
         <activity
-            android:name=".RSSActivity"
+            android:name=".CustomRssFeedActivity"
             android:launchMode="singleTop"
             android:label="@string/title_activity_rss_feed"
             android:parentActivityName=".KioskActivity"
@@ -97,10 +97,10 @@
         <activity
             android:name="com.bytepoets.bporssreader.EntryDetailActivity"
             android:label="@string/title_entry_detail"
-            android:parentActivityName=".RSSActivity">
+            android:parentActivityName=".CustomRssFeedActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.publiss.whitelabel.RSSActivity" />
+                android:value=".CustomRssFeedActivity" />
         </activity>
 
 

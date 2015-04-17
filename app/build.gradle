@@ -90,7 +90,7 @@ dependencies {
     nexusCompile 'com.publiss.core:publiss-android-core:1.3.0-RC1@aar'
     nexussnapshotCompile 'com.publiss.core:publiss-android-core:dev-SNAPSHOT@aar'
     submoduleCompile project(':publiss-android-core')
-    compile 'com.bytepoets:bporssreader:0.2.+@aar'
+    compile 'com.bytepoets.bporssreader:bporssreader:0.3-SNAPSHOT@aar'
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.android.support:support-v4:21.0.3'
     //Downgraded from play-services 6.5.87 as it has a critical bug in Google Analytics which causes the app to hang when using a tracker.xml file
