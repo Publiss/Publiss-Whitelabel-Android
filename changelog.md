@@ -1,6 +1,10 @@
 Changelog
 ==================
 
+## 1.4.0 2015-04-17
+
+ - integrated RSS-Feed library
+
 ## 1.3.0 (23) 2015-03-27
  
  - Integration of PSPDFKit 1.0.4

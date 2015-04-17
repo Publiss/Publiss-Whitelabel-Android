@@ -16,9 +16,7 @@ Setup instructions
 Customizations
 ==============
 
-1. App icon
-2. App colors
-3. Sidebar menu items (See KioskActivity.java and $PROJ_DIR/app/src/main/res/values/core_menu_items.xml for custom actions; translations should be set in values-XX)
-4. Sidebar menu header layout
-5. About Text
-6. optional: Actionbar Font
+1. App icon (in 4 different sizes) in `$PROJ_DIR/app/src/main/res/drawable-???dpi/ic_launcher.png`
+2. App colors in `$PROJ_DIR/app/src/main/res/values/publiss_config.xml`
+3. Sidebar menu items (See KioskActivity.java for custom actions; translations should be set in `$PROJ_DIR/app/src/main/res/values-XX/`)
+4. Sidebar menu header layout can be found in `$PROJ_DIR/app/src/main/res/layout/`

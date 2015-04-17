@@ -6,5 +6,9 @@
     <string name="menu_item_title_login">Login</string>
     <string name="menu_item_title_logout">Logout</string>
 
+    <!-- feature Rss Feed-->
+    <string name="title_entry_detail">Detail</string>
     <string name="menu_item_title_news">Neuigkeiten</string>
+    <!-- end feature Rss Feed -->
+
 </resources>
