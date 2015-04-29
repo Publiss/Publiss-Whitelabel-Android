@@ -13,4 +13,7 @@
     <string name="api_base_url" translatable="false">https://staging-backend.publiss.com</string>
     <string name="app_secret" translatable="false">7d8d253176c26f694b48962e5ddefddb</string>
     <string name="app_token" translatable="false" tools:ignore="TypographyDashes">ee07a9de-a1c5-435e-8102-e0e29cde05ca</string>
+    <!--<string name="api_base_url" translatable="false">http://10.0.1.34:3333/</string>-->
+    <!--<string name="app_secret" translatable="false">3751835063be82ce10a859b1cd75ed7e</string>-->
+    <!--<string name="app_token" translatable="false" tools:ignore="TypographyDashes">6330ab25-3d52-4637-a7e3-0c04adb23512</string>-->
 </resources>
