@@ -19,12 +19,16 @@
     <!-- Publiss App Configuration -->
     <string name="app_name" translatable="false">Publiss WL</string>
     <string name="short_app_name" translatable="false">Publiss WL</string>
-    <color name="publiss_first_color">#03ACC1</color>
-    <color name="publiss_first_color_pressed">#CC03ACC1</color> <!-- Just take the first color and write 'CC' as alpha value before -->
-    <color name="publiss_first_color_dark">#028EA1</color> <!-- Darker version of the publiss first color, this colors the status bar on top of the app. http://colllor.com/ can be used to get a darker tint -->
-    <color name="publiss_menu_header_background_color">#03ACC1</color> <!-- Normally same as publiss_first_color -->
-    <color name="publiss_secondary_color">#FFFFFF</color>
+
+    <color name="publiss_color_primary">#03ACC1</color>
+    <color name="publiss_color_primary_pressed">#CC03ACC1</color> <!-- Just take the first color and write 'CC' as alpha value before -->
+    <color name="publiss_color_primary_dark">#028EA1</color> <!-- Darker version of the publiss first color, this colors the status bar on top of the app. http://colllor.com/ can be used to get a darker tint -->
+    <color name="publiss_color_accent">#03ACC1</color>
+    <color name="publiss_color_accent_kiosk_item">#03ACC1</color>
     <color name="publiss_toolbar_foreground">#FFFFFF</color>
+    <color name="publiss_menu_header_background_color">#03ACC1</color> <!-- Normally same as publiss_color_primary -->
+    <color name="bporssreader_rss_item_background">#1A0dc132</color> <!-- in RSS-Feed: background color of the selected element on tablets -->
+
 
     <!-- Publiss App Configuration -->
     <string name="api_base_url" translatable="false">https://staging-backend.publiss.com</string>
@@ -54,8 +58,7 @@
 
     <!-- feature Rss Feed-->
     <!--<string name="rss_feed_url" translatable="false">http://rss.cnn.com/rss/edition.rss</string>-->
-    <string name="rss_feed_url" translatable="false">http://feeds.macrumors.com/MacRumors-All?format=xml</string>
-    <color name="rss_item_background">#1A03ACC1</color> <!-- background color of the selected element on tablets -->
+    <string name="bporssreader_rss_feed_url" translatable="false">http://feeds.macrumors.com/MacRumors-All?format=xml</string>
     <string name="title_entry_detail">Detail</string>
     <string name="title_activity_rss_feed">News</string>
 

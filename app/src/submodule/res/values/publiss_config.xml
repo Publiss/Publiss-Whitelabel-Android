@@ -3,13 +3,16 @@
     <!-- Publiss App Configuration -->
     <string name="app_name" translatable="false">Publiss Dev</string>
     <string name="short_app_name" translatable="false">Publiss Dev</string>
-    <color name="publiss_first_color">#0dc132</color>
-    <color name="publiss_first_color_pressed">#CC0dc132</color> <!-- Just take the first color and write 'CC' as alpha value before -->
-    <color name="publiss_first_color_dark">#0B9927</color>
-    <color name="publiss_menu_header_background_color">#0dc132</color> <!-- Normally same as publiss_first_color -->
-    <color name="publiss_secondary_color">#FFFFFF</color>
-    <color name="rss_item_background">#1A0dc132</color>
-    
+
+    <color name="publiss_color_primary">#ff08ec78</color>
+    <color name="publiss_color_primary_pressed">#cc09c102</color> <!-- Just take the first color and write 'CC' as alpha value before -->
+    <color name="publiss_color_primary_dark">#ff066d02</color> <!-- Darker version of the publiss first color, this colors the status bar on top of the app. http://colllor.com/ can be used to get a darker tint -->
+    <color name="publiss_color_accent">#fff60491</color>
+    <color name="publiss_color_accent_kiosk_item">#ffc1054a</color>
+    <color name="publiss_toolbar_foreground">#ffb38840</color>
+    <color name="publiss_menu_header_background_color">#ff05c164</color> <!-- Normally same as publiss_color_primary -->
+    <color name="bporssreader_rss_item_background">#1A0dc132</color> <!-- in RSS-Feed: background color of the selected element on tablets -->
+
     <string name="api_base_url" translatable="false">https://staging-backend.publiss.com</string>
     <string name="app_secret" translatable="false">7d8d253176c26f694b48962e5ddefddb</string>
     <string name="app_token" translatable="false" tools:ignore="TypographyDashes">ee07a9de-a1c5-435e-8102-e0e29cde05ca</string>

@@ -73,7 +73,7 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
         });
 
         MenuItemManager.getInstance().clearMenuItems();
-        if(!getResources().getString(R.string.rss_feed_url).isEmpty()) {
+        if(!getResources().getString(R.string.bporssreader_rss_feed_url).isEmpty()) {
             MenuItemManager.getInstance().addMenuItem(rssMenuItem);
         }
 
