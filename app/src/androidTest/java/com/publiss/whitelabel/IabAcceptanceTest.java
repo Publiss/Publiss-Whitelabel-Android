@@ -83,7 +83,7 @@ public class IabAcceptanceTest {
     public void init() {
         PublishedDocument document = setUpDocument();
 
-        activityTestRule.launchActivity(setUpIntent(document);
+        activityTestRule.launchActivity(setUpIntent(document));
 
         PublissConfig.setAppSecret(activityTestRule.getActivity(), "073360e1a2383c49bdd9bd0b3c54c366");
         PublissConfig.setAppToken(activityTestRule.getActivity(), "6bd45c88-38ba-4414-9b1a-fbf5cf6c75e5");
