@@ -1,9 +1,10 @@
 Changelog
 ==================
 
-## 1.4.0 2015-04-17
+## 1.4.0 2015-05-05
 
  - integrated RSS-Feed library
+ - add In-app billing feature
 
 ## 1.3.0 (23) 2015-03-27
  
