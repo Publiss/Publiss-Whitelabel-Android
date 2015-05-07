@@ -99,7 +99,7 @@ android.applicationVariants.all{ variant ->
 }
 
 dependencies {
-    nexusCompile 'com.publiss.core:publiss-android-core:1.4.0-RC2@aar'
+    nexusCompile 'com.publiss.core:publiss-android-core:1.4.0@aar'
     nexussnapshotCompile 'com.publiss.core:publiss-android-core:dev-SNAPSHOT@aar'
     submoduleCompile project(':publiss-android-core')
     compile 'com.bytepoets.bporssreader:bporssreader:1.0.0@aar'
