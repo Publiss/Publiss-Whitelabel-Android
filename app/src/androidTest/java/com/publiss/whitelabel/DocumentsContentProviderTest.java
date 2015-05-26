@@ -101,9 +101,9 @@ public class DocumentsContentProviderTest extends ProviderTestCase2<DocumentsCon
     }
 
     public void testDeleteDocumentByIdShouldSucceed() {
-     givenMultipleDocuments(2);
-     whenDeleteDocumentIsCalled();
-     thenDocumentIsRemoved();
+        givenMultipleDocuments(2);
+        whenDeleteDocumentIsCalled();
+        thenDocumentIsRemoved();
     }
     
     public void testBatchInsertShouldSucceed() {
