@@ -104,41 +104,14 @@ android.applicationVariants.all{ variant ->
 }
 
 dependencies {
-    nexusCompile 'com.publiss.core:publiss-android-core:1.4.2-RC1@aar'
-    nexussnapshotCompile 'com.publiss.core:publiss-android-core:dev-SNAPSHOT@aar'
-    submoduleCompile project(':publiss-android-core')
-    compile 'com.android.support:appcompat-v7:22.0.0'
-    compile 'com.android.support:support-v4:22.0.0'
-    //Downgraded from play-services 6.5.87 as it has a critical bug in Google Analytics which causes the app to hang when using a tracker.xml file
-    // References:
-    // - https://productforums.google.com/forum/#!category-topic/analytics/report-bugs/RAgDNYFk6jo
-    // - http://stackoverflow.com/questions/27533679/google-analytics-blocks-android-app
-    // Should be fixed with the next play services release - we should update then and use the -base version as the current method count is close to the 65k limit
-    compile 'com.google.android.gms:play-services:6.1.71'
-    compile 'com.bytepoets.bporssreader:bporssreader:1.1.2@aar'
-    compile 'com.github.castorflex.smoothprogressbar:library:1.0.0'
-    compile 'com.github.johnpersano:supertoasts:1.3.4@aar'
-    compile 'com.manuelpeinado.fadingactionbar:fadingactionbar:3.+@aar'
-    compile 'com.nhaarman.listviewanimations:lib-core:3.1.0@aar'
-    compile 'com.nhaarman.listviewanimations:lib-manipulation:3.1.0@aar'
-    compile 'com.nhaarman.listviewanimations:lib-core-slh:3.1.0@aar'
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.path:android-priority-jobqueue:1.1.2'
-    compile ('com.pnikosis:materialish-progress:1.1') {
-        exclude group: "com.android.support"
+    nexusCompile('com.publiss.core:publiss-android-core:1.4.2-RC4@aar') {
+        transitive = true
     }
-    compile 'com.pspdfkit:pspdfkit:1.0.4@aar'
-    compile 'io.reactivex:rxjava:1.0.7'
-    compile 'io.reactivex:rxandroid:0.24.0'
-    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
-    compile 'com.squareup.okhttp:okhttp:2.3.0'
-    compile 'com.squareup.okhttp:okhttp-urlconnection:2.3.0'
-    compile 'com.squareup.picasso:picasso:2.3.4'
-    compile 'com.squareup.retrofit:retrofit:1.9.0'
-    compile 'commons-codec:commons-codec:1.9'
-    compile 'de.greenrobot:eventbus:2.2.1'
-    compile 'it.sephiroth.android.library.horizontallistview:hlistview:1.2.2'
-    compile 'me.grantland:autofittextview:0.2.+'
+    nexussnapshotCompile('com.publiss.core:publiss-android-core:dev-SNAPSHOT@aar') {
+        transitive = true
+    }
+    submoduleCompile project(':publiss-android-core')
+    compile 'com.bytepoets.bporssreader:bporssreader:1.1.2@aar'
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.9.5'
     androidTestCompile 'org.mockito:mockito-core:1.10.19'
