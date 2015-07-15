@@ -10,4 +10,5 @@
     <string name="menu_item_title_news">Neuigkeiten</string>
     <!-- end feature Rss Feed -->
 
+    <string name="browser_title_homepage">Publiss Website</string>
 </resources>

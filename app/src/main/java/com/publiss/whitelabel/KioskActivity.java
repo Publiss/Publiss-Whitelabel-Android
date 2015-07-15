@@ -10,6 +10,8 @@ import com.publiss.core.ui.menu.LoginLogoutMenuItem;
 import com.publiss.core.ui.menu.MenuItem;
 import com.publiss.core.ui.menu.MenuItemCallbacks;
 import com.publiss.core.ui.menu.MenuItemManager;
+import com.publiss.core.ui.menu.MenuItemOpenHtmlCallback;
+import com.publiss.core.ui.menu.MenuItemOpenUrlCallback;
 
 import java.util.Locale;
 
@@ -27,13 +29,8 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
 
         final KioskActivity self = this;
 
-        MenuItem homepageMenuItem = new MenuItem(getString(R.string.menu_item_title_homepage), false, new MenuItemCallbacks() {
-            @Override
-            public void menuItemSelected(MenuItem menuItem, Activity activity) {
-                String url = getString(com.publiss.core.R.string.publiss_hompage_link);
-                startOpenInBrowserActivity(url);
-            }
-        });
+        String url = getString(com.publiss.core.R.string.publiss_hompage_link);
+        MenuItem homepageMenuItem = new MenuItem(getString(R.string.menu_item_title_homepage), false, new MenuItemOpenUrlCallback(getString(R.string.browser_title_homepage), url, false));
 
         MenuItem aboutMenuItem = new MenuItem(getString(R.string.menu_item_title_about), false, new MenuItemCallbacks() {
             @Override
