@@ -29,8 +29,11 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
 
         final KioskActivity self = this;
 
-        String url = getString(com.publiss.core.R.string.publiss_hompage_link);
+        String url = getString(R.string.publiss_hompage_link);
         MenuItem homepageMenuItem = new MenuItem(getString(R.string.menu_item_title_homepage), false, new MenuItemOpenUrlCallback(getString(R.string.browser_title_homepage), url, false));
+
+        String facebookFeedUrl = getString(R.string.publiss_facebook_feed_url);
+        MenuItem facebookFeedMenuItem = new MenuItem(getString(R.string.menu_item_title_facebook_feed), false, new MenuItemOpenUrlCallback(getString(R.string.browser_title_facebook_feed), facebookFeedUrl, false));
 
         MenuItem aboutMenuItem = new MenuItem(getString(R.string.menu_item_title_about), false, new MenuItemCallbacks() {
             @Override
@@ -72,6 +75,10 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
         MenuItemManager.getInstance().clearMenuItems();
         if(!getResources().getString(R.string.bporssreader_rss_feed_url).isEmpty()) {
             MenuItemManager.getInstance().addMenuItem(rssMenuItem);
+        }
+
+        if (!getResources().getString(R.string.publiss_facebook_feed_url).isEmpty()) {
+            MenuItemManager.getInstance().addMenuItem(facebookFeedMenuItem);
         }
 
         MenuItemManager.getInstance().addMenuItem(homepageMenuItem);

@@ -8,8 +8,6 @@
     <string name="publiss_menu_subtitle">Turning Heads Not Just Pages</string>
 
     <string name="publiss_hompage_link" translatable="false">http://www.publiss.com</string>
-    <!--feature webview-->
-    <string name="web_view_domain_limit_base_url" translatable="false">www.publiss.com</string> <!-- Leave empty to stay inside InApp-Webviewer for all URLs. -->
 
     <!--FEEDBACK-->
     <string name="feedback_subject">Publiss WL Feedback</string>
@@ -62,5 +60,11 @@
     <string name="title_entry_detail">Detail</string>
     <string name="title_activity_rss_feed">News</string>
 
+    <!-- feature Facebook Feed -->
+    <string name="publiss_facebook_feed_url">https://www.facebook.com/publiss</string>
+
+    <!-- FACEBOOK FEED -->
+    <string name="menu_item_title_facebook_feed">Facebook</string>
+    <string name="browser_title_facebook_feed">Publiss Facebook</string>
 
 </resources>

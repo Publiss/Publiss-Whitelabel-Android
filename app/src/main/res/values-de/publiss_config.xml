@@ -12,4 +12,8 @@
     <string name="title_entry_detail">Detail</string>
     <string name="title_activity_rss_feed">Neuigkeiten</string>
 
+    <!-- FACEBOOK FEED -->
+    <string name="menu_item_title_facebook_feed">Facebook</string>
+    <string name="browser_title_facebook_feed">Publiss Facebook</string>
+
 </resources>
