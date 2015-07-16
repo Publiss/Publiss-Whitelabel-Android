@@ -9,7 +9,7 @@
 
     <string name="publiss_hompage_link" translatable="false">http://www.publiss.com</string>
     <!--feature webview-->
-    <string name="web_view_domain_limit_base_url" translatable="false"></string> <!-- Leave empty to stay inside InApp-Webviewer for all URLs. -->
+    <string name="web_view_domain_limit_base_url" translatable="false">www.publiss.com</string> <!-- Leave empty to stay inside InApp-Webviewer for all URLs. -->
 
     <!--FEEDBACK-->
     <string name="feedback_subject">Publiss WL Feedback</string>
