@@ -7,4 +7,6 @@
     <string name="menu_item_title_logout">Logout</string>
     <string name="menu_item_title_news">News</string>
 
+    <string name="browser_title_homepage">Publiss Website</string>
+
 </resources>
