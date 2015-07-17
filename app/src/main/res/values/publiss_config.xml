@@ -61,7 +61,7 @@
     <string name="title_activity_rss_feed">News</string>
 
     <!-- feature Facebook Feed -->
-    <string name="publiss_facebook_feed_url">https://www.facebook.com/publiss</string>
+    <string name="publiss_facebook_feed_url" translatable="false">https://www.facebook.com/publiss</string>
 
     <!-- FACEBOOK FEED -->
     <string name="menu_item_title_facebook_feed">Facebook</string>
