@@ -97,7 +97,7 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
             }
         });
 
-        MenuItem scannerMenuItem = new MenuItem("scanner", false, new MenuItemCallbacks() {
+        MenuItem scannerMenuItem = new MenuItem(getResources().getString(R.string.menu_item_title_scanner), false, new MenuItemCallbacks() {
             @Override
             public void menuItemSelected(MenuItem menuItem, Activity activity) {
                 BarcodeScannerConfiguration configuration = BarcodeScannerConfiguration.builder()

@@ -10,5 +10,6 @@
     <string name="browser_title_homepage">Publiss Website</string>
 
     <string name="ean13_url_pattern" translatable="false">http://www.morawa-buch.at/detail/ISBN-%1$s</string>
+    <string name="menu_item_title_scanner">EAN Scanner</string>
 
 </resources>
