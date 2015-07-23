@@ -157,6 +157,15 @@
             </intent-filter>
         </receiver>
 
+        <activity android:name="com.bytepoets.bpobarcodescanner.BarcodeScannerActivity"
+            android:label="Title">
+        </activity>
+
+        <activity android:name="com.bytepoets.bpobarcodescanner.ScannerActivity"
+            android:theme="@style/FullscreenTheme"
+            android:label="Title">
+        </activity>
+
     </application>
 
 </manifest>
