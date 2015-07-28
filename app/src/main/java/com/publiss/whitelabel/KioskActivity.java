@@ -87,7 +87,7 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
             public void onScannerResult(ScanResult scanResult) {
                 if (scanResult.getFormat() == BarcodeFormat.EAN_13) {
                     String url = getResources().getString(R.string.ean13_url_pattern, scanResult.getText());
-                    openInAppBrowserWithUrl(url, "Shop");
+                    openInAppBrowserWithUrl(url, getResources().getString(R.string.morawa_shop));
                 }
             }
 
@@ -102,7 +102,7 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
             public void menuItemSelected(MenuItem menuItem, Activity activity) {
                 BarcodeScannerConfiguration configuration = BarcodeScannerConfiguration.builder()
                         .addAllowedFormat(BarcodeFormat.EAN_13)
-                        .useCustomizedDefaultUiForScanning(BarcodeScannerUiConfiguration.barcodeScannerUIConfiguration().withTitle(R.string.bporssreader_title_entry_detail).build())
+                        .useScannerViewDirectly()
                         .build();
                 barcodeScannerHandler.startBarcodeScanner(KioskActivity.this,configuration);
 
@@ -131,13 +131,5 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
         if (!barcodeScannerHandler.onActivityResult(requestCode, resultCode, data)) {
             super.onActivityResult(requestCode, resultCode, data);
         }
-    }
-
-    private void openInAppBrowserWithUrl(String url, String title) {
-        Intent intent = new Intent(this, WebViewActivity.class);
-        intent.putExtra(WebViewActivity.ACTIVITY_TITLE_EXTRA, title);
-        intent.putExtra(WebViewActivity.ACTIVITY_URI_EXTRA, url);
-        intent.putExtra(WebViewActivity.ACTIVITY_WEBVIEW_BACK_AS_UP_EXTRA, false);
-        this.startActivity(intent);
     }
 }
