@@ -30,32 +30,46 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
         final KioskActivity self = this;
 
         String url = getString(R.string.publiss_hompage_link);
-        MenuItem homepageMenuItem = new MenuItem(getString(R.string.menu_item_title_homepage), false, new MenuItemOpenUrlCallback(getString(R.string.browser_title_homepage), url, false));
+
+        MenuItem homepageMenuItem  = new MenuItem.Builder().title(getString(R.string.menu_item_title_homepage))
+                .icon(R.drawable.ic_public_white_24dp)
+                .addListener(new MenuItemOpenUrlCallback(getString(R.string.browser_title_homepage), url, false)).build();
+
 
         String facebookFeedUrl = getString(R.string.publiss_facebook_feed_url);
-        MenuItem facebookFeedMenuItem = new MenuItem(getString(R.string.menu_item_title_facebook_feed), false, new MenuItemOpenUrlCallback(getString(R.string.browser_title_facebook_feed), facebookFeedUrl, false));
+        MenuItem facebookFeedMenuItem = new MenuItem.Builder().title(getString(R.string.menu_item_title_facebook_feed))
+                .icon(R.drawable.ic_people_white_24dp)
+                .addListener(new MenuItemOpenUrlCallback(getString(R.string.browser_title_facebook_feed), facebookFeedUrl, false))
+                .build();
 
-        MenuItem aboutMenuItem = new MenuItem(getString(R.string.menu_item_title_about), false, new MenuItemCallbacks() {
-            @Override
-            public void menuItemSelected(MenuItem menuItem, Activity activity) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(self);
-                builder.setTitle(getString(com.publiss.core.R.string.app_name));
-                builder.setMessage("Publiss " + BuildConfig.VERSION_NAME + "\n" + "PublissCore " + com.publiss.core.BuildConfig.VERSION_NAME);
-                builder.setPositiveButton("OK", null);
-                AlertDialog dialog = builder.create();
-                dialog.show();
-            }
-        });
 
-        MenuItem contactMenuItem = new MenuItem(getString(R.string.menu_item_title_contact), false, new MenuItemCallbacks() {
-            @Override
-            public void menuItemSelected(MenuItem menuItem, Activity activity) {
-                String mailBody = getString(com.publiss.core.R.string.feedback_body);
-                String receiver = getString(com.publiss.core.R.string.feedback_to);
-                String subject = getString(com.publiss.core.R.string.feedback_subject);
-                startFeedbackActivity(receiver, subject, mailBody);
-            }
-        });
+
+        MenuItem aboutMenuItem = new MenuItem.Builder().title(getString(R.string.menu_item_title_about))
+                .icon(R.drawable.ic_info_white_24dp)
+                .addListener(new MenuItemCallbacks() {
+                    @Override
+                    public void menuItemSelected(MenuItem menuItem, Activity activity) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(self);
+                        builder.setTitle(getString(com.publiss.core.R.string.app_name));
+                        builder.setMessage("Publiss " + BuildConfig.VERSION_NAME + "\n" + "PublissCore " + com.publiss.core.BuildConfig.VERSION_NAME);
+                        builder.setPositiveButton("OK", null);
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                    }
+                }).build();
+
+
+        MenuItem contactMenuItem = new MenuItem.Builder().title(getString(R.string.menu_item_title_contact))
+                .icon(R.drawable.ic_email_white_24dp)
+                .addListener(new MenuItemCallbacks() {
+                    @Override
+                    public void menuItemSelected(MenuItem menuItem, Activity activity) {
+                        String mailBody = getString(com.publiss.core.R.string.feedback_body);
+                        String receiver = getString(com.publiss.core.R.string.feedback_to);
+                        String subject = getString(com.publiss.core.R.string.feedback_subject);
+                        startFeedbackActivity(receiver, subject, mailBody);
+                    }
+                }).build();
 
         LoginLogoutMenuItem loginLogoutMenuItem = new CustomLoginLogoutMenuItem(this, getString(R.string.menu_item_title_login), getString(R.string.menu_item_title_logout), false, new MenuItemCallbacks() {
             @Override
@@ -63,14 +77,17 @@ public class KioskActivity extends com.publiss.core.ui.KioskActivity {
                 openLoginActivityOrLogout();
             }
         });
+        loginLogoutMenuItem.setIconResource(R.drawable.ic_input_white_24dp);
 
-        MenuItem rssMenuItem = new MenuItem(getString(R.string.menu_item_title_news), false, new MenuItemCallbacks() {
-            @Override
-            public void menuItemSelected(MenuItem menuItem, Activity activity) {
-                Intent rssIntent = new Intent(KioskActivity.this, CustomRssFeedActivity.class);
-                startActivity(rssIntent);
-            }
-        });
+        MenuItem rssMenuItem = new MenuItem.Builder().title(getString(R.string.menu_item_title_news))
+                .icon(R.drawable.ic_description_white_24dp)
+                .addListener(new MenuItemCallbacks() {
+                    @Override
+                    public void menuItemSelected(MenuItem menuItem, Activity activity) {
+                        Intent rssIntent = new Intent(KioskActivity.this, CustomRssFeedActivity.class);
+                        startActivity(rssIntent);
+                    }
+                }).build();
 
         MenuItemManager.getInstance().clearMenuItems();
         if(!getResources().getString(R.string.bporssreader_rss_feed_url).isEmpty()) {
