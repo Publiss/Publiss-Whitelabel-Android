@@ -1,6 +1,12 @@
 Changelog
 ==================
 
+## 1.5.0
+
+- add barcode scanning
+- add facebook feed
+- re-style navigation drawer to support icons
+
 ## 1.4.0 2015-05-05
 
  - integrated RSS-Feed library

@@ -64,7 +64,7 @@
     <string name="publiss_facebook_feed_url" translatable="false">https://www.facebook.com/publiss</string>
 
     <!-- FACEBOOK FEED -->
-    <string name="menu_item_title_facebook_feed">Facebook</string>
-    <string name="browser_title_facebook_feed">Publiss Facebook</string>
+    <string name="menu_item_title_facebook_feed">Publiss on Facebook</string>
+    <string name="browser_title_facebook_feed">Publiss on Facebook</string>
 
 </resources>
