@@ -104,7 +104,7 @@ android.applicationVariants.all{ variant ->
 }
 
 dependencies {
-    nexusCompile('com.publiss.core:publiss-android-core:1.5.0@aar') {
+    nexusCompile('com.publiss.core:publiss-android-core:1.6.0@aar') {
         transitive = true
     }
     nexussnapshotCompile('com.publiss.core:publiss-android-core:dev-SNAPSHOT@aar') {
@@ -121,6 +121,7 @@ dependencies {
     androidTestCompile 'com.android.support.test:rules:0.3'
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2'
     androidTestCompile 'com.android.support.test.espresso:espresso-intents:2.2'
+    androidTestCompile project(':publiss-android-core')
 }
 
 task wrapper(type: Wrapper) {

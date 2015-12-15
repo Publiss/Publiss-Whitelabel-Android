@@ -6,6 +6,7 @@ import android.net.Uri;
 
 import com.publiss.core.provider.DocumentsContract;
 
+
 public class DatabaseSetupHelper {
     public static Uri givenThisDocument(ContentResolver contentResolver, ContentValues contentValues) {
         return contentResolver.insert(DocumentsContract.Documents.getContentUri(), contentValues);
