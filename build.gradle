@@ -17,7 +17,7 @@ buildscript {
 allprojects {
     repositories {
         maven {
-            url "http://10.0.1.254:8081/nexus/content/repositories/BYTEPOETS/"
+            url "http://nexus.bytepoets.local:8081/nexus/content/repositories/BYTEPOETS/"
         }
         jcenter()
     }
