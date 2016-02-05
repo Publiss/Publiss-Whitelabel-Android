@@ -40,6 +40,7 @@ android {
         versionName generateVersionName(versionCode)
         println "VersionName: " + versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+//        testInstrumentationRunner "com.android.test.runner.MultiDexTestRunner"
     }
 
     buildTypes {
@@ -94,7 +95,7 @@ android {
 android.applicationVariants.all{ variant ->
     variant.mergeResources.doLast{
         ext.env = System.getenv()
-        File valuesFile = file("${buildDir}/intermediates/res/${variant.dirName}/values/values.xml")
+        File valuesFile = file("${buildDir}/intermediates/res/merged/${variant.dirName}/values/values.xml")
         println("Replacing package name placeholder in " + valuesFile + " with " + PACKAGE_NAME)
         String content = valuesFile.getText('UTF-8')
 
@@ -104,7 +105,7 @@ android.applicationVariants.all{ variant ->
 }
 
 dependencies {
-    compile 'com.android.support:multidex:1.0.0'
+    compile 'com.android.support:multidex:1.0.1'
     nexusCompile('com.publiss.core:publiss-android-core:1.6.0@aar') {
         transitive = true
     }
@@ -122,7 +123,10 @@ dependencies {
     androidTestCompile 'com.android.support.test:rules:0.3'
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2'
     androidTestCompile 'com.android.support.test.espresso:espresso-intents:2.2'
-    androidTestCompile project(':publiss-android-core')
+    androidTestCompile('com.android.support:multidex-instrumentation:1.0.1') {
+        exclude group: 'com.android.support', module: 'multidex'
+    }
+//    androidTestCompile project(':publiss-android-core')
 }
 
 task wrapper(type: Wrapper) {
