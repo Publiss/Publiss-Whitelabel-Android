@@ -44,6 +44,14 @@
     <!--feature login: forgotten password uri-->
     <string name="forgottenPasswordUri" translatable="false"></string> <!--hidden, if empty-->
 
+    <!--feature login: in app register and reset password-->
+    <bool name="showForgottenPasswordInApp">false</bool>
+    <bool name="showRegisterInApp">false</bool>
+
+    <!--feature login: additional external link below forgot password and register-->
+    <string name="login_external_link_bottom_text"></string> <!--hidden, if empty-->
+    <string name="login_external_link_bottom_url"></string> <!--hidden, if empty-->
+
     <!--feature Google Analytics-->
     <bool name="ga_global_tracker_active">false</bool> <!-- set ga_trackingId in res/xml/global_tracker.xml to your property id (UA-XXXXXXX-Y)-->
     <bool name="ga_global_tracker_advertising_collection_active">false</bool> <!--Advertising Features with Remarketing, Demographics & Interests reports-->
