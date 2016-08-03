@@ -106,7 +106,7 @@ android.applicationVariants.all{ variant ->
 
 dependencies {
     compile 'com.android.support:multidex:1.0.1'
-    nexusCompile('com.publiss.core:publiss-android-core:1.7.1@aar') {
+    nexusCompile('com.publiss.core:publiss-android-core:1.7.4@aar') {
         transitive = true
     }
     nexussnapshotCompile('com.publiss.core:publiss-android-core:dev-SNAPSHOT@aar') {
