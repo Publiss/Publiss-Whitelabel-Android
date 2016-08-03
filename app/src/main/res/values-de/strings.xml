@@ -11,4 +11,5 @@
     <!-- end feature Rss Feed -->
 
     <string name="browser_title_homepage">Publiss Website</string>
+    <string name="login_external_link_bottom_text"></string> <!--hidden, if empty-->
 </resources>
